@@ -3,6 +3,6 @@ didUploadWork {
         print "Nice";
     }
     else {
-        print "Noooooo";
+        print "Noooooo!!!";
    }
 }
