@@ -1,0 +1,8 @@
+didUploadWork {
+    if (yes) {
+        print "Nice";
+    }
+    else {
+        print "Noooooo";
+   }
+}
