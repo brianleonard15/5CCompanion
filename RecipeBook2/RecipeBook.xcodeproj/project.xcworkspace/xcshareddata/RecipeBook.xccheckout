@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>DC1E3B30-E311-4893-A038-E963D641D760</string>
-=======
-	<string>F6B66CCC-C508-41AD-9F19-5CE27696B798</string>
->>>>>>> faae035806aaeb49657e11d0500d5af3638059c6
+	<string>6C651C14-8AE4-4EFF-859F-EDD05A233D4A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RecipeBook</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>27B359B0-4171-4A95-99E8-7826414FE9A0</key>
-=======
-		<key>90746829-1A55-4A8B-BF12-9590F80FA416</key>
->>>>>>> faae035806aaeb49657e11d0500d5af3638059c6
+		<key>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</key>
 		<string>https://github.com/grantyang/5Ccompanion.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RecipeBook2/RecipeBook.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>27B359B0-4171-4A95-99E8-7826414FE9A0</key>
-=======
-		<key>90746829-1A55-4A8B-BF12-9590F80FA416</key>
->>>>>>> faae035806aaeb49657e11d0500d5af3638059c6
+		<key>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,22 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-	<string>27B359B0-4171-4A95-99E8-7826414FE9A0</string>
-=======
-	<string>90746829-1A55-4A8B-BF12-9590F80FA416</string>
->>>>>>> faae035806aaeb49657e11d0500d5af3638059c6
+	<string>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-			<string>27B359B0-4171-4A95-99E8-7826414FE9A0</string>
-=======
-			<string>90746829-1A55-4A8B-BF12-9590F80FA416</string>
->>>>>>> faae035806aaeb49657e11d0500d5af3638059c6
+			<string>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>5Ccompanion</string>
 		</dict>
