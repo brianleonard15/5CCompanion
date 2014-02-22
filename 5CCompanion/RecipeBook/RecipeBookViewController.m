@@ -1,32 +1,27 @@
 //
-//  DiningViewController.m
+//  RecipeBookViewController.m
 //  RecipeBook
 //
-//  Created by Brian on 2/9/14.
-//
+//  Created by Simon Ng on 14/6/12.
+//  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "DiningViewController.h"
-#import "DiningDetailViewController.h"
-#import "Dining.h"
+#import "RecipeBookViewController.h"
+#import "RecipeDetailViewController.h"
+#import "Recipe.h"
 
-@interface DiningViewController ()
+@interface RecipeBookViewController ()
 
 @end
 
-@implementation DiningViewController {
-
-NSArray *dinings;
-}
-
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue
-{
+@implementation RecipeBookViewController {
+    NSArray *recipes;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
 	// Initialize table data
 }
 
@@ -47,7 +42,7 @@ NSArray *dinings;
     self = [super initWithCoder:aCoder];
     if (self) {
         // The className to query on
-        self.parseClassName = @"Dining";
+        self.parseClassName = @"Recipe";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
@@ -64,7 +59,7 @@ NSArray *dinings;
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
 
@@ -80,7 +75,7 @@ NSArray *dinings;
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"imageFile"];
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    thumbnailImageView.image = [UIImage imageNamed:@"white.jpg"];
     thumbnailImageView.file = thumbnail;
     [thumbnailImageView loadInBackground];
     
@@ -93,15 +88,28 @@ NSArray *dinings;
     return cell;
 }
 
+- (void) objectsDidLoad:(NSError *)error
+{
+    [super objectsDidLoad:error];
+    
+    NSLog(@"error: %@", [error localizedDescription]);
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DiningDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.dining = [dinings objectAtIndex:indexPath.row];
-    }
+        RecipeDetailViewController *destViewController = segue.destinationViewController;
+        
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
+        Recipe *recipe = [[Recipe alloc] init];
+        recipe.name = [object objectForKey:@"name"];
+        recipe.imageFile = [object objectForKey:@"imageFile"];
+        recipe.prepTime = [object objectForKey:@"prepTime"];
+        recipe.ingredients = [object objectForKey:@"ingredients"];
+        destViewController.recipe = recipe;
 }
-
+}
 
 
 @end
