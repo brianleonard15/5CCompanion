@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F4AA6C261589A2DF0093D97E"
                BuildableName = "RecipeBook.app"
-               BlueprintName = "RecipeBook"
-               ReferencedContainer = "container:RecipeBook.xcodeproj">
+               BlueprintName = "5CCompanion"
+               ReferencedContainer = "container:5CCompanion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4AA6C261589A2DF0093D97E"
             BuildableName = "RecipeBook.app"
-            BlueprintName = "RecipeBook"
-            ReferencedContainer = "container:RecipeBook.xcodeproj">
+            BlueprintName = "5CCompanion"
+            ReferencedContainer = "container:5CCompanion.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4AA6C261589A2DF0093D97E"
             BuildableName = "RecipeBook.app"
-            BlueprintName = "RecipeBook"
-            ReferencedContainer = "container:RecipeBook.xcodeproj">
+            BlueprintName = "5CCompanion"
+            ReferencedContainer = "container:5CCompanion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4AA6C261589A2DF0093D97E"
             BuildableName = "RecipeBook.app"
-            BlueprintName = "RecipeBook"
-            ReferencedContainer = "container:RecipeBook.xcodeproj">
+            BlueprintName = "5CCompanion"
+            ReferencedContainer = "container:5CCompanion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

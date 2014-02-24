@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "RecipeBookAppDelegate.h"
+#import "CompanionAppDelegate.h"
 #import <Parse/Parse.h>
 
-@implementation RecipeBookAppDelegate
+@implementation CompanionAppDelegate
 
 @synthesize window = _window;
 
