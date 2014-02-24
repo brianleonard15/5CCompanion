@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "RecipeBookViewController.h"
-#import "RecipeDetailViewController.h"
-#import "Recipe.h"
+#import "GymPoolViewController.h"
+#import "GymPoolDetailViewController.h"
+#import "GymPool.h"
 
-@interface RecipeBookViewController ()
+@interface GymPoolViewController ()
 
 @end
 
-@implementation RecipeBookViewController {
-    NSArray *recipes;
+@implementation GymPoolViewController {
+    NSArray *gympools;
 }
 
 - (void)viewDidLoad
@@ -42,7 +42,7 @@
     self = [super initWithCoder:aCoder];
     if (self) {
         // The className to query on
-        self.parseClassName = @"Recipe";
+        self.parseClassName = @"Gym";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
@@ -65,7 +65,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"RecipeCell";
+    static NSString *simpleTableIdentifier = @"GymPoolCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -97,17 +97,17 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+    if ([segue.identifier isEqualToString:@"showGymPoolDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RecipeDetailViewController *destViewController = segue.destinationViewController;
+        GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Recipe *recipe = [[Recipe alloc] init];
-        recipe.name = [object objectForKey:@"name"];
-        recipe.imageFile = [object objectForKey:@"imageFile"];
-        recipe.prepTime = [object objectForKey:@"prepTime"];
-        recipe.ingredients = [object objectForKey:@"ingredients"];
-        destViewController.recipe = recipe;
+        GymPool *gympool = [[GymPool alloc] init];
+        gympool.name = [object objectForKey:@"name"];
+        gympool.imageFile = [object objectForKey:@"imageFile"];
+        gympool.prepTime = [object objectForKey:@"prepTime"];
+        gympool.ingredients = [object objectForKey:@"ingredients"];
+        destViewController.gympool = gympool;
 }
 }
 

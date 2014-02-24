@@ -5,16 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Recipe Book View Controller - Gym-->
+        <!--Gym Pool View Controller - Gym-->
         <scene sceneID="szM-2Q-Hfw">
             <objects>
-                <tableViewController id="7sq-gD-Pfc" customClass="RecipeBookViewController" sceneMemberID="viewController">
+                <tableViewController id="7sq-gD-Pfc" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ofT-QF-JWh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" id="PCX-o1-EyN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GymPoolCell" id="PCX-o1-EyN">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PCX-o1-EyN" id="SF0-yy-bjg">
@@ -37,7 +37,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0d7-Na-zOs">
-                                            <rect key="frame" x="60" y="0.0" width="101" height="21"/>
+                                            <rect key="frame" x="60" y="0.0" width="227" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -62,12 +62,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="but-Tp-NVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="580"/>
+            <point key="canvasLocation" x="2039" y="604"/>
         </scene>
-        <!--Recipe Detail View Controller-->
+        <!--Gym Pool Detail View Controller-->
         <scene sceneID="5Ms-qY-lRu">
             <objects>
-                <viewController id="JOa-m2-nv8" customClass="RecipeDetailViewController" sceneMemberID="viewController">
+                <viewController id="JOa-m2-nv8" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oeU-vb-cnt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="580"/>
+            <point key="canvasLocation" x="2537" y="604"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VQt-IE-m1x">
@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7sq-gD-Pfc" kind="relationship" relationship="rootViewController" id="4rO-67-7kG"/>
+                        <segue destination="7sq-gD-Pfc" kind="relationship" relationship="rootViewController" id="OX7-Ab-h6W"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riw-gi-4Xw" userLabel="First Responder" sceneMemberID="firstResponder"/>

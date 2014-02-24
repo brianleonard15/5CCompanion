@@ -6,9 +6,9 @@
 //
 //
 
-#import "Recipe.h"
+#import "GymPool.h"
 
-@implementation Recipe
+@implementation GymPool
 
 @synthesize name;
 @synthesize prepTime;

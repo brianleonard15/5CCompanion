@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface RecipeBookViewController : PFQueryTableViewController
-
+@interface GymPoolViewController : PFQueryTableViewController
 
 
 @end

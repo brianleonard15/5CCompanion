@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "RecipeDetailViewController.h"
+#import "GymPoolDetailViewController.h"
 
-@interface RecipeDetailViewController ()
+@interface GymPoolDetailViewController ()
 
 @end
 
-@implementation RecipeDetailViewController
+@implementation GymPoolDetailViewController
 
 @synthesize recipePhoto;
 @synthesize prepTimeLabel;
 @synthesize ingredientTextView;
-@synthesize recipe;
+@synthesize gympool;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,12 +33,12 @@
 {
     [super viewDidLoad];
     
-    self.title = recipe.name;
-    self.prepTimeLabel.text = recipe.prepTime;
-    self.recipePhoto.file = recipe.imageFile;
+    self.title = gympool.name;
+    self.prepTimeLabel.text = gympool.prepTime;
+    self.recipePhoto.file = gympool.imageFile;
 
     NSMutableString *ingredientText = [NSMutableString string];
-    for (NSString* ingredient in recipe.ingredients) {
+    for (NSString* ingredient in gympool.ingredients) {
         [ingredientText appendFormat:@"%@\n", ingredient];
     }
     self.ingredientTextView.text = ingredientText;

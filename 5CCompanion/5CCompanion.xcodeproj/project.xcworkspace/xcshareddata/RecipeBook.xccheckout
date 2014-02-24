@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6C651C14-8AE4-4EFF-859F-EDD05A233D4A</string>
+	<string>C0B2A3CC-32F1-4B32-8869-2B1AFEABDCF6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RecipeBook</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</key>
-		<string>https://github.com/grantyang/5Ccompanion.git</string>
+		<key>2FD91A2E-2058-4FE3-AEC8-9FCE51B70134</key>
+		<string>https://github.com/grantyang/5Ccompanion</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RecipeBook2/RecipeBook.xcodeproj/project.xcworkspace</string>
+	<string>5CCompanion/RecipeBook.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</key>
+		<key>2FD91A2E-2058-4FE3-AEC8-9FCE51B70134</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/grantyang/5Ccompanion.git</string>
+	<string>https://github.com/grantyang/5Ccompanion</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</string>
+	<string>2FD91A2E-2058-4FE3-AEC8-9FCE51B70134</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9DCB11EB-52BD-4D6F-8F36-BA64B2AA0BE1</string>
+			<string>2FD91A2E-2058-4FE3-AEC8-9FCE51B70134</string>
 			<key>IDESourceControlWCCName</key>
 			<string>5Ccompanion</string>
 		</dict>

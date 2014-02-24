@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface Recipe : NSObject
+@interface GymPool : NSObject
 
 @property (nonatomic, strong) NSString *name; // name of recipe
 @property (nonatomic, strong) NSString *prepTime; // preparation time

@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Recipe.h"
+#import "GymPool.h"
 
-@interface RecipeDetailViewController : UIViewController
+@interface GymPoolDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet PFImageView *recipePhoto;
 @property (weak, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
 
-@property (nonatomic, strong) Recipe *recipe;
+@property (nonatomic, strong) GymPool *gympool;
 
 @end

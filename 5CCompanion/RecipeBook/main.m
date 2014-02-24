@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RecipeBookAppDelegate.h"
+#import "CompanionAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([RecipeBookAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CompanionAppDelegate class]));
     }
 }

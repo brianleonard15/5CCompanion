@@ -22,15 +22,15 @@
 		D7C233EE18A6E1300020A677 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233ED18A6E1300020A677 /* Security.framework */; };
 		D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EF18A6E1360020A677 /* StoreKit.framework */; };
 		D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */; };
-		F419149E158D558600E54887 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* RecipeDetailViewController.m */; };
-		F447242715D78F07004A8C72 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* Recipe.m */; };
+		F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* GymPoolDetailViewController.m */; };
+		F447242715D78F07004A8C72 /* GymPool.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* GymPool.m */; };
 		F4AA6C2C1589A2DF0093D97E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2B1589A2DF0093D97E /* UIKit.framework */; };
 		F4AA6C2E1589A2DF0093D97E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2D1589A2DF0093D97E /* Foundation.framework */; };
 		F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4AA6C341589A2DF0093D97E /* InfoPlist.strings */; };
 		F4AA6C381589A2DF0093D97E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C371589A2DF0093D97E /* main.m */; };
-		F4AA6C3C1589A2DF0093D97E /* RecipeBookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C3B1589A2DF0093D97E /* RecipeBookAppDelegate.m */; };
+		F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */; };
 		F4AA6C3F1589A2DF0093D97E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */; };
-		F4AA6C421589A2DF0093D97E /* RecipeBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C411589A2DF0093D97E /* RecipeBookViewController.m */; };
+		F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,23 +51,23 @@
 		D7C233ED18A6E1300020A677 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D7C233EF18A6E1360020A677 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F419149C158D558600E54887 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
-		F419149D158D558600E54887 /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
-		F447242515D78F07004A8C72 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
-		F447242615D78F07004A8C72 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
-		F4AA6C271589A2DF0093D97E /* RecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F419149C158D558600E54887 /* GymPoolDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPoolDetailViewController.h; sourceTree = "<group>"; };
+		F419149D158D558600E54887 /* GymPoolDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPoolDetailViewController.m; sourceTree = "<group>"; };
+		F447242515D78F07004A8C72 /* GymPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPool.h; sourceTree = "<group>"; };
+		F447242615D78F07004A8C72 /* GymPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPool.m; sourceTree = "<group>"; };
+		F4AA6C271589A2DF0093D97E /* 5CCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5CCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4AA6C2B1589A2DF0093D97E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4AA6C2D1589A2DF0093D97E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4AA6C2F1589A2DF0093D97E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F4AA6C331589A2DF0093D97E /* RecipeBook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecipeBook-Info.plist"; sourceTree = "<group>"; };
+		F4AA6C331589A2DF0093D97E /* 5CCompanion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "5CCompanion-Info.plist"; sourceTree = "<group>"; };
 		F4AA6C351589A2DF0093D97E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4AA6C371589A2DF0093D97E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4AA6C391589A2DF0093D97E /* RecipeBook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipeBook-Prefix.pch"; sourceTree = "<group>"; };
-		F4AA6C3A1589A2DF0093D97E /* RecipeBookAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeBookAppDelegate.h; sourceTree = "<group>"; };
-		F4AA6C3B1589A2DF0093D97E /* RecipeBookAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeBookAppDelegate.m; sourceTree = "<group>"; };
+		F4AA6C391589A2DF0093D97E /* 5CCompanion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "5CCompanion-Prefix.pch"; sourceTree = "<group>"; };
+		F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanionAppDelegate.h; sourceTree = "<group>"; };
+		F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanionAppDelegate.m; sourceTree = "<group>"; };
 		F4AA6C3E1589A2DF0093D97E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		F4AA6C401589A2DF0093D97E /* RecipeBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeBookViewController.h; sourceTree = "<group>"; };
-		F4AA6C411589A2DF0093D97E /* RecipeBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeBookViewController.m; sourceTree = "<group>"; };
+		F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GymPoolViewController.h; sourceTree = "<group>"; };
+		F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymPoolViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				93EB115218B84AA2005B67E5 /* Default-568h@2x.png */,
-				F4AA6C311589A2DF0093D97E /* RecipeBook */,
+				F4AA6C311589A2DF0093D97E /* 5CCompanion */,
 				F4AA6C2A1589A2DF0093D97E /* Frameworks */,
 				F4AA6C281589A2DF0093D97E /* Products */,
 			);
@@ -107,7 +107,7 @@
 		F4AA6C281589A2DF0093D97E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4AA6C271589A2DF0093D97E /* RecipeBook.app */,
+				F4AA6C271589A2DF0093D97E /* 5CCompanion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,18 +132,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F4AA6C311589A2DF0093D97E /* RecipeBook */ = {
+		F4AA6C311589A2DF0093D97E /* 5CCompanion */ = {
 			isa = PBXGroup;
 			children = (
-				F4AA6C3A1589A2DF0093D97E /* RecipeBookAppDelegate.h */,
-				F4AA6C3B1589A2DF0093D97E /* RecipeBookAppDelegate.m */,
+				F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */,
+				F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */,
 				F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */,
-				F4AA6C401589A2DF0093D97E /* RecipeBookViewController.h */,
-				F4AA6C411589A2DF0093D97E /* RecipeBookViewController.m */,
-				F419149C158D558600E54887 /* RecipeDetailViewController.h */,
-				F419149D158D558600E54887 /* RecipeDetailViewController.m */,
-				F447242515D78F07004A8C72 /* Recipe.h */,
-				F447242615D78F07004A8C72 /* Recipe.m */,
+				F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */,
+				F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */,
+				F419149C158D558600E54887 /* GymPoolDetailViewController.h */,
+				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
+				F447242515D78F07004A8C72 /* GymPool.h */,
+				F447242615D78F07004A8C72 /* GymPool.m */,
 				D708A93918A77DE2002F0B9E /* Dining.h */,
 				D708A93A18A77DE2002F0B9E /* Dining.m */,
 				D708A93318A77D9B002F0B9E /* DiningViewController.h */,
@@ -152,16 +152,17 @@
 				D708A93718A77DC4002F0B9E /* DiningDetailViewController.m */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
+			name = 5CCompanion;
 			path = RecipeBook;
 			sourceTree = "<group>";
 		};
 		F4AA6C321589A2DF0093D97E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F4AA6C331589A2DF0093D97E /* RecipeBook-Info.plist */,
+				F4AA6C331589A2DF0093D97E /* 5CCompanion-Info.plist */,
 				F4AA6C341589A2DF0093D97E /* InfoPlist.strings */,
 				F4AA6C371589A2DF0093D97E /* main.m */,
-				F4AA6C391589A2DF0093D97E /* RecipeBook-Prefix.pch */,
+				F4AA6C391589A2DF0093D97E /* 5CCompanion-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -169,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4AA6C261589A2DF0093D97E /* RecipeBook */ = {
+		F4AA6C261589A2DF0093D97E /* 5CCompanion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4AA6C451589A2DF0093D97E /* Build configuration list for PBXNativeTarget "RecipeBook" */;
+			buildConfigurationList = F4AA6C451589A2DF0093D97E /* Build configuration list for PBXNativeTarget "5CCompanion" */;
 			buildPhases = (
 				F4AA6C231589A2DF0093D97E /* Sources */,
 				F4AA6C241589A2DF0093D97E /* Frameworks */,
@@ -181,9 +182,9 @@
 			);
 			dependencies = (
 			);
-			name = RecipeBook;
+			name = 5CCompanion;
 			productName = RecipeBook;
-			productReference = F4AA6C271589A2DF0093D97E /* RecipeBook.app */;
+			productReference = F4AA6C271589A2DF0093D97E /* 5CCompanion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +196,7 @@
 				CLASSPREFIX = RecipeBook;
 				LastUpgradeCheck = 0500;
 			};
-			buildConfigurationList = F4AA6C211589A2DF0093D97E /* Build configuration list for PBXProject "RecipeBook" */;
+			buildConfigurationList = F4AA6C211589A2DF0093D97E /* Build configuration list for PBXProject "5CCompanion" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -207,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4AA6C261589A2DF0093D97E /* RecipeBook */,
+				F4AA6C261589A2DF0093D97E /* 5CCompanion */,
 			);
 		};
 /* End PBXProject section */
@@ -232,12 +233,12 @@
 			files = (
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				D708A93518A77D9B002F0B9E /* DiningViewController.m in Sources */,
-				F4AA6C3C1589A2DF0093D97E /* RecipeBookAppDelegate.m in Sources */,
-				F4AA6C421589A2DF0093D97E /* RecipeBookViewController.m in Sources */,
+				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
+				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
 				D708A93B18A77DE2002F0B9E /* Dining.m in Sources */,
-				F419149E158D558600E54887 /* RecipeDetailViewController.m in Sources */,
+				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
 				D708A93818A77DC4002F0B9E /* DiningDetailViewController.m in Sources */,
-				F447242715D78F07004A8C72 /* Recipe.m in Sources */,
+				F447242715D78F07004A8C72 /* GymPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,10 +335,10 @@
 					/Users/Leonard/Downloads/RecipeBookParseEmpty,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RecipeBook/RecipeBook-Prefix.pch";
-				INFOPLIST_FILE = "RecipeBook/RecipeBook-Info.plist";
+				GCC_PREFIX_HEADER = "RecipeBook/5CCompanion-Prefix.pch";
+				INFOPLIST_FILE = "RecipeBook/5CCompanion-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 5CCompanion;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -351,10 +352,10 @@
 					/Users/Leonard/Downloads/RecipeBookParseEmpty,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RecipeBook/RecipeBook-Prefix.pch";
-				INFOPLIST_FILE = "RecipeBook/RecipeBook-Info.plist";
+				GCC_PREFIX_HEADER = "RecipeBook/5CCompanion-Prefix.pch";
+				INFOPLIST_FILE = "RecipeBook/5CCompanion-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 5CCompanion;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -362,7 +363,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F4AA6C211589A2DF0093D97E /* Build configuration list for PBXProject "RecipeBook" */ = {
+		F4AA6C211589A2DF0093D97E /* Build configuration list for PBXProject "5CCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4AA6C431589A2DF0093D97E /* Debug */,
@@ -371,7 +372,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4AA6C451589A2DF0093D97E /* Build configuration list for PBXNativeTarget "RecipeBook" */ = {
+		F4AA6C451589A2DF0093D97E /* Build configuration list for PBXNativeTarget "5CCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4AA6C461589A2DF0093D97E /* Debug */,
