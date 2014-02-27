@@ -14,9 +14,7 @@
 
 @end
 
-@implementation GymPoolViewController {
-    NSArray *gympools;
-}
+@implementation GymPoolViewController
 
 - (void)viewDidLoad
 {
@@ -108,7 +106,7 @@
         gympool.name = [object objectForKey:@"name"];
         gympool.imageFile = [object objectForKey:@"imageFile"];
         gympool.prepTime = [object objectForKey:@"name"];
-        gympool.ingredients = [object objectForKey:@"Monday"];
+        gympool.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
         destViewController.gympool = gympool;
 }
 }
