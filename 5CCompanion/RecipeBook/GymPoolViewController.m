@@ -51,7 +51,9 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = NO;
+        self.paginationEnabled = YES;
+        
+        self.objectsPerPage = 10;
     }
     return self;
 }
@@ -83,7 +85,7 @@
     nameLabel.text = [object objectForKey:@"name"];
     
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
-    prepTimeLabel.text = [object objectForKey:@"prepTime"];
+    prepTimeLabel.text = [object objectForKey:@"name"];
     
     return cell;
 }
@@ -105,8 +107,8 @@
         GymPool *gympool = [[GymPool alloc] init];
         gympool.name = [object objectForKey:@"name"];
         gympool.imageFile = [object objectForKey:@"imageFile"];
-        gympool.prepTime = [object objectForKey:@"prepTime"];
-        gympool.ingredients = [object objectForKey:@"ingredients"];
+        gympool.prepTime = [object objectForKey:@"name"];
+        gympool.ingredients = [object objectForKey:@"Monday"];
         destViewController.gympool = gympool;
 }
 }

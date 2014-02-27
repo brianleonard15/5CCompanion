@@ -14,7 +14,7 @@
 
 @implementation GymPoolDetailViewController
 
-@synthesize recipePhoto;
+@synthesize gymPoolPhoto;
 @synthesize prepTimeLabel;
 @synthesize ingredientTextView;
 @synthesize gympool;
@@ -35,7 +35,7 @@
     
     self.title = gympool.name;
     self.prepTimeLabel.text = gympool.prepTime;
-    self.recipePhoto.file = gympool.imageFile;
+    self.gymPoolPhoto.file = gympool.imageFile;
 
     NSMutableString *ingredientText = [NSMutableString string];
     for (NSString* ingredient in gympool.ingredients) {
@@ -47,7 +47,7 @@
 
 - (void)viewDidUnload
 {
-    [self setRecipePhoto:nil];
+    [self setGymPoolPhoto:nil];
     [self setPrepTimeLabel:nil];
     [self setIngredientTextView:nil];
     [super viewDidUnload];
