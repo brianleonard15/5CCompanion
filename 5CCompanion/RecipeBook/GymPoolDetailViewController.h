@@ -11,7 +11,7 @@
 
 @interface GymPoolDetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet PFImageView *recipePhoto;
+@property (weak, nonatomic) IBOutlet PFImageView *gymPoolPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
 

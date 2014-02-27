@@ -49,7 +49,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JOa-m2-nv8" kind="push" identifier="showRecipeDetail" id="r0a-vT-pfa"/>
+                                    <segue destination="JOa-m2-nv8" kind="push" identifier="showGymPoolDetail" id="r0a-vT-pfa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,9 +104,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="825-b7-Yiw"/>
                     <connections>
+                        <outlet property="gymPoolPhoto" destination="KKS-hm-ytN" id="AQJ-si-Fav"/>
                         <outlet property="ingredientTextView" destination="3mo-jG-NwD" id="5Qn-5o-zxw"/>
                         <outlet property="prepTimeLabel" destination="l4j-oD-PI4" id="RR0-Ce-cgx"/>
-                        <outlet property="recipePhoto" destination="KKS-hm-ytN" id="iVN-Bw-o5T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
