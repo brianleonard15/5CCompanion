@@ -83,7 +83,23 @@
     nameLabel.text = [object objectForKey:@"name"];
     
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
-    prepTimeLabel.text = [object objectForKey:@"name"];
+    NSDateFormatter* day = [[NSDateFormatter alloc] init];
+    [day setDateFormat: @"EEEE"];
+    NSString *dayOfTheWeek = [day stringFromDate:[NSDate date]];
+    NSLog(@"%@", dayOfTheWeek);
+    
+    NSArray *hours = [object objectForKey: dayOfTheWeek];
+    NSMutableString *currentHours = [[NSMutableString alloc] init];
+    
+    if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
+        [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
+    }
+    
+    else {
+        [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+    }
+    
+    prepTimeLabel.text = currentHours;
     
     return cell;
 }
