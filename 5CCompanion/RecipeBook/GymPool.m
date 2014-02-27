@@ -13,6 +13,6 @@
 @synthesize name;
 @synthesize prepTime;
 @synthesize imageFile;
-@synthesize ingredients;
+@synthesize hours;
 
 @end

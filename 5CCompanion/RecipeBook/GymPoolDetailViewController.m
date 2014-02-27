@@ -38,9 +38,15 @@
     self.gymPoolPhoto.file = gympool.imageFile;
 
     NSMutableString *ingredientText = [NSMutableString string];
-    for (NSString* ingredient in gympool.ingredients) {
-        [ingredientText appendFormat:@"%@\n", ingredient];
+    for (NSArray* day in gympool.hours) {
+        if ([[day objectAtIndex: 0] isEqualToString: @"Closed"])  {
+            [ingredientText appendFormat:@"%@\n", [day objectAtIndex: 0]];
+        }
+        else {
+            [ingredientText appendFormat:@"%@ to %@\n", [day objectAtIndex: 0], [day objectAtIndex: 1]];
+        }
     }
+    
     self.ingredientTextView.text = ingredientText;
     
 }
