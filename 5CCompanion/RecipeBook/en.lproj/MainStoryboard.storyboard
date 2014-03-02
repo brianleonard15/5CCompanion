@@ -8,7 +8,6 @@
         <!--Gym Pool View Controller - Gym-->
         <scene sceneID="szM-2Q-Hfw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="but-Tp-NVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="7sq-gD-Pfc" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ofT-QF-JWh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -61,6 +60,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Gym" id="MjG-Gb-YeF"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="but-Tp-NVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2039" y="604"/>
         </scene>
@@ -219,7 +219,7 @@
                     <navigationItem key="navigationItem" id="CAb-Td-CNu"/>
                     <connections>
                         <outlet property="foodPhoto" destination="WLM-xl-yyY" id="M0x-Tv-Nfk"/>
-                        <outlet property="ingredientTextView" destination="T7i-re-5M9" id="rD3-mz-68B"/>
+                        <outlet property="ingredientTextView" destination="T7i-re-5M9" id="pmq-s3-Ou2"/>
                         <outlet property="prepTimeLabel" destination="mJh-B4-erJ" id="FXX-6f-d72"/>
                     </connections>
                 </viewController>
@@ -230,7 +230,6 @@
         <!--Food View Controller - Eateries-->
         <scene sceneID="C39-xI-YuR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jPZ-YX-U3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="nL8-JP-9rH" customClass="FoodViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ja3-aC-DBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -272,7 +271,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dXl-px-riG" kind="push" id="MzG-Tv-UBN"/>
+                                    <segue destination="dXl-px-riG" kind="push" identifier="showFoodDetail" id="MzG-Tv-UBN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -283,6 +282,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Eateries" id="ycw-lT-ayS"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPZ-YX-U3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2039" y="1294"/>
         </scene>
