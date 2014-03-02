@@ -1,23 +1,23 @@
 //
-//  DiningDetailViewController.m
+//  RecipeDetailViewController.m
 //  RecipeBook
 //
-//  Created by Brian on 2/9/14.
-//
+//  Created by Simon Ng on 17/6/12.
+//  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "DiningDetailViewController.h"
+#import "FoodDetailViewController.h"
 
-@interface DiningDetailViewController ()
+@interface FoodDetailViewController ()
 
 @end
 
-@implementation DiningDetailViewController
+@implementation FoodDetailViewController
 
-@synthesize recipePhoto;
+@synthesize foodPhoto;
 @synthesize prepTimeLabel;
 @synthesize ingredientTextView;
-@synthesize dining;
+@synthesize food;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,21 +33,27 @@
 {
     [super viewDidLoad];
     
-    self.title = dining.name;
-    self.prepTimeLabel.text = dining.prepTime;
-    self.recipePhoto.image = [UIImage imageNamed:dining.imageFile];
-    
+    self.title = food.name;
+    self.prepTimeLabel.text = food.prepTime;
+    self.foodPhoto.file = food.imageFile;
+
     NSMutableString *ingredientText = [NSMutableString string];
-    for (NSString* ingredient in dining.ingredients) {
-        [ingredientText appendFormat:@"%@\n", ingredient];
+    for (NSArray* day in food.hours) {
+        if ([[day objectAtIndex: 0] isEqualToString: @"Closed"])  {
+            [ingredientText appendFormat:@"%@\n", [day objectAtIndex: 0]];
+        }
+        else {
+            [ingredientText appendFormat:@"%@ to %@\n", [day objectAtIndex: 0], [day objectAtIndex: 1]];
+        }
     }
+    
     self.ingredientTextView.text = ingredientText;
     
 }
 
 - (void)viewDidUnload
 {
-    [self setRecipePhoto:nil];
+    [self setFoodPhoto:nil];
     [self setPrepTimeLabel:nil];
     [self setIngredientTextView:nil];
     [super viewDidUnload];

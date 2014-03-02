@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93AE086818C2A432002C59B4 /* FoodViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE086718C2A432002C59B4 /* FoodViewController.h */; };
+		93AE086A18C2A487002C59B4 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* FoodViewController.m */; };
+		93AE086D18C2A4A1002C59B4 /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086C18C2A4A1002C59B4 /* FoodDetailViewController.m */; };
+		93AE087318C2B60F002C59B4 /* Food.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE087218C2B60F002C59B4 /* Food.h */; };
+		93AE087518C2B625002C59B4 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE087418C2B625002C59B4 /* Food.m */; };
 		93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EB115218B84AA2005B67E5 /* Default-568h@2x.png */; };
-		D708A93518A77D9B002F0B9E /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D708A93418A77D9B002F0B9E /* DiningViewController.m */; };
-		D708A93818A77DC4002F0B9E /* DiningDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D708A93718A77DC4002F0B9E /* DiningDetailViewController.m */; };
-		D708A93B18A77DE2002F0B9E /* Dining.m in Sources */ = {isa = PBXBuildFile; fileRef = D708A93A18A77DE2002F0B9E /* Dining.m */; };
 		D7C233DF18A6E0D30020A677 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233DE18A6E0D30020A677 /* Parse.framework */; };
 		D7C233E118A6E0FF0020A677 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */; };
 		D7C233E318A6E1040020A677 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E218A6E1040020A677 /* CFNetwork.framework */; };
@@ -34,13 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93AE086718C2A432002C59B4 /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
+		93AE086918C2A487002C59B4 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
+		93AE086B18C2A492002C59B4 /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
+		93AE086C18C2A4A1002C59B4 /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
+		93AE087218C2B60F002C59B4 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		93AE087418C2B625002C59B4 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		93EB115218B84AA2005B67E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D708A93318A77D9B002F0B9E /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
-		D708A93418A77D9B002F0B9E /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
-		D708A93618A77DC4002F0B9E /* DiningDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningDetailViewController.h; sourceTree = "<group>"; };
-		D708A93718A77DC4002F0B9E /* DiningDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningDetailViewController.m; sourceTree = "<group>"; };
-		D708A93918A77DE2002F0B9E /* Dining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dining.h; sourceTree = "<group>"; };
-		D708A93A18A77DE2002F0B9E /* Dining.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dining.m; sourceTree = "<group>"; };
 		D7C233DE18A6E0D30020A677 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D7C233E218A6E1040020A677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -144,12 +146,12 @@
 				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
 				F447242515D78F07004A8C72 /* GymPool.h */,
 				F447242615D78F07004A8C72 /* GymPool.m */,
-				D708A93918A77DE2002F0B9E /* Dining.h */,
-				D708A93A18A77DE2002F0B9E /* Dining.m */,
-				D708A93318A77D9B002F0B9E /* DiningViewController.h */,
-				D708A93418A77D9B002F0B9E /* DiningViewController.m */,
-				D708A93618A77DC4002F0B9E /* DiningDetailViewController.h */,
-				D708A93718A77DC4002F0B9E /* DiningDetailViewController.m */,
+				93AE087218C2B60F002C59B4 /* Food.h */,
+				93AE087418C2B625002C59B4 /* Food.m */,
+				93AE086718C2A432002C59B4 /* FoodViewController.h */,
+				93AE086918C2A487002C59B4 /* FoodViewController.m */,
+				93AE086B18C2A492002C59B4 /* FoodDetailViewController.h */,
+				93AE086C18C2A4A1002C59B4 /* FoodDetailViewController.m */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
 			name = 5CCompanion;
@@ -219,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
+				93AE086818C2A432002C59B4 /* FoodViewController.h in Resources */,
+				93AE087318C2B60F002C59B4 /* Food.h in Resources */,
 				93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */,
 				F4AA6C3F1589A2DF0093D97E /* MainStoryboard.storyboard in Resources */,
 			);
@@ -231,13 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AE086A18C2A487002C59B4 /* FoodViewController.m in Sources */,
+				93AE087518C2B625002C59B4 /* Food.m in Sources */,
+				93AE086D18C2A4A1002C59B4 /* FoodDetailViewController.m in Sources */,
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
-				D708A93518A77D9B002F0B9E /* DiningViewController.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
 				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
-				D708A93B18A77DE2002F0B9E /* Dining.m in Sources */,
 				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
-				D708A93818A77DC4002F0B9E /* DiningDetailViewController.m in Sources */,
 				F447242715D78F07004A8C72 /* GymPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
