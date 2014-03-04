@@ -116,6 +116,7 @@
     // Gets current day
     
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+    UILabel *openLabel = (UILabel*) [cell viewWithTag:103];
     NSDate* day = [[NSDate alloc] init];
     // Some places open past 12:00 am. For example, Jay's Place opens until 2 AM on Saturdays, and don't
     // want the app to show Jay's Sunday hours when it is between 12 and 2 AM on Sunday.
@@ -140,7 +141,8 @@
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
-        prepTimeLabel.backgroundColor = [UIColor redColor];
+        prepTimeLabel.textColor = [UIColor redColor];
+        openLabel.backgroundColor = [UIColor redColor];
     }
     else {
         [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
@@ -174,10 +176,11 @@
         NSDate *now = [NSDate date];
         if ([now compare:openTime] != NSOrderedAscending &&
             [now compare:closeTime] != NSOrderedDescending) {
-            prepTimeLabel.backgroundColor = [UIColor greenColor];
-            prepTimeLabel.textColor = [UIColor blackColor];
+            prepTimeLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
         } else {
-            prepTimeLabel.backgroundColor = [UIColor redColor];
+            prepTimeLabel.textColor = [UIColor redColor];
+            openLabel.backgroundColor = [UIColor redColor];
         }
     }
     
