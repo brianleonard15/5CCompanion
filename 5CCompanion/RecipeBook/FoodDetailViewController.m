@@ -17,6 +17,7 @@
 @synthesize foodPhoto;
 @synthesize prepTimeLabel;
 @synthesize ingredientTextView;
+@synthesize dayTextView;
 @synthesize food;
 
 
@@ -43,11 +44,35 @@
             [ingredientText appendFormat:@"%@\n", [day objectAtIndex: 0]];
         }
         else {
-            [ingredientText appendFormat:@"%@ to %@\n", [day objectAtIndex: 0], [day objectAtIndex: 1]];
+            [ingredientText appendFormat:@"%@ to %@", [day objectAtIndex: 0], [day objectAtIndex: 1]];
+            if (day.count == 4) {
+                [ingredientText appendFormat:@"\n%@ to %@", [day objectAtIndex: 2], [day objectAtIndex: 3]];
+            }
+            [ingredientText appendFormat:@"\n"];
         }
     }
     
     self.ingredientTextView.text = ingredientText;
+    
+    NSArray *dayOfWeek;
+    dayOfWeek = [NSArray arrayWithObjects:
+             @"Monday",
+             @"Tuesday",
+             @"Wednesday",
+             @"Thursday",
+             @"Friday",
+             @"Saturday",
+             @"Sunday",
+             nil];
+    NSMutableString *dayText = [NSMutableString string];
+    for (int i = 0; i < 7; i++) {
+        [dayText appendFormat:@"%@\n", dayOfWeek[i]];
+        if ([[food.hours objectAtIndex:i] count] == 4) {
+            [dayText appendFormat:@"\n"];
+            
+        }
+    }
+    self.dayTextView.text = dayText;
     
 }
 

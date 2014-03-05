@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet PFImageView *foodPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
+@property (weak, nonatomic) IBOutlet UITextView *dayTextView;
 
 @property (nonatomic, strong) Food *food;
 
