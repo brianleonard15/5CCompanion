@@ -144,7 +144,24 @@
         openLabel.backgroundColor = [UIColor redColor];
     }
     else {
-        [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+        if (hours.count == 4) {
+            // NSString *strOpenTime = [hours objectAtIndex: 0];
+            NSString *strCloseTime = [hours objectAtIndex: 1];
+           //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
+            NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+            // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+            NSDate *now = [NSDate date];
+            if ([now compare:closeTime] != NSOrderedAscending || [self before3am]) {
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+            }
+            else {
+                [currentHours setString:@""];
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+            }
+        }
+        else
+            [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
     }
     
     currentHoursLabel.text = currentHours;
@@ -155,6 +172,8 @@
         
         NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
         NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+        NSDate *openTime2;
+        NSDate *closeTime2;
         
         if ([closeTime compare:openTime] != NSOrderedDescending) {
             // closeTime is less than or equal to openTime, so add one day:
@@ -172,10 +191,38 @@
             }
         }
         
+        if (hours.count == 4) {
+            NSString *strOpenTime2 = [hours objectAtIndex: 2];
+            NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            
+            openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+            closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+            
+            if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                // closeTime is less than or equal to openTime, so add one day:
+                if([self before3am]) {
+                    NSCalendar *cal = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [[NSDateComponents alloc] init];
+                    [comp setDay:-1];
+                    openTime2 = [cal dateByAddingComponents:comp toDate:openTime2 options:0];
+                }
+                else {
+                    NSCalendar *cal = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [[NSDateComponents alloc] init];
+                    [comp setDay:1];
+                    closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
+                }
+            }
+
+        }
+        
         NSDate *now = [NSDate date];
         
-        if ([now compare:openTime] != NSOrderedAscending &&
-            [now compare:closeTime] != NSOrderedDescending) {
+        if (([now compare:openTime] != NSOrderedAscending &&
+            [now compare:closeTime] != NSOrderedDescending) ||
+            (openTime2 && closeTime2 &&
+            [now compare:openTime2] != NSOrderedAscending &&
+            [now compare:closeTime2] != NSOrderedDescending)) {
             currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
             openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
         } else {

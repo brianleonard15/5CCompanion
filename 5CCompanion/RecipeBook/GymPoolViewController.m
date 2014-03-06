@@ -144,7 +144,7 @@
         openLabel.backgroundColor = [UIColor redColor];
     }
     else {
-        [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+        [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
     }
     
     currentHoursLabel.text = currentHours;
