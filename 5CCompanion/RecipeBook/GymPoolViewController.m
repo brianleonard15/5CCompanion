@@ -115,7 +115,7 @@
     
     // Gets current day
     
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+    UILabel *currentHoursLabel = (UILabel*) [cell viewWithTag:102];
     UILabel *openLabel = (UILabel*) [cell viewWithTag:103];
     NSDate* day = [[NSDate alloc] init];
     // Some places open past 12:00 am. For example, Jay's Place opens until 2 AM on Saturdays, and don't
@@ -134,21 +134,20 @@
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
-    NSLog(@"%@", dayOfTheWeek);
     
     NSArray *hours = [object objectForKey: dayOfTheWeek];
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
-        prepTimeLabel.textColor = [UIColor redColor];
+        currentHoursLabel.textColor = [UIColor redColor];
         openLabel.backgroundColor = [UIColor redColor];
     }
     else {
         [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
     }
     
-    prepTimeLabel.text = currentHours;
+    currentHoursLabel.text = currentHours;
     
     if (![[hours objectAtIndex: 0] isEqualToString: @"Closed"]) {
         NSString *strOpenTime = [hours objectAtIndex: 0];
@@ -176,10 +175,10 @@
         NSDate *now = [NSDate date];
         if ([now compare:openTime] != NSOrderedAscending &&
             [now compare:closeTime] != NSOrderedDescending) {
-            prepTimeLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
             openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
         } else {
-            prepTimeLabel.textColor = [UIColor redColor];
+            currentHoursLabel.textColor = [UIColor redColor];
             openLabel.backgroundColor = [UIColor redColor];
         }
     }
@@ -205,7 +204,6 @@
         GymPool *gympool = [[GymPool alloc] init];
         gympool.name = [object objectForKey:@"name"];
         gympool.imageFile = [object objectForKey:@"imageFile"];
-        gympool.prepTime = [object objectForKey:@"name"];
         gympool.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
         destViewController.gympool = gympool;
     }

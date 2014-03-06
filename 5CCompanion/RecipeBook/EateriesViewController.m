@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "FoodViewController.h"
-#import "FoodDetailViewController.h"
-#import "Food.h"
+#import "EateriesViewController.h"
+#import "EateriesDetailViewController.h"
+#import "Eateries.h"
 
-@interface FoodViewController ()
+@interface EateriesViewController ()
 
 @end
 
-@implementation FoodViewController
+@implementation EateriesViewController
 
 - (void)viewDidLoad
 {
@@ -96,7 +96,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"FoodCell";
+    static NSString *simpleTableIdentifier = @"EateriesCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -115,7 +115,7 @@
     
     // Gets current day
     
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+    UILabel *currentHoursLabel = (UILabel*) [cell viewWithTag:102];
     UILabel *openLabel = (UILabel*) [cell viewWithTag:103];
     NSDate* day = [[NSDate alloc] init];
     // Some places open past 12:00 am. For example, Jay's Place opens until 2 AM on Saturdays, and don't
@@ -134,21 +134,20 @@
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
-    NSLog(@"%@", dayOfTheWeek);
     
     NSArray *hours = [object objectForKey: dayOfTheWeek];
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
-        prepTimeLabel.textColor = [UIColor redColor];
+        currentHoursLabel.textColor = [UIColor redColor];
         openLabel.backgroundColor = [UIColor redColor];
     }
     else {
         [currentHours appendFormat:@"%@ to %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
     }
     
-    prepTimeLabel.text = currentHours;
+    currentHoursLabel.text = currentHours;
     
     if (![[hours objectAtIndex: 0] isEqualToString: @"Closed"]) {
         NSString *strOpenTime = [hours objectAtIndex: 0];
@@ -177,10 +176,10 @@
         
         if ([now compare:openTime] != NSOrderedAscending &&
             [now compare:closeTime] != NSOrderedDescending) {
-            prepTimeLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
             openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
         } else {
-            prepTimeLabel.textColor = [UIColor redColor];
+            currentHoursLabel.textColor = [UIColor redColor];
             openLabel.backgroundColor = [UIColor redColor];
         }
     }
@@ -196,17 +195,16 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showFoodDetail"]) {
+    if ([segue.identifier isEqualToString:@"showEateriesDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        FoodDetailViewController *destViewController = segue.destinationViewController;
+        EateriesDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Food *food = [[Food alloc] init];
-        food.name = [object objectForKey:@"name"];
-        food.imageFile = [object objectForKey:@"imageFile"];
-        food.prepTime = [object objectForKey:@"name"];
-        food.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        destViewController.food = food;
+        Eateries *eatery = [[Eateries alloc] init];
+        eatery.name = [object objectForKey:@"name"];
+        eatery.imageFile = [object objectForKey:@"imageFile"];
+        eatery.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
+        destViewController.eatery = eatery;
     }
 }
 

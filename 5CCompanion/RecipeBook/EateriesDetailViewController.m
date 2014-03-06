@@ -6,20 +6,17 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "FoodDetailViewController.h"
+#import "EateriesDetailViewController.h"
 
-@interface FoodDetailViewController () {
+@interface EateriesDetailViewController () {
     NSArray *dayOfWeek;
 }
 @end
 
-@implementation FoodDetailViewController
+@implementation EateriesDetailViewController
 
-@synthesize foodPhoto;
-@synthesize prepTimeLabel;
-@synthesize ingredientTextView;
-@synthesize dayTextView;
-@synthesize food;
+@synthesize eateryPhoto;
+@synthesize eatery;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,9 +41,8 @@
                  @"Sunday",
                  nil];
     
-    self.title = food.name;
-    self.prepTimeLabel.text = food.prepTime;
-    self.foodPhoto.file = food.imageFile;
+    self.title = eatery.name;
+    self.eateryPhoto.file = eatery.imageFile;
     
 }
 
@@ -78,7 +74,7 @@
     
     UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
     NSMutableString *hourText = [NSMutableString string];
-    NSArray* hours = [food.hours objectAtIndex:indexPath.row];
+    NSArray* hours = [eatery.hours objectAtIndex:indexPath.row];
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [hourText appendFormat:@"%@", [hours objectAtIndex: 0]];
     }
@@ -96,9 +92,7 @@
 
 - (void)viewDidUnload
 {
-    [self setFoodPhoto:nil];
-    [self setPrepTimeLabel:nil];
-    [self setIngredientTextView:nil];
+    [self setEateryPhoto:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

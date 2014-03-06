@@ -88,56 +88,66 @@
         <!--Gym Pool Detail View Controller-->
         <scene sceneID="5Ms-qY-lRu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JOa-m2-nv8" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oeU-vb-cnt">
+                    <view key="view" contentMode="scaleToFill" id="pvt-zl-Zom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KKS-hm-ytN" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Noh-0m-L6T" customClass="PFImageView">
                                 <rect key="frame" x="20" y="64" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" id="gA6-CR-ZMu">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" id="shg-zF-AZe">
                                 <rect key="frame" x="20" y="233" width="123" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Preptime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="l4j-oD-PI4">
-                                <rect key="frame" x="231" y="241" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.67823840725806439" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="L" id="3mo-jG-NwD">
-                                <rect key="frame" x="110" y="262" width="190" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iCf-7t-WrV">
-                                <rect key="frame" x="20" y="262" width="88" height="156"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Monday                                  Tuesday                                                                              Wednesday                                  Thursday                                             Friday                                  Saturday                                                                                        Sunday                                                                                        </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Qz-Qn-HZh">
+                                <rect key="frame" x="20" y="270" width="280" height="156"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hoursCell" id="5wx-No-3Ws">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5wx-No-3Ws" id="6XU-Rr-g0q">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="scaleToFill" editable="NO" text="Monday" selectable="NO" id="qa4-d5-bOo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="201" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="9AM to 10PM" selectable="NO" id="aJR-Op-0gS">
+                                                    <rect key="frame" x="110" y="0.0" width="162" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JOa-m2-nv8" id="AIP-0T-Ore"/>
+                                    <outlet property="delegate" destination="JOa-m2-nv8" id="DRC-Ft-NvN"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="825-b7-Yiw"/>
                     <connections>
-                        <outlet property="gymPoolPhoto" destination="KKS-hm-ytN" id="AQJ-si-Fav"/>
-                        <outlet property="ingredientTextView" destination="3mo-jG-NwD" id="5Qn-5o-zxw"/>
-                        <outlet property="prepTimeLabel" destination="l4j-oD-PI4" id="RR0-Ce-cgx"/>
+                        <outlet property="gymPoolPhoto" destination="Noh-0m-L6T" id="Hwn-dw-P9R"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2537" y="604"/>
         </scene>
@@ -176,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="1543" y="604"/>
         </scene>
-        <!--Food Detail View Controller-->
+        <!--Eateries Detail View Controller-->
         <scene sceneID="fF1-hf-4HR">
             <objects>
-                <viewController id="dXl-px-riG" customClass="FoodDetailViewController" sceneMemberID="viewController">
+                <viewController id="dXl-px-riG" customClass="EateriesDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgY-KA-RaW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -193,14 +203,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Preptime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" id="mJh-B4-erJ">
-                                <rect key="frame" x="231" y="241" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.67823840729999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RZ6-vX-Wyi">
@@ -243,24 +245,23 @@
                     </view>
                     <navigationItem key="navigationItem" id="CAb-Td-CNu"/>
                     <connections>
-                        <outlet property="foodPhoto" destination="WLM-xl-yyY" id="COw-fo-dhT"/>
-                        <outlet property="prepTimeLabel" destination="mJh-B4-erJ" id="blD-9g-NPG"/>
+                        <outlet property="eateryPhoto" destination="WLM-xl-yyY" id="woo-c9-h8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcC-XP-wWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2537" y="1294"/>
         </scene>
-        <!--Food View Controller - Eateries-->
+        <!--Eateries View Controller - Eateries-->
         <scene sceneID="C39-xI-YuR">
             <objects>
-                <tableViewController id="nL8-JP-9rH" customClass="FoodViewController" sceneMemberID="viewController">
+                <tableViewController id="nL8-JP-9rH" customClass="EateriesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ja3-aC-DBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodCell" id="2mD-3K-tjw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EateriesCell" id="2mD-3K-tjw">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2mD-3K-tjw" id="oyd-p8-kY3">
@@ -300,7 +301,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dXl-px-riG" kind="push" identifier="showFoodDetail" id="97x-sZ-7yZ"/>
+                                    <segue destination="dXl-px-riG" kind="push" identifier="showEateriesDetail" id="97x-sZ-7yZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

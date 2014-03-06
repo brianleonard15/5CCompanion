@@ -6,12 +6,11 @@
 //
 //
 
-#import "Food.h"
+#import "Eateries.h"
 
-@implementation Food
+@implementation Eateries
 
 @synthesize name;
-@synthesize prepTime;
 @synthesize imageFile;
 @synthesize hours;
 

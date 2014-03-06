@@ -11,7 +11,6 @@
 @implementation GymPool
 
 @synthesize name;
-@synthesize prepTime;
 @synthesize imageFile;
 @synthesize hours;
 
