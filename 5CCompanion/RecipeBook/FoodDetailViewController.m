@@ -8,8 +8,9 @@
 
 #import "FoodDetailViewController.h"
 
-@interface FoodDetailViewController ()
-
+@interface FoodDetailViewController () {
+    NSArray *dayOfWeek;
+}
 @end
 
 @implementation FoodDetailViewController
@@ -33,48 +34,65 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    dayOfWeek = [[NSArray alloc] initWithObjects:
+                 @"Monday",
+                 @"Tuesday",
+                 @"Wednesday",
+                 @"Thursday",
+                 @"Friday",
+                 @"Saturday",
+                 @"Sunday",
+                 nil];
     
     self.title = food.name;
     self.prepTimeLabel.text = food.prepTime;
     self.foodPhoto.file = food.imageFile;
-
-    NSMutableString *ingredientText = [NSMutableString string];
-    for (NSArray* day in food.hours) {
-        if ([[day objectAtIndex: 0] isEqualToString: @"Closed"])  {
-            [ingredientText appendFormat:@"%@\n", [day objectAtIndex: 0]];
-        }
-        else {
-            [ingredientText appendFormat:@"%@ to %@", [day objectAtIndex: 0], [day objectAtIndex: 1]];
-            if (day.count == 4) {
-                [ingredientText appendFormat:@"\n%@ to %@", [day objectAtIndex: 2], [day objectAtIndex: 3]];
-            }
-            [ingredientText appendFormat:@"\n"];
-        }
-    }
-    
-    self.ingredientTextView.text = ingredientText;
-    
-    NSArray *dayOfWeek;
-    dayOfWeek = [NSArray arrayWithObjects:
-             @"Monday",
-             @"Tuesday",
-             @"Wednesday",
-             @"Thursday",
-             @"Friday",
-             @"Saturday",
-             @"Sunday",
-             nil];
-    NSMutableString *dayText = [NSMutableString string];
-    for (int i = 0; i < 7; i++) {
-        [dayText appendFormat:@"%@\n", dayOfWeek[i]];
-        if ([[food.hours objectAtIndex:i] count] == 4) {
-            [dayText appendFormat:@"\n"];
-            
-        }
-    }
-    self.dayTextView.text = dayText;
     
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [dayOfWeek count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"hoursCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    // Configure the cell
+    UITextView *dayText = (UITextView*) [cell viewWithTag:200];
+    dayText.text = [dayOfWeek objectAtIndex:indexPath.row];
+    
+    // Gets current day
+    
+    UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
+    NSMutableString *hourText = [NSMutableString string];
+    NSArray* hours = [food.hours objectAtIndex:indexPath.row];
+    if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
+        [hourText appendFormat:@"%@", [hours objectAtIndex: 0]];
+    }
+    else {
+        [hourText appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+        if (hours.count == 4) {
+            [hourText appendFormat:@"\n%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+        }
+    }
+    hoursText.text = hourText;
+    
+    return cell;
+}
+
 
 - (void)viewDidUnload
 {
