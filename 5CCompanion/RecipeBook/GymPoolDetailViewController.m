@@ -85,7 +85,9 @@
         }
     }
     hoursText.text = hourText;
-    
+    dayText.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0f];
+    hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
+
     return cell;
 }
 

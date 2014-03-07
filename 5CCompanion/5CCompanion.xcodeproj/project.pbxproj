@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9376818918CA6C3900A5BEB8 /* EateriesIcon.png */; };
 		93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE086718C2A432002C59B4 /* EateriesViewController.h */; };
 		93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* EateriesViewController.m */; };
 		93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9376818918CA6C3900A5BEB8 /* EateriesIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EateriesIcon.png; sourceTree = "<group>"; };
 		93AE086718C2A432002C59B4 /* EateriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesViewController.h; sourceTree = "<group>"; };
 		93AE086918C2A487002C59B4 /* EateriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesViewController.m; sourceTree = "<group>"; };
 		93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesDetailViewController.h; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		F4AA6C321589A2DF0093D97E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9376818918CA6C3900A5BEB8 /* EateriesIcon.png */,
 				F4AA6C331589A2DF0093D97E /* 5CCompanion-Info.plist */,
 				F4AA6C341589A2DF0093D97E /* InfoPlist.strings */,
 				F4AA6C371589A2DF0093D97E /* main.m */,
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */,
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
 				93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */,
 				93AE087318C2B60F002C59B4 /* Eateries.h in Resources */,

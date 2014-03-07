@@ -8,6 +8,7 @@
 
 #import "CompanionAppDelegate.h"
 #import <Parse/Parse.h>
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation CompanionAppDelegate
 
@@ -15,11 +16,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //color the navigation bar pink!
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xFF99FF)];
+    
+    //Changing font of navigation bar
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 0);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:000.0/255.0 green:000.0/255.0 blue:000.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"AvenirNext-Regular" size:23.0], NSFontAttributeName, nil]];
+    
     // Override point for customization after application launch.
     [Parse setApplicationId:@"zS4e8Py8ydWl1w4K5cy4SRTDea2QlxM8cl33MoKZ" clientKey:@"dnQazrEcDSyf3JksHvUuxJuiRGBTxJ4NhSKPdSHv"];
     return YES;
+    
+    //custom tab icon
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    tabBarItem1.title = @"Gyms";
+    tabBarItem2.title = @"Eateries";
+    tabBarItem3.title = @"My Plan";
+    tabBarItem4.title = @"Settings";
+    
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
+    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
+    
+    return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -28,7 +62,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
