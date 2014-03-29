@@ -88,7 +88,6 @@
         <!--Gym Pool Detail View Controller-->
         <scene sceneID="5Ms-qY-lRu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JOa-m2-nv8" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pvt-zl-Zom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -148,6 +147,7 @@
                         <outlet property="gymPoolPhoto" destination="Noh-0m-L6T" id="Hwn-dw-P9R"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2537" y="604"/>
         </scene>
