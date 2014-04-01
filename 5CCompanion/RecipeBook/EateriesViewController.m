@@ -40,7 +40,7 @@
     self = [super initWithCoder:aCoder];
     if (self) {
         // The className to query on
-        self.parseClassName = @"Eateries";
+        self.parseClassName = @"Places";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
@@ -51,7 +51,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         
-        self.objectsPerPage = 20;
+        self.objectsPerPage = 100;
     }
     return self;
 }
@@ -59,6 +59,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:@"Class" equalTo:@"Eatery"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
