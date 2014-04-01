@@ -17,6 +17,7 @@
 
 @synthesize gymPoolPhoto;
 @synthesize gympool;
+@synthesize favButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,7 +44,9 @@
     
     self.title = gympool.name;
     self.gymPoolPhoto.file = gympool.imageFile;
-    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:gympool.name]]) {
+		self.favButton.selected = YES;
+	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -89,6 +92,22 @@
     hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
 
     return cell;
+}
+
+-(IBAction)toggleFav:(UIButton *)sender {
+    if([sender isSelected]){
+        //...
+        [sender setSelected:NO];
+		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
+		[array removeObject:gympool.name];
+		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+    } else {
+        //...
+        [sender setSelected:YES];
+		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
+		[array addObject:gympool.name];
+		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+    }
 }
 
 - (void)viewDidUnload
