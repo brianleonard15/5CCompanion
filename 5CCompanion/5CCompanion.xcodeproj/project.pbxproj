@@ -200,6 +200,11 @@
 			attributes = {
 				CLASSPREFIX = RecipeBook;
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					F4AA6C261589A2DF0093D97E = {
+						DevelopmentTeam = T9HDTSCW4C;
+					};
+				};
 			};
 			buildConfigurationList = F4AA6C211589A2DF0093D97E /* Build configuration list for PBXProject "5CCompanion" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -337,6 +342,8 @@
 		F4AA6C461589A2DF0093D97E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -347,6 +354,7 @@
 				INFOPLIST_FILE = "RecipeBook/5CCompanion-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = 5CCompanion;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -354,6 +362,8 @@
 		F4AA6C471589A2DF0093D97E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -364,6 +374,7 @@
 				INFOPLIST_FILE = "RecipeBook/5CCompanion-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = 5CCompanion;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
