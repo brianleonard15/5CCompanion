@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface GymPool : NSObject
+@interface Place : NSObject
 
 @property (nonatomic, strong) NSString *name; // name of Business
 @property (nonatomic, strong) PFFile *imageFile; // image filename of business

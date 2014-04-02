@@ -8,7 +8,7 @@
 
 #import "EateriesViewController.h"
 #import "EateriesDetailViewController.h"
-#import "Eateries.h"
+#import "Place.h"
 
 @interface EateriesViewController ()
 
@@ -248,11 +248,11 @@
         EateriesDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Eateries *eatery = [[Eateries alloc] init];
-        eatery.name = [object objectForKey:@"name"];
-        eatery.imageFile = [object objectForKey:@"imageFile"];
-        eatery.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        destViewController.eatery = eatery;
+        Place *place = [[Place alloc] init];
+        place.name = [object objectForKey:@"name"];
+        place.imageFile = [object objectForKey:@"imageFile"];
+        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
+        destViewController.place = place;
     }
 }
 

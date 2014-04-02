@@ -8,7 +8,7 @@
 
 #import "GymPoolViewController.h"
 #import "GymPoolDetailViewController.h"
-#import "GymPool.h"
+#import "Place.h"
 
 @interface GymPoolViewController ()
 
@@ -257,11 +257,11 @@
         GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        GymPool *gympool = [[GymPool alloc] init];
-        gympool.name = [object objectForKey:@"name"];
-        gympool.imageFile = [object objectForKey:@"imageFile"];
-        gympool.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        destViewController.gympool = gympool;
+        Place *place = [[Place alloc] init];
+        place.name = [object objectForKey:@"name"];
+        place.imageFile = [object objectForKey:@"imageFile"];
+        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
+        destViewController.place = place;
     }
 }
 

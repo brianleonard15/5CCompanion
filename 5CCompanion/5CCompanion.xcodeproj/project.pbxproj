@@ -11,8 +11,6 @@
 		93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE086718C2A432002C59B4 /* EateriesViewController.h */; };
 		93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* EateriesViewController.m */; };
 		93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */; };
-		93AE087318C2B60F002C59B4 /* Eateries.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE087218C2B60F002C59B4 /* Eateries.h */; };
-		93AE087518C2B625002C59B4 /* Eateries.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE087418C2B625002C59B4 /* Eateries.m */; };
 		93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EB115218B84AA2005B67E5 /* Default-568h@2x.png */; };
 		D72F05C718EB5EE9003176D7 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C518EB5EE9003176D7 /* selected.png */; };
 		D72F05C818EB5EE9003176D7 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C618EB5EE9003176D7 /* unselected.png */; };
@@ -30,7 +28,7 @@
 		D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EF18A6E1360020A677 /* StoreKit.framework */; };
 		D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */; };
 		F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* GymPoolDetailViewController.m */; };
-		F447242715D78F07004A8C72 /* GymPool.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* GymPool.m */; };
+		F447242715D78F07004A8C72 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* Place.m */; };
 		F4AA6C2C1589A2DF0093D97E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2B1589A2DF0093D97E /* UIKit.framework */; };
 		F4AA6C2E1589A2DF0093D97E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2D1589A2DF0093D97E /* Foundation.framework */; };
 		F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4AA6C341589A2DF0093D97E /* InfoPlist.strings */; };
@@ -46,8 +44,6 @@
 		93AE086918C2A487002C59B4 /* EateriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesViewController.m; sourceTree = "<group>"; };
 		93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesDetailViewController.h; sourceTree = "<group>"; };
 		93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesDetailViewController.m; sourceTree = "<group>"; };
-		93AE087218C2B60F002C59B4 /* Eateries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eateries.h; sourceTree = "<group>"; };
-		93AE087418C2B625002C59B4 /* Eateries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eateries.m; sourceTree = "<group>"; };
 		93EB115218B84AA2005B67E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D72F05C518EB5EE9003176D7 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		D72F05C618EB5EE9003176D7 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
@@ -67,8 +63,8 @@
 		D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F419149C158D558600E54887 /* GymPoolDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPoolDetailViewController.h; sourceTree = "<group>"; };
 		F419149D158D558600E54887 /* GymPoolDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPoolDetailViewController.m; sourceTree = "<group>"; };
-		F447242515D78F07004A8C72 /* GymPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPool.h; sourceTree = "<group>"; };
-		F447242615D78F07004A8C72 /* GymPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPool.m; sourceTree = "<group>"; };
+		F447242515D78F07004A8C72 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		F447242615D78F07004A8C72 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		F4AA6C271589A2DF0093D97E /* 5CCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5CCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4AA6C2B1589A2DF0093D97E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4AA6C2D1589A2DF0093D97E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -156,10 +152,8 @@
 				F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */,
 				F419149C158D558600E54887 /* GymPoolDetailViewController.h */,
 				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
-				F447242515D78F07004A8C72 /* GymPool.h */,
-				F447242615D78F07004A8C72 /* GymPool.m */,
-				93AE087218C2B60F002C59B4 /* Eateries.h */,
-				93AE087418C2B625002C59B4 /* Eateries.m */,
+				F447242515D78F07004A8C72 /* Place.h */,
+				F447242615D78F07004A8C72 /* Place.m */,
 				93AE086718C2A432002C59B4 /* EateriesViewController.h */,
 				93AE086918C2A487002C59B4 /* EateriesViewController.m */,
 				93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */,
@@ -242,7 +236,6 @@
 				9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */,
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
 				93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */,
-				93AE087318C2B60F002C59B4 /* Eateries.h in Resources */,
 				D72F05C718EB5EE9003176D7 /* selected.png in Resources */,
 				D72F05C818EB5EE9003176D7 /* unselected.png in Resources */,
 				93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */,
@@ -258,14 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */,
-				93AE087518C2B625002C59B4 /* Eateries.m in Sources */,
 				93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */,
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
 				D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */,
 				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
 				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
-				F447242715D78F07004A8C72 /* GymPool.m in Sources */,
+				F447242715D78F07004A8C72 /* Place.m in Sources */,
 				D72F05CE18EBFAEF003176D7 /* FavoritesDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

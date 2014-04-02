@@ -163,8 +163,8 @@
                     <navigationItem key="navigationItem" id="825-b7-Yiw"/>
                     <connections>
                         <outlet property="favButton" destination="p8l-Sf-T8h" id="RX3-6w-T70"/>
-                        <outlet property="gymPoolPhoto" destination="Noh-0m-L6T" id="Hwn-dw-P9R"/>
                         <outlet property="phoneLabel" destination="vEN-Xc-V7K" id="igh-zP-QGc"/>
+                        <outlet property="placePhoto" destination="Noh-0m-L6T" id="JDl-6m-Jyn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,8 +277,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="CAb-Td-CNu"/>
                     <connections>
-                        <outlet property="eateryPhoto" destination="WLM-xl-yyY" id="woo-c9-h8D"/>
                         <outlet property="favButton" destination="YdR-xI-9iq" id="Uqz-gF-27E"/>
+                        <outlet property="placePhoto" destination="WLM-xl-yyY" id="YcI-bf-rOv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcC-XP-wWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,8 +499,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jqR-ax-SMM"/>
                     <connections>
-                        <outlet property="eateryPhoto" destination="2NW-wT-AB7" id="9B8-7M-W69"/>
                         <outlet property="favButton" destination="iEE-SP-03p" id="N4U-Tw-6ip"/>
+                        <outlet property="placePhoto" destination="2NW-wT-AB7" id="u5S-UZ-BIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvv-UU-Zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>

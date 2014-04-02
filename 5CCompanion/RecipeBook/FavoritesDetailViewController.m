@@ -15,8 +15,8 @@
 
 @implementation FavoritesDetailViewController
 
-@synthesize eateryPhoto;
-@synthesize eatery;
+@synthesize placePhoto;
+@synthesize place;
 @synthesize favButton;
 
 
@@ -42,9 +42,9 @@
                  @"Sunday",
                  nil];
     
-    self.title = eatery.name;
-    self.eateryPhoto.file = eatery.imageFile;
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:eatery.name]]) {
+    self.title = place.name;
+    self.placePhoto.file = place.imageFile;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;
 	}
     
@@ -78,7 +78,7 @@
     
     UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
     NSMutableString *hourText = [NSMutableString string];
-    NSArray* hours = [eatery.hours objectAtIndex:indexPath.row];
+    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [hourText appendFormat:@"%@", [hours objectAtIndex: 0]];
     }
@@ -100,14 +100,14 @@
         //...
         [sender setSelected:NO];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array removeObject:[NSString stringWithString:eatery.name]];
+		[array removeObject:[NSString stringWithString:place.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         //...
         [sender setSelected:YES];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array addObject:[NSString stringWithString:eatery.name]];
+		[array addObject:[NSString stringWithString:place.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -116,7 +116,7 @@
 
 - (void)viewDidUnload
 {
-    [self setEateryPhoto:nil];
+    [self setPlacePhoto:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
