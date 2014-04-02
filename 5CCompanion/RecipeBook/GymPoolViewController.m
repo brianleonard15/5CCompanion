@@ -260,6 +260,7 @@
         Place *place = [[Place alloc] init];
         place.name = [object objectForKey:@"name"];
         place.imageFile = [object objectForKey:@"imageFile"];
+        place.phone = [object objectForKey:@"Phone"];
         place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
         destViewController.place = place;
     }

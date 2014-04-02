@@ -150,10 +150,10 @@
                                     <action selector="toggleFav:" destination="JOa-m2-nv8" eventType="touchUpInside" id="2JV-RM-EKz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vEN-Xc-V7K">
-                                <rect key="frame" x="151" y="244" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="I5R-QX-hSj">
+                                <rect key="frame" x="128" y="233" width="132" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -163,7 +163,7 @@
                     <navigationItem key="navigationItem" id="825-b7-Yiw"/>
                     <connections>
                         <outlet property="favButton" destination="p8l-Sf-T8h" id="RX3-6w-T70"/>
-                        <outlet property="phoneLabel" destination="vEN-Xc-V7K" id="igh-zP-QGc"/>
+                        <outlet property="phoneLabel" destination="I5R-QX-hSj" id="qHx-HD-sm1"/>
                         <outlet property="placePhoto" destination="Noh-0m-L6T" id="JDl-6m-Jyn"/>
                     </connections>
                 </viewController>
