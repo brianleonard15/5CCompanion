@@ -13,5 +13,6 @@
 @synthesize name;
 @synthesize imageFile;
 @synthesize hours;
+@synthesize phone;
 
 @end

@@ -69,11 +69,11 @@
             </objects>
             <point key="canvasLocation" x="2039" y="604"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Eateries-->
         <scene sceneID="8pE-ft-xHi">
             <objects>
                 <navigationController definesPresentationContext="YES" id="3eg-1w-e9S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="qg3-1U-L6R"/>
+                    <tabBarItem key="tabBarItem" title="Eateries" id="qg3-1U-L6R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6X-PU-NA8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -150,6 +150,13 @@
                                     <action selector="toggleFav:" destination="JOa-m2-nv8" eventType="touchUpInside" id="2JV-RM-EKz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vEN-Xc-V7K">
+                                <rect key="frame" x="151" y="244" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -157,6 +164,7 @@
                     <connections>
                         <outlet property="favButton" destination="p8l-Sf-T8h" id="RX3-6w-T70"/>
                         <outlet property="gymPoolPhoto" destination="Noh-0m-L6T" id="Hwn-dw-P9R"/>
+                        <outlet property="phoneLabel" destination="vEN-Xc-V7K" id="igh-zP-QGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoZ-CV-3EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,6 +413,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Vhg-zK-Bg3" kind="push" identifier="showFavoritesDetail" id="Sne-hM-lx3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -417,6 +428,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M42-wi-o51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2039" y="2030"/>
+        </scene>
+        <!--Favorites Detail View Controller-->
+        <scene sceneID="Mi5-fi-9RL">
+            <objects>
+                <viewController id="Vhg-zK-Bg3" customClass="FavoritesDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FNs-JC-hoR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2NW-wT-AB7" customClass="PFImageView">
+                                <rect key="frame" x="20" y="64" width="280" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" id="wcb-ke-VZc">
+                                <rect key="frame" x="20" y="233" width="123" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NEm-7z-EJk">
+                                <rect key="frame" x="20" y="270" width="280" height="156"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hoursCell" id="chx-WR-SxI">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chx-WR-SxI" id="hTH-NS-dmb">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="scaleToFill" editable="NO" text="Monday" selectable="NO" id="l0F-z2-Yk2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="201" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="9AM to 10PM" selectable="NO" id="ibn-Pi-pkp">
+                                                    <rect key="frame" x="110" y="0.0" width="162" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vhg-zK-Bg3" id="5Ap-V6-H5M"/>
+                                    <outlet property="delegate" destination="Vhg-zK-Bg3" id="D5K-GE-vpU"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iEE-SP-03p">
+                                <rect key="frame" x="268" y="240" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselected.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="selected.png"/>
+                                <connections>
+                                    <action selector="toggleFav:" destination="Vhg-zK-Bg3" eventType="touchUpInside" id="rF2-qN-ZUX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jqR-ax-SMM"/>
+                    <connections>
+                        <outlet property="eateryPhoto" destination="2NW-wT-AB7" id="9B8-7M-W69"/>
+                        <outlet property="favButton" destination="iEE-SP-03p" id="N4U-Tw-6ip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvv-UU-Zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2531" y="2030"/>
         </scene>
     </scenes>
     <resources>

@@ -6,19 +6,18 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "GymPoolDetailViewController.h"
+#import "FavoritesDetailViewController.h"
 
-@interface GymPoolDetailViewController () {
-        NSArray *dayOfWeek;
+@interface FavoritesDetailViewController () {
+    NSArray *dayOfWeek;
 }
 @end
 
-@implementation GymPoolDetailViewController
+@implementation FavoritesDetailViewController
 
-@synthesize gymPoolPhoto;
-@synthesize gympool;
+@synthesize eateryPhoto;
+@synthesize eatery;
 @synthesize favButton;
-@synthesize phoneLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,12 +42,12 @@
                  @"Sunday",
                  nil];
     
-    self.title = gympool.name;
-    self.gymPoolPhoto.file = gympool.imageFile;
-    self.phoneLabel.text = gympool.phone;
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:gympool.name]]) {
+    self.title = eatery.name;
+    self.eateryPhoto.file = eatery.imageFile;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:eatery.name]]) {
 		self.favButton.selected = YES;
 	}
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -79,7 +78,7 @@
     
     UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
     NSMutableString *hourText = [NSMutableString string];
-    NSArray* hours = [gympool.hours objectAtIndex:indexPath.row];
+    NSArray* hours = [eatery.hours objectAtIndex:indexPath.row];
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [hourText appendFormat:@"%@", [hours objectAtIndex: 0]];
     }
@@ -92,7 +91,7 @@
     hoursText.text = hourText;
     dayText.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0f];
     hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
-
+    
     return cell;
 }
 
@@ -101,23 +100,23 @@
         //...
         [sender setSelected:NO];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array removeObject:[NSString stringWithString:gympool.name]];
+		[array removeObject:[NSString stringWithString:eatery.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         //...
         [sender setSelected:YES];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array addObject:[NSString stringWithString:gympool.name]];
+		[array addObject:[NSString stringWithString:eatery.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
+        
     }
 }
 
 - (void)viewDidUnload
 {
-    [self setGymPoolPhoto:nil];
+    [self setEateryPhoto:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

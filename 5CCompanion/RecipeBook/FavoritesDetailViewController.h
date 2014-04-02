@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GymPool.h"
+#import "Eateries.h"
 
-@interface GymPoolDetailViewController : UIViewController {
+@interface FavoritesDetailViewController : UIViewController {
 	UIButton *favButton;
 }
 
 @property(retain) IBOutlet UIButton *favButton;
-@property (weak, nonatomic) IBOutlet PFImageView *gymPoolPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (nonatomic, strong) GymPool *gympool;
+@property (weak, nonatomic) IBOutlet PFImageView *eateryPhoto;
+@property (nonatomic, strong) Eateries *eatery;
 -(IBAction)toggleFav:(UIButton *)sender;
 
 @end
+

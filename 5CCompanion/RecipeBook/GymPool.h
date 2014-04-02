@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *name; // name of Business
 @property (nonatomic, strong) PFFile *imageFile; // image filename of business
 @property (nonatomic, strong) NSArray *hours; // hours
+@property (nonatomic, strong) NSString *phone; // phone number
 
 @end
