@@ -19,10 +19,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 	// Initialize table data
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self loadObjects];
+}
 
 - (void)viewDidUnload
 {
@@ -51,7 +54,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         
-        self.objectsPerPage = 100;
+        self.objectsPerPage = 50;
     }
     return self;
 }
@@ -59,6 +62,9 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    //[query whereKey:@"Class" equalTo:@"GymPool"];
+    NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
+    [query whereKey:@"name" containedIn:favoritesArray];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -99,12 +105,12 @@
     static NSString *simpleTableIdentifier = @"FavoritesCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    
     // Configure the cell
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[object objectForKey:@"name"]]) {
     PFFile *thumbnail = [object objectForKey:@"imageFile"];
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
     thumbnailImageView.image = [UIImage imageNamed:@"white.jpg"];
@@ -231,7 +237,7 @@
                 openLabel.backgroundColor = [UIColor redColor];
             }
     }
-    }
+    
     
     return cell;
 }

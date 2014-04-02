@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Eateries.h"
 
-@interface EateriesDetailViewController : UIViewController
+@interface EateriesDetailViewController : UIViewController {
+	UIButton *favButton;
+}
 
+@property(retain) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet PFImageView *eateryPhoto;
 @property (nonatomic, strong) Eateries *eatery;
+-(IBAction)toggleFav:(UIButton *)sender;
 
 @end

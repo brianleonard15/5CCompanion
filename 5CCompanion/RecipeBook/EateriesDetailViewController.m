@@ -17,6 +17,7 @@
 
 @synthesize eateryPhoto;
 @synthesize eatery;
+@synthesize favButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,6 +44,9 @@
     
     self.title = eatery.name;
     self.eateryPhoto.file = eatery.imageFile;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:eatery.name]]) {
+		self.favButton.selected = YES;
+	}
     
 }
 
@@ -91,6 +95,24 @@
     return cell;
 }
 
+-(IBAction)toggleFav:(UIButton *)sender {
+    if([sender isSelected]){
+        //...
+        [sender setSelected:NO];
+		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
+		[array removeObject:[NSString stringWithString:eatery.name]];
+		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        //...
+        [sender setSelected:YES];
+		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
+		[array addObject:[NSString stringWithString:eatery.name]];
+		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+}
 
 - (void)viewDidUnload
 {

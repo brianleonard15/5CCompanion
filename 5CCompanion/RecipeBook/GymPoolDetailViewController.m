@@ -99,14 +99,17 @@
         //...
         [sender setSelected:NO];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array removeObject:gympool.name];
+		[array removeObject:[NSString stringWithString:gympool.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         //...
         [sender setSelected:YES];
 		NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-		[array addObject:gympool.name];
+		[array addObject:[NSString stringWithString:gympool.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
     }
 }
 
