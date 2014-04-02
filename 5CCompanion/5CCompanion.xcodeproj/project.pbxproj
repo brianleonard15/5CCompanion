@@ -16,6 +16,8 @@
 		D72F05C818EB5EE9003176D7 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C618EB5EE9003176D7 /* unselected.png */; };
 		D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */; };
 		D72F05CE18EBFAEF003176D7 /* FavoritesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */; };
+		D72F05D618ECA967003176D7 /* TakeoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05D518ECA967003176D7 /* TakeoutViewController.m */; };
+		D72F05D918ECA9EA003176D7 /* TakeoutDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05D818ECA9EA003176D7 /* TakeoutDetailViewController.m */; };
 		D7C233DF18A6E0D30020A677 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233DE18A6E0D30020A677 /* Parse.framework */; };
 		D7C233E118A6E0FF0020A677 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */; };
 		D7C233E318A6E1040020A677 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E218A6E1040020A677 /* CFNetwork.framework */; };
@@ -51,6 +53,10 @@
 		D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		D72F05CC18EBFAEF003176D7 /* FavoritesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDetailViewController.h; sourceTree = "<group>"; };
 		D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDetailViewController.m; sourceTree = "<group>"; };
+		D72F05D418ECA967003176D7 /* TakeoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeoutViewController.h; sourceTree = "<group>"; };
+		D72F05D518ECA967003176D7 /* TakeoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeoutViewController.m; sourceTree = "<group>"; };
+		D72F05D718ECA9EA003176D7 /* TakeoutDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeoutDetailViewController.h; sourceTree = "<group>"; };
+		D72F05D818ECA9EA003176D7 /* TakeoutDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeoutDetailViewController.m; sourceTree = "<group>"; };
 		D7C233DE18A6E0D30020A677 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D7C233E218A6E1040020A677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -104,6 +110,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D72F05DA18ECA9FC003176D7 /* GymPool */ = {
+			isa = PBXGroup;
+			children = (
+				F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */,
+				F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */,
+				F419149C158D558600E54887 /* GymPoolDetailViewController.h */,
+				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
+			);
+			name = GymPool;
+			sourceTree = "<group>";
+		};
+		D72F05DB18ECAA07003176D7 /* Eateries */ = {
+			isa = PBXGroup;
+			children = (
+				93AE086718C2A432002C59B4 /* EateriesViewController.h */,
+				93AE086918C2A487002C59B4 /* EateriesViewController.m */,
+				93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */,
+				93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */,
+			);
+			name = Eateries;
+			sourceTree = "<group>";
+		};
+		D72F05DC18ECAA10003176D7 /* Takeout */ = {
+			isa = PBXGroup;
+			children = (
+				D72F05D418ECA967003176D7 /* TakeoutViewController.h */,
+				D72F05D518ECA967003176D7 /* TakeoutViewController.m */,
+				D72F05D718ECA9EA003176D7 /* TakeoutDetailViewController.h */,
+				D72F05D818ECA9EA003176D7 /* TakeoutDetailViewController.m */,
+			);
+			name = Takeout;
+			sourceTree = "<group>";
+		};
+		D72F05DD18ECAA18003176D7 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				D72F05C918EB64E4003176D7 /* FavoritesViewController.h */,
+				D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */,
+				D72F05CC18EBFAEF003176D7 /* FavoritesDetailViewController.h */,
+				D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
 		F4AA6C1C1589A2DF0093D97E = {
 			isa = PBXGroup;
 			children = (
@@ -148,20 +198,12 @@
 				F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */,
 				F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */,
 				F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */,
-				F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */,
-				F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */,
-				F419149C158D558600E54887 /* GymPoolDetailViewController.h */,
-				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
 				F447242515D78F07004A8C72 /* Place.h */,
 				F447242615D78F07004A8C72 /* Place.m */,
-				93AE086718C2A432002C59B4 /* EateriesViewController.h */,
-				93AE086918C2A487002C59B4 /* EateriesViewController.m */,
-				93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */,
-				93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */,
-				D72F05C918EB64E4003176D7 /* FavoritesViewController.h */,
-				D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */,
-				D72F05CC18EBFAEF003176D7 /* FavoritesDetailViewController.h */,
-				D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */,
+				D72F05DA18ECA9FC003176D7 /* GymPool */,
+				D72F05DB18ECAA07003176D7 /* Eateries */,
+				D72F05DC18ECAA10003176D7 /* Takeout */,
+				D72F05DD18ECAA18003176D7 /* Favorites */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
 			name = 5CCompanion;
@@ -254,8 +296,10 @@
 				93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */,
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
+				D72F05D918ECA9EA003176D7 /* TakeoutDetailViewController.m in Sources */,
 				D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */,
 				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
+				D72F05D618ECA967003176D7 /* TakeoutViewController.m in Sources */,
 				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
 				F447242715D78F07004A8C72 /* Place.m in Sources */,
 				D72F05CE18EBFAEF003176D7 /* FavoritesDetailViewController.m in Sources */,

@@ -6,26 +6,29 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "FavoritesViewController.h"
-#import "FavoritesDetailViewController.h"
+#import "TakeoutViewController.h"
+#import "TakeoutDetailViewController.h"
 #import "Place.h"
 
-@interface FavoritesViewController ()
+@interface TakeoutViewController ()
 
 @end
 
-@implementation FavoritesViewController
+@implementation TakeoutViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //In UIViewController
+    UITabBarController *tabBarController = self.tabBarController;
+    
+    //Suppose you want to change the 1st (0th) tab bar image
+    UITabBarItem * tabItem = [tabBarController.tabBar.items objectAtIndex: 0];
+    tabItem.image = [UIImage imageNamed:@"EateriesIcon.png"];
+    
 	// Initialize table data
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [self loadObjects];
-}
 
 - (void)viewDidUnload
 {
@@ -48,13 +51,14 @@
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
         
+        
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         
-        self.objectsPerPage = 50;
+        self.objectsPerPage = 100;
     }
     return self;
 }
@@ -62,8 +66,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
-    [query whereKey:@"name" containedIn:favoritesArray];
+    [query whereKey:@"Class" equalTo:@"Takeout"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -101,10 +104,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"FavoritesCell";
+    static NSString *simpleTableIdentifier = @"TakeoutCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
@@ -237,9 +239,10 @@
             }
     }
     
-    
     return cell;
 }
+
+
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
@@ -249,14 +252,16 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showFavoritesDetail"]) {
+    if ([segue.identifier isEqualToString:@"showTakeoutDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        FavoritesDetailViewController *destViewController = segue.destinationViewController;
+        TakeoutDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         Place *place = [[Place alloc] init];
         place.name = [object objectForKey:@"name"];
+        NSLog(@"%@", place.name);
         place.imageFile = [object objectForKey:@"imageFile"];
+        place.phone = [object objectForKey:@"Phone"];
         place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
         destViewController.place = place;
     }
