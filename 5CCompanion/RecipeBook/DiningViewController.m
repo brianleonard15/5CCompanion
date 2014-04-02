@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "EateriesViewController.h"
-#import "EateriesDetailViewController.h"
+#import "DiningViewController.h"
+#import "DiningDetailViewController.h"
 #import "Place.h"
 
-@interface EateriesViewController ()
+@interface DiningViewController ()
 
 @end
 
-@implementation EateriesViewController
+@implementation DiningViewController
 
 - (void)viewDidLoad
 {
@@ -59,7 +59,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Eatery"];
+    [query whereKey:@"Class" equalTo:@"Dining"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -95,9 +95,15 @@
     return date;
 }
 
+- (BOOL)isWeekend:(NSString *)day
+{
+    NSArray *weekend = @[@"Saturday", @"Sunday"];
+    return [weekend containsObject: day];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"EateriesCell";
+    static NSString *simpleTableIdentifier = @"DiningCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -136,7 +142,22 @@
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
     
-    NSArray *hours = [object objectForKey: dayOfTheWeek];
+    BOOL isWeekend = [self isWeekend:dayOfTheWeek];
+    
+    NSMutableArray *hours;
+    
+    if (isWeekend) {
+        hours = [[[object objectForKey: @"weekendBrunch"] arrayByAddingObjectsFromArray:[object objectForKey: @"weekendDinner"]]mutableCopy];
+    }
+    else {
+        hours = [[[[object objectForKey: @"breakfastTime"] arrayByAddingObjectsFromArray:[object objectForKey: @"lunchTime"]] arrayByAddingObjectsFromArray: [object objectForKey: @"dinnerTime"]]mutableCopy];
+    }
+    
+    [hours removeObject:@"Closed"];
+    if (hours.count == 0) {
+        [hours addObject:@"Closed"];
+    }
+    NSLog(@"%@", hours[0]);
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
@@ -148,7 +169,7 @@
         if (hours.count == 4) {
             // NSString *strOpenTime = [hours objectAtIndex: 0];
             NSString *strCloseTime = [hours objectAtIndex: 1];
-           //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
             // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
             // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
@@ -214,22 +235,22 @@
                     closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
                 }
             }
-
+            
         }
         
         NSDate *now = [NSDate date];
         
         if (([now compare:openTime] != NSOrderedAscending &&
-            [now compare:closeTime] != NSOrderedDescending) ||
+             [now compare:closeTime] != NSOrderedDescending) ||
             (openTime2 && closeTime2 &&
-            [now compare:openTime2] != NSOrderedAscending &&
-            [now compare:closeTime2] != NSOrderedDescending)) {
-            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-        } else {
-            currentHoursLabel.textColor = [UIColor redColor];
-            openLabel.backgroundColor = [UIColor redColor];
-        }
+             [now compare:openTime2] != NSOrderedAscending &&
+             [now compare:closeTime2] != NSOrderedDescending)) {
+                currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            } else {
+                currentHoursLabel.textColor = [UIColor redColor];
+                openLabel.backgroundColor = [UIColor redColor];
+            }
     }
     
     return cell;
@@ -237,14 +258,14 @@
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-
+    
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showEateriesDetail"]) {
+    if ([segue.identifier isEqualToString:@"showDiningDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        EateriesDetailViewController *destViewController = segue.destinationViewController;
+        DiningDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         Place *place = [[Place alloc] init];

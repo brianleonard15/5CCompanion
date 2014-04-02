@@ -243,8 +243,6 @@
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-    
-    NSLog(@"error: %@", [error localizedDescription]);
 }
 
 

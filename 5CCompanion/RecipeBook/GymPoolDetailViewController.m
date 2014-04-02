@@ -45,7 +45,6 @@
     
     self.title = place.name;
     self.placePhoto.file = place.imageFile;
-    NSLog(@"%@", place.phone);
     self.phoneLabel.text = place.phone;
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;

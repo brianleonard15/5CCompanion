@@ -6,19 +6,18 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "TakeoutDetailViewController.h"
+#import "DiningDetailViewController.h"
 
-@interface TakeoutDetailViewController () {
+@interface DiningDetailViewController () {
     NSArray *dayOfWeek;
 }
 @end
 
-@implementation TakeoutDetailViewController
+@implementation DiningDetailViewController
 
 @synthesize placePhoto;
 @synthesize place;
 @synthesize favButton;
-@synthesize phoneLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,10 +44,10 @@
     
     self.title = place.name;
     self.placePhoto.file = place.imageFile;
-    self.phoneLabel.text = place.phone;
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;
 	}
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -20,6 +20,8 @@
 		D72F05D918ECA9EA003176D7 /* TakeoutDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05D818ECA9EA003176D7 /* TakeoutDetailViewController.m */; };
 		D72F05E018ECB086003176D7 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05DF18ECB086003176D7 /* OtherViewController.m */; };
 		D72F05E318ECB0AA003176D7 /* OtherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E218ECB0AA003176D7 /* OtherDetailViewController.m */; };
+		D72F05E718ECB741003176D7 /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E618ECB741003176D7 /* DiningViewController.m */; };
+		D72F05EA18ECB752003176D7 /* DiningDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E918ECB752003176D7 /* DiningDetailViewController.m */; };
 		D7C233DF18A6E0D30020A677 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233DE18A6E0D30020A677 /* Parse.framework */; };
 		D7C233E118A6E0FF0020A677 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */; };
 		D7C233E318A6E1040020A677 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E218A6E1040020A677 /* CFNetwork.framework */; };
@@ -63,6 +65,10 @@
 		D72F05DF18ECB086003176D7 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		D72F05E118ECB0AA003176D7 /* OtherDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherDetailViewController.h; path = ../OtherDetailViewController.h; sourceTree = "<group>"; };
 		D72F05E218ECB0AA003176D7 /* OtherDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherDetailViewController.m; path = ../OtherDetailViewController.m; sourceTree = "<group>"; };
+		D72F05E518ECB741003176D7 /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
+		D72F05E618ECB741003176D7 /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
+		D72F05E818ECB752003176D7 /* DiningDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningDetailViewController.h; sourceTree = "<group>"; };
+		D72F05E918ECB752003176D7 /* DiningDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningDetailViewController.m; sourceTree = "<group>"; };
 		D7C233DE18A6E0D30020A677 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D7C233E218A6E1040020A677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -171,6 +177,17 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		D72F05EB18ECB77A003176D7 /* Dining */ = {
+			isa = PBXGroup;
+			children = (
+				D72F05E518ECB741003176D7 /* DiningViewController.h */,
+				D72F05E618ECB741003176D7 /* DiningViewController.m */,
+				D72F05E818ECB752003176D7 /* DiningDetailViewController.h */,
+				D72F05E918ECB752003176D7 /* DiningDetailViewController.m */,
+			);
+			name = Dining;
+			sourceTree = "<group>";
+		};
 		F4AA6C1C1589A2DF0093D97E = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +238,7 @@
 				D72F05DB18ECAA07003176D7 /* Eateries */,
 				D72F05DC18ECAA10003176D7 /* Takeout */,
 				D72F05E418ECB0D4003176D7 /* Other */,
+				D72F05EB18ECB77A003176D7 /* Dining */,
 				D72F05DD18ECAA18003176D7 /* Favorites */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
@@ -315,8 +333,10 @@
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
 				D72F05D918ECA9EA003176D7 /* TakeoutDetailViewController.m in Sources */,
+				D72F05E718ECB741003176D7 /* DiningViewController.m in Sources */,
 				D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */,
 				D72F05E318ECB0AA003176D7 /* OtherDetailViewController.m in Sources */,
+				D72F05EA18ECB752003176D7 /* DiningDetailViewController.m in Sources */,
 				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
 				D72F05D618ECA967003176D7 /* TakeoutViewController.m in Sources */,
 				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
