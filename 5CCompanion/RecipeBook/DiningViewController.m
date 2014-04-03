@@ -66,15 +66,6 @@
 
 // Checks if the time is before 3:00 AM
 
-- (BOOL)before3am
-{
-    NSCalendar *gregorianCalender = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalender components:NSHourCalendarUnit fromDate:[NSDate date]];
-    if([components hour] <= 3)
-        return YES;
-    return NO;
-    
-}
 
 // convert to a NSDate from the current day
 - (NSDate *)todaysDateFromAMPMString:(NSString *)time
@@ -128,16 +119,7 @@
     // Some places open past 12:00 am. For example, Jay's Place opens until 2 AM on Saturdays, and don't
     // want the app to show Jay's Sunday hours when it is between 12 and 2 AM on Sunday.
     
-    if ([self before3am]) {
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDate *today = [NSDate date];
-        
-        NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
-        dayComponent.day = -1;
-        
-        NSDate *yesterday = [gregorian dateByAddingComponents:dayComponent toDate:today options:0];
-        day = yesterday;
-    }
+
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
@@ -154,10 +136,11 @@
     }
     
     [hours removeObject:@"Closed"];
+    
     if (hours.count == 0) {
         [hours addObject:@"Closed"];
     }
-    NSLog(@"%@", hours[0]);
+    
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
@@ -167,18 +150,36 @@
     }
     else {
         if (hours.count == 4) {
-            // NSString *strOpenTime = [hours objectAtIndex: 0];
             NSString *strCloseTime = [hours objectAtIndex: 1];
-            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
-            // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
-            // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
             NSDate *now = [NSDate date];
-            if ([now compare:closeTime] != NSOrderedAscending || [self before3am]) {
+            if ([now compare:closeTime] != NSOrderedAscending) {
                 [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
             }
             else {
                 [currentHours setString:@""];
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+            }
+        }
+        else if (hours.count == 6) {
+            NSString *strCloseTime = [hours objectAtIndex: 1];
+            NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+            NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+            NSString *strCloseTime3 = [hours objectAtIndex: 5];
+            NSDate *closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+            NSDate *now = [NSDate date];
+            if ([now compare:closeTime] == NSOrderedAscending) {
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+            }
+            else if ([now compare:closeTime] != NSOrderedAscending && [now compare:closeTime2] == NSOrderedAscending) {
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+            }
+            else if ([now compare:closeTime3] == NSOrderedAscending) {
+                [currentHours setString:@""];
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 4], [hours objectAtIndex: 5]];
+            }
+            else {
                 [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
             }
         }
@@ -198,19 +199,10 @@
         NSDate *closeTime2;
         
         if ([closeTime compare:openTime] != NSOrderedDescending) {
-            // closeTime is less than or equal to openTime, so add one day:
-            if([self before3am]) {
-                NSCalendar *cal = [NSCalendar currentCalendar];
-                NSDateComponents *comp = [[NSDateComponents alloc] init];
-                [comp setDay:-1];
-                openTime = [cal dateByAddingComponents:comp toDate:openTime options:0];
-            }
-            else {
                 NSCalendar *cal = [NSCalendar currentCalendar];
                 NSDateComponents *comp = [[NSDateComponents alloc] init];
                 [comp setDay:1];
                 closeTime = [cal dateByAddingComponents:comp toDate:closeTime options:0];
-            }
         }
         
         if (hours.count == 4) {
@@ -222,18 +214,10 @@
             
             if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
                 // closeTime is less than or equal to openTime, so add one day:
-                if([self before3am]) {
-                    NSCalendar *cal = [NSCalendar currentCalendar];
-                    NSDateComponents *comp = [[NSDateComponents alloc] init];
-                    [comp setDay:-1];
-                    openTime2 = [cal dateByAddingComponents:comp toDate:openTime2 options:0];
-                }
-                else {
                     NSCalendar *cal = [NSCalendar currentCalendar];
                     NSDateComponents *comp = [[NSDateComponents alloc] init];
                     [comp setDay:1];
                     closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
-                }
             }
             
         }
