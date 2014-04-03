@@ -275,12 +275,20 @@
                                     <action selector="toggleFav:" destination="dXl-px-riG" eventType="touchUpInside" id="lAT-7A-Bsm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="BXg-nh-rY0">
+                                <rect key="frame" x="128" y="233" width="132" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="CAb-Td-CNu"/>
                     <connections>
                         <outlet property="favButton" destination="YdR-xI-9iq" id="Uqz-gF-27E"/>
+                        <outlet property="phoneLabel" destination="BXg-nh-rY0" id="OQr-mL-Q6Z"/>
                         <outlet property="placePhoto" destination="WLM-xl-yyY" id="YcI-bf-rOv"/>
                     </connections>
                 </viewController>
@@ -497,12 +505,20 @@
                                     <action selector="toggleFav:" destination="Vhg-zK-Bg3" eventType="touchUpInside" id="rF2-qN-ZUX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="tIk-JS-9gQ">
+                                <rect key="frame" x="128" y="233" width="132" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jqR-ax-SMM"/>
                     <connections>
                         <outlet property="favButton" destination="iEE-SP-03p" id="N4U-Tw-6ip"/>
+                        <outlet property="phoneLabel" destination="tIk-JS-9gQ" id="SoJ-qL-pRT"/>
                         <outlet property="placePhoto" destination="2NW-wT-AB7" id="u5S-UZ-BIV"/>
                     </connections>
                 </viewController>
@@ -936,7 +952,7 @@
                     <navigationItem key="navigationItem" id="XPO-37-7mc"/>
                     <connections>
                         <outlet property="favButton" destination="Ieg-5d-K2U" id="Y3T-Ox-rh2"/>
-                        <outlet property="phoneLabel" destination="EMf-gN-Fcc" id="0UU-rt-IDa"/>
+                        <outlet property="phoneLabel" destination="EMf-gN-Fcc" id="haj-Ld-vv4"/>
                         <outlet property="placePhoto" destination="Fxs-JJ-5Na" id="avI-X5-l3b"/>
                     </connections>
                 </viewController>

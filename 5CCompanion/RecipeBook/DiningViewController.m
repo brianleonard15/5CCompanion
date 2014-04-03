@@ -197,6 +197,8 @@
         NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
         NSDate *openTime2;
         NSDate *closeTime2;
+        NSDate *openTime3;
+        NSDate *closeTime3;
         
         if ([closeTime compare:openTime] != NSOrderedDescending) {
                 NSCalendar *cal = [NSCalendar currentCalendar];
@@ -222,13 +224,36 @@
             
         }
         
+        if (hours.count == 6) {
+            NSString *strOpenTime2 = [hours objectAtIndex: 2];
+            NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            NSString *strOpenTime3 = [hours objectAtIndex: 4];
+            NSString *strCloseTime3 = [hours objectAtIndex: 5];
+            
+            openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+            closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+            openTime3 = [self todaysDateFromAMPMString:strOpenTime3];
+            closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+            
+            if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                // closeTime is less than or equal to openTime, so add one day:
+                NSCalendar *cal = [NSCalendar currentCalendar];
+                NSDateComponents *comp = [[NSDateComponents alloc] init];
+                [comp setDay:1];
+                closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
+            }
+        }
+        
         NSDate *now = [NSDate date];
         
         if (([now compare:openTime] != NSOrderedAscending &&
              [now compare:closeTime] != NSOrderedDescending) ||
             (openTime2 && closeTime2 &&
              [now compare:openTime2] != NSOrderedAscending &&
-             [now compare:closeTime2] != NSOrderedDescending)) {
+             [now compare:closeTime2] != NSOrderedDescending) ||
+            (openTime3 && closeTime3 &&
+             [now compare:openTime3] != NSOrderedAscending &&
+             [now compare:closeTime3] != NSOrderedDescending)) {
                 currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
                 openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
             } else {
@@ -255,7 +280,7 @@
         Place *place = [[Place alloc] init];
         place.name = [object objectForKey:@"name"];
         place.imageFile = [object objectForKey:@"imageFile"];
-        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
+        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"breakfastTime"], [object objectForKey:@"lunchTime"], [object objectForKey:@"dinnerTime"], [object objectForKey:@"weekendBrunch"], [object objectForKey:@"weekendDinner"], nil];
         destViewController.place = place;
     }
 }

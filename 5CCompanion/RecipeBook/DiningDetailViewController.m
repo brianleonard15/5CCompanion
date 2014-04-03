@@ -33,17 +33,16 @@
 {
     [super viewDidLoad];
     dayOfWeek = [[NSArray alloc] initWithObjects:
-                 @"Monday",
-                 @"Tuesday",
-                 @"Wednesday",
-                 @"Thursday",
-                 @"Friday",
-                 @"Saturday",
-                 @"Sunday",
+                 @"Breakfast",
+                 @"Lunch",
+                 @"Dinner",
+                 @"Weekend Brunch",
+                 @"Weekend Dinner",
                  nil];
     
     self.title = place.name;
     self.placePhoto.file = place.imageFile;
+    self.phoneLabel.text = place.phone;
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;
 	}
@@ -86,6 +85,9 @@
         [hourText appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
         if (hours.count == 4) {
             [hourText appendFormat:@"\n%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+        }
+        if (hours.count == 6) {
+            [hourText appendFormat:@"\n%@ - %@", [hours objectAtIndex: 4], [hours objectAtIndex: 5]];
         }
     }
     hoursText.text = hourText;
