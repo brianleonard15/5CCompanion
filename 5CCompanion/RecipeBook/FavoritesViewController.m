@@ -99,6 +99,7 @@
     return date;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     static NSString *simpleTableIdentifier = @"FavoritesCell";
@@ -108,6 +109,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
+    
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"imageFile"];
