@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@interface GymPoolDetailViewController : UIViewController {
+@interface FavoritesDetailViewController : UIViewController {
 	UIButton *favButton;
 }
 
@@ -20,3 +20,4 @@
 -(IBAction)toggleFav:(UIButton *)sender;
 
 @end
+

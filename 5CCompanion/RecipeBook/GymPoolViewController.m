@@ -8,7 +8,7 @@
 
 #import "GymPoolViewController.h"
 #import "GymPoolDetailViewController.h"
-#import "GymPool.h"
+#import "Place.h"
 
 @interface GymPoolViewController ()
 
@@ -46,10 +46,11 @@
     self = [super initWithCoder:aCoder];
     if (self) {
         // The className to query on
-        self.parseClassName = @"Gym";
+        self.parseClassName = @"Places";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
+        
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -57,7 +58,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         
-        self.objectsPerPage = 10;
+        self.objectsPerPage = 100;
     }
     return self;
 }
@@ -65,6 +66,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:@"Class" equalTo:@"GymPool"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -244,8 +246,6 @@
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-    
-    NSLog(@"error: %@", [error localizedDescription]);
 }
 
 
@@ -255,11 +255,12 @@
         GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        GymPool *gympool = [[GymPool alloc] init];
-        gympool.name = [object objectForKey:@"name"];
-        gympool.imageFile = [object objectForKey:@"imageFile"];
-        gympool.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        destViewController.gympool = gympool;
+        Place *place = [[Place alloc] init];
+        place.name = [object objectForKey:@"name"];
+        place.imageFile = [object objectForKey:@"imageFile"];
+        place.phone = [object objectForKey:@"Phone"];
+        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
+        destViewController.place = place;
     }
 }
 

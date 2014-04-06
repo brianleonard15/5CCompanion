@@ -6,23 +6,26 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "EateriesViewController.h"
-#import "EateriesDetailViewController.h"
+#import "FavoritesViewController.h"
+#import "FavoritesDetailViewController.h"
 #import "Place.h"
 
-@interface EateriesViewController ()
+@interface FavoritesViewController ()
 
 @end
 
-@implementation EateriesViewController
+@implementation FavoritesViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 	// Initialize table data
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self loadObjects];
+}
 
 - (void)viewDidUnload
 {
@@ -51,7 +54,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         
-        self.objectsPerPage = 100;
+        self.objectsPerPage = 50;
     }
     return self;
 }
@@ -59,7 +62,8 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Eatery"];
+    NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
+    [query whereKey:@"name" containedIn:favoritesArray];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -95,14 +99,18 @@
     return date;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"EateriesCell";
+    static NSString *simpleTableIdentifier = @"FavoritesCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
+    
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"imageFile"];
@@ -148,7 +156,7 @@
         if (hours.count == 4) {
             // NSString *strOpenTime = [hours objectAtIndex: 0];
             NSString *strCloseTime = [hours objectAtIndex: 1];
-           //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
             // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
             // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
@@ -214,37 +222,37 @@
                     closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
                 }
             }
-
+            
         }
         
         NSDate *now = [NSDate date];
         
         if (([now compare:openTime] != NSOrderedAscending &&
-            [now compare:closeTime] != NSOrderedDescending) ||
+             [now compare:closeTime] != NSOrderedDescending) ||
             (openTime2 && closeTime2 &&
-            [now compare:openTime2] != NSOrderedAscending &&
-            [now compare:closeTime2] != NSOrderedDescending)) {
-            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-        } else {
-            currentHoursLabel.textColor = [UIColor redColor];
-            openLabel.backgroundColor = [UIColor redColor];
-        }
+             [now compare:openTime2] != NSOrderedAscending &&
+             [now compare:closeTime2] != NSOrderedDescending)) {
+                currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            } else {
+                currentHoursLabel.textColor = [UIColor redColor];
+                openLabel.backgroundColor = [UIColor redColor];
+            }
     }
+    
     
     return cell;
 }
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showEateriesDetail"]) {
+    if ([segue.identifier isEqualToString:@"showFavoritesDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        EateriesDetailViewController *destViewController = segue.destinationViewController;
+        FavoritesDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         Place *place = [[Place alloc] init];

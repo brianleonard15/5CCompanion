@@ -6,19 +6,25 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "EateriesViewController.h"
-#import "EateriesDetailViewController.h"
+#import "TakeoutViewController.h"
+#import "TakeoutDetailViewController.h"
 #import "Place.h"
 
-@interface EateriesViewController ()
+@interface TakeoutViewController ()
 
 @end
 
-@implementation EateriesViewController
+@implementation TakeoutViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //In UIViewController
+    UITabBarController *tabBarController = self.tabBarController;
+    
+    //Suppose you want to change the 1st (0th) tab bar image
+    UITabBarItem * tabItem = [tabBarController.tabBar.items objectAtIndex: 0];
+    tabItem.image = [UIImage imageNamed:@"EateriesIcon.png"];
     
 	// Initialize table data
 }
@@ -45,6 +51,7 @@
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"name";
         
+        
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
         
@@ -59,7 +66,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Eatery"];
+    [query whereKey:@"Class" equalTo:@"Takeout"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     return query;
 }
@@ -97,7 +104,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"EateriesCell";
+    static NSString *simpleTableIdentifier = @"TakeoutCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -148,7 +155,7 @@
         if (hours.count == 4) {
             // NSString *strOpenTime = [hours objectAtIndex: 0];
             NSString *strCloseTime = [hours objectAtIndex: 1];
-           //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
             // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
             // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
@@ -214,42 +221,44 @@
                     closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
                 }
             }
-
+            
         }
         
         NSDate *now = [NSDate date];
         
         if (([now compare:openTime] != NSOrderedAscending &&
-            [now compare:closeTime] != NSOrderedDescending) ||
+             [now compare:closeTime] != NSOrderedDescending) ||
             (openTime2 && closeTime2 &&
-            [now compare:openTime2] != NSOrderedAscending &&
-            [now compare:closeTime2] != NSOrderedDescending)) {
-            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-        } else {
-            currentHoursLabel.textColor = [UIColor redColor];
-            openLabel.backgroundColor = [UIColor redColor];
-        }
+             [now compare:openTime2] != NSOrderedAscending &&
+             [now compare:closeTime2] != NSOrderedDescending)) {
+                currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            } else {
+                currentHoursLabel.textColor = [UIColor redColor];
+                openLabel.backgroundColor = [UIColor redColor];
+            }
     }
     
     return cell;
 }
+
+
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showEateriesDetail"]) {
+    if ([segue.identifier isEqualToString:@"showTakeoutDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        EateriesDetailViewController *destViewController = segue.destinationViewController;
+        TakeoutDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         Place *place = [[Place alloc] init];
         place.name = [object objectForKey:@"name"];
         place.imageFile = [object objectForKey:@"imageFile"];
+        place.phone = [object objectForKey:@"Phone"];
         place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
         destViewController.place = place;
     }

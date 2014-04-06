@@ -6,12 +6,13 @@
 //
 //
 
-#import "Eateries.h"
+#import "Place.h"
 
-@implementation Eateries
+@implementation Place
 
 @synthesize name;
 @synthesize imageFile;
 @synthesize hours;
+@synthesize phone;
 
 @end

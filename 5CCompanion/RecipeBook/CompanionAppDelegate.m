@@ -16,6 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults setObject:[NSArray array] forKey:@"favorites"];
     
     //color the navigation bar pink!
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xFF99FF)];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@interface GymPoolDetailViewController : UIViewController {
+@interface TakeoutDetailViewController : UIViewController {
 	UIButton *favButton;
 }
 

@@ -6,19 +6,18 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "GymPoolDetailViewController.h"
+#import "FavoritesDetailViewController.h"
 
-@interface GymPoolDetailViewController () {
-        NSArray *dayOfWeek;
+@interface FavoritesDetailViewController () {
+    NSArray *dayOfWeek;
 }
 @end
 
-@implementation GymPoolDetailViewController
+@implementation FavoritesDetailViewController
 
 @synthesize placePhoto;
 @synthesize place;
 @synthesize favButton;
-@synthesize phoneLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,6 +48,7 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;
 	}
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -92,7 +92,7 @@
     hoursText.text = hourText;
     dayText.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0f];
     hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
-
+    
     return cell;
 }
 
@@ -111,7 +111,7 @@
 		[array addObject:[NSString stringWithString:place.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
+        
     }
 }
 

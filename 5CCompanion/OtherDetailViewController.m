@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "GymPoolDetailViewController.h"
+#import "OtherDetailViewController.h"
 
-@interface GymPoolDetailViewController () {
-        NSArray *dayOfWeek;
+@interface OtherDetailViewController () {
+    NSArray *dayOfWeek;
 }
 @end
 
-@implementation GymPoolDetailViewController
+@implementation OtherDetailViewController
 
 @synthesize placePhoto;
 @synthesize place;
@@ -92,7 +92,7 @@
     hoursText.text = hourText;
     dayText.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0f];
     hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
-
+    
     return cell;
 }
 
@@ -111,7 +111,7 @@
 		[array addObject:[NSString stringWithString:place.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
+        
     }
 }
 
