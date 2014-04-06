@@ -66,7 +66,7 @@
         <scene sceneID="8pE-ft-xHi">
             <objects>
                 <navigationController definesPresentationContext="YES" id="3eg-1w-e9S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Eateries" id="qg3-1U-L6R"/>
+                    <tabBarItem key="tabBarItem" title="Eateries" image="EateriesIcon.png" id="qg3-1U-L6R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6X-PU-NA8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -191,7 +191,9 @@
         <scene sceneID="4Zk-6Q-LHM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="IbL-2h-vvy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gym/Pool" image="Default.png" id="deF-lK-EPb"/>
+                    <tabBarItem key="tabBarItem" title="Gym/Pool" image="Gym Pool Icon.png" id="deF-lK-EPb">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AUq-aU-pCS">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -509,7 +511,9 @@
         <scene sceneID="10V-p7-TCF">
             <objects>
                 <navigationController definesPresentationContext="YES" id="fAd-3e-CTm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Takeout" id="ODo-zx-04Q"/>
+                    <tabBarItem key="tabBarItem" title="Takeout" image="Delivery Icon.png" id="ODo-zx-04Q">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eLM-Zq-ZeZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -827,7 +831,7 @@
         <scene sceneID="LPZ-AA-Xqz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="wLf-aL-auS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dining" id="6zi-jC-LGt"/>
+                    <tabBarItem key="tabBarItem" title="Dining" image="Dining Icon.png" id="6zi-jC-LGt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PM6-mb-BNR">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -984,7 +988,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="16" height="16"/>
+        <image name="Delivery Icon.png" width="64" height="64"/>
+        <image name="Dining Icon.png" width="64" height="64"/>
+        <image name="EateriesIcon.png" width="30" height="30"/>
+        <image name="Gym Pool Icon.png" width="64" height="64"/>
         <image name="selected.png" width="42" height="40"/>
         <image name="unselected.png" width="42" height="40"/>
     </resources>

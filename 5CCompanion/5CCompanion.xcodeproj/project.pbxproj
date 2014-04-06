@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9338481618F2082B008F6967 /* Delivery Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481518F2082B008F6967 /* Delivery Icon.png */; };
+		9338481818F20A22008F6967 /* Gym Pool Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481718F20A22008F6967 /* Gym Pool Icon.png */; };
+		9338481A18F20B79008F6967 /* Dining Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481918F20B79008F6967 /* Dining Icon.png */; };
+		9338481C18F20D57008F6967 /* 5C Companion 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481B18F20D57008F6967 /* 5C Companion 120.png */; };
 		9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9376818918CA6C3900A5BEB8 /* EateriesIcon.png */; };
 		93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE086718C2A432002C59B4 /* EateriesViewController.h */; };
 		93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* EateriesViewController.m */; };
@@ -45,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9338481518F2082B008F6967 /* Delivery Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delivery Icon.png"; sourceTree = "<group>"; };
+		9338481718F20A22008F6967 /* Gym Pool Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gym Pool Icon.png"; sourceTree = "<group>"; };
+		9338481918F20B79008F6967 /* Dining Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dining Icon.png"; sourceTree = "<group>"; };
+		9338481B18F20D57008F6967 /* 5C Companion 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5C Companion 120.png"; sourceTree = "<group>"; };
 		9376818918CA6C3900A5BEB8 /* EateriesIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EateriesIcon.png; sourceTree = "<group>"; };
 		93AE086718C2A432002C59B4 /* EateriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesViewController.h; sourceTree = "<group>"; };
 		93AE086918C2A487002C59B4 /* EateriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesViewController.m; sourceTree = "<group>"; };
@@ -250,7 +258,11 @@
 			isa = PBXGroup;
 			children = (
 				D72F05C518EB5EE9003176D7 /* selected.png */,
+				9338481718F20A22008F6967 /* Gym Pool Icon.png */,
+				9338481918F20B79008F6967 /* Dining Icon.png */,
+				9338481B18F20D57008F6967 /* 5C Companion 120.png */,
 				D72F05C618EB5EE9003176D7 /* unselected.png */,
+				9338481518F2082B008F6967 /* Delivery Icon.png */,
 				9376818918CA6C3900A5BEB8 /* EateriesIcon.png */,
 				F4AA6C331589A2DF0093D97E /* 5CCompanion-Info.plist */,
 				F4AA6C341589A2DF0093D97E /* InfoPlist.strings */,
@@ -317,6 +329,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */,
+				9338481818F20A22008F6967 /* Gym Pool Icon.png in Resources */,
+				9338481C18F20D57008F6967 /* 5C Companion 120.png in Resources */,
+				9338481A18F20B79008F6967 /* Dining Icon.png in Resources */,
+				9338481618F2082B008F6967 /* Delivery Icon.png in Resources */,
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
 				93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */,
 				D72F05C718EB5EE9003176D7 /* selected.png in Resources */,
