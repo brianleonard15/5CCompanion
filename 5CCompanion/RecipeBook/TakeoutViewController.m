@@ -19,12 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //In UIViewController
-    UITabBarController *tabBarController = self.tabBarController;
-    
-    //Suppose you want to change the 1st (0th) tab bar image
-    UITabBarItem * tabItem = [tabBarController.tabBar.items objectAtIndex: 0];
-    tabItem.image = [UIImage imageNamed:@"EateriesIcon.png"];
+
     
 	// Initialize table data
 }

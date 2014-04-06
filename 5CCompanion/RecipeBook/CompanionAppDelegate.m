@@ -34,26 +34,7 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"zS4e8Py8ydWl1w4K5cy4SRTDea2QlxM8cl33MoKZ" clientKey:@"dnQazrEcDSyf3JksHvUuxJuiRGBTxJ4NhSKPdSHv"];
     return YES;
-    
-    //custom tab icon
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-    
-    tabBarItem1.title = @"Gyms";
-    tabBarItem2.title = @"Eateries";
-    tabBarItem3.title = @"My Plan";
-    tabBarItem4.title = @"Settings";
-    
-    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
-    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
-    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
-    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"EateriesIcon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"EateriesIcon.png"]];
-    
-    return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
