@@ -177,7 +177,6 @@
                     <connections>
                         <segue destination="IbL-2h-vvy" kind="relationship" relationship="viewControllers" id="owq-jE-943"/>
                         <segue destination="3eg-1w-e9S" kind="relationship" relationship="viewControllers" id="N44-od-XTe"/>
-                        <segue destination="fAd-3e-CTm" kind="relationship" relationship="viewControllers" id="Rew-gO-Cag"/>
                         <segue destination="wLf-aL-auS" kind="relationship" relationship="viewControllers" id="sNo-n0-0X3"/>
                         <segue destination="toY-I0-Ggm" kind="relationship" relationship="viewControllers" id="nHC-su-RbW"/>
                         <segue destination="LiN-Ry-tJv" kind="relationship" relationship="viewControllers" id="bay-n7-3V4"/>
@@ -507,172 +506,11 @@
             </objects>
             <point key="canvasLocation" x="2527" y="3878"/>
         </scene>
-        <!--Navigation Controller - Takeout-->
-        <scene sceneID="10V-p7-TCF">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="fAd-3e-CTm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Takeout" image="Delivery Icon.png" id="ODo-zx-04Q">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eLM-Zq-ZeZ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="rmb-hH-hie" kind="relationship" relationship="rootViewController" id="ZuX-sL-wFP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Nd-li-qGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1501" y="1966"/>
-        </scene>
-        <!--Takeout Detail View Controller-->
-        <scene sceneID="46r-t4-z3n">
-            <objects>
-                <viewController id="eUK-gO-xIO" customClass="TakeoutDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="go4-Sr-Rbp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ur1-E6-WQS" customClass="PFImageView">
-                                <rect key="frame" x="20" y="64" width="280" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" id="jAT-KF-730">
-                                <rect key="frame" x="20" y="233" width="123" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pd8-0j-Fve">
-                                <rect key="frame" x="20" y="270" width="280" height="156"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hoursCell" id="2xw-r9-czc">
-                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2xw-r9-czc" id="RzQ-ya-5hj">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="scaleToFill" editable="NO" text="Monday" selectable="NO" id="Pj5-eT-gv8">
-                                                    <rect key="frame" x="0.0" y="6" width="91" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="201" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="9AM to 10PM" selectable="NO" id="yOw-eC-0ZK">
-                                                    <rect key="frame" x="110" y="6" width="162" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="eUK-gO-xIO" id="d1d-QG-sAv"/>
-                                    <outlet property="delegate" destination="eUK-gO-xIO" id="3z3-YA-fdb"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dmL-Ef-AWV">
-                                <rect key="frame" x="278" y="243" width="24" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="unselected.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" image="selected.png"/>
-                                <connections>
-                                    <action selector="toggleFav:" destination="eUK-gO-xIO" eventType="touchUpInside" id="B4j-bz-Wqb"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="555-555-5555" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="zVv-Fq-n1Q">
-                                <rect key="frame" x="181" y="239" width="87" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eZT-OP-gLd"/>
-                    <connections>
-                        <outlet property="favButton" destination="dmL-Ef-AWV" id="jr4-IK-JBn"/>
-                        <outlet property="phoneLabel" destination="zVv-Fq-n1Q" id="MrB-62-2Nc"/>
-                        <outlet property="placePhoto" destination="ur1-E6-WQS" id="Cte-o7-obY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jFE-Lp-rf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2537" y="1966"/>
-        </scene>
-        <!--Takeout View Controller - Takeout-->
-        <scene sceneID="g2u-g3-OVd">
-            <objects>
-                <tableViewController id="rmb-hH-hie" customClass="TakeoutViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hfg-3B-XkV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TakeoutCell" id="y9l-E5-ZxP">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y9l-E5-ZxP" id="ktr-Vv-Nom">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MBv-fG-PZR">
-                                            <rect key="frame" x="119" y="26" width="162" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUs-KD-cwx">
-                                            <rect key="frame" x="60" y="0.0" width="227" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" id="EPu-ic-EDD" customClass="PFImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="52" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mZh-wT-4Ej">
-                                            <rect key="frame" x="269" y="29" width="12" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="eUK-gO-xIO" kind="push" identifier="showTakeoutDetail" id="PzP-RD-3Wn"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rmb-hH-hie" id="K5D-9V-wt3"/>
-                            <outlet property="delegate" destination="rmb-hH-hie" id="zR2-S0-Jtn"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Takeout" id="odw-7R-IYN"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VBV-W2-6iT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2051" y="1966"/>
-        </scene>
         <!--Navigation Controller - Other-->
         <scene sceneID="1KF-P4-1JP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="toY-I0-Ggm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Other" id="iTG-QZ-VWP"/>
+                    <tabBarItem key="tabBarItem" title="Other" image="Delivery Icon.png" id="iTG-QZ-VWP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsF-hM-vDa">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
