@@ -62,7 +62,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"Class" equalTo:@"GymPool"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
     return query;
 }
 
