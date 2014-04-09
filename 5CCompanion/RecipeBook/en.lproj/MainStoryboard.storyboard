@@ -83,8 +83,8 @@
             <objects>
                 <viewController id="JOa-m2-nv8" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NzL-jE-9wG"/>
-                        <viewControllerLayoutGuide type="bottom" id="M6c-04-jng"/>
+                        <viewControllerLayoutGuide type="top" id="4LO-r9-BxT"/>
+                        <viewControllerLayoutGuide type="bottom" id="t8k-iX-83g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pvt-zl-Zom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -213,8 +213,8 @@
             <objects>
                 <viewController id="dXl-px-riG" customClass="EateriesDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xxY-cl-djK"/>
-                        <viewControllerLayoutGuide type="bottom" id="bZJ-nV-OuU"/>
+                        <viewControllerLayoutGuide type="top" id="4k7-js-Bei"/>
+                        <viewControllerLayoutGuide type="bottom" id="bXc-I3-jXw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tgY-KA-RaW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -374,7 +374,7 @@
         <!--Favorites View Controller - Favorites-->
         <scene sceneID="ML8-Xs-wVJ">
             <objects>
-                <tableViewController id="A99-fl-Ttk" customClass="FavoritesViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="favoritesView" id="A99-fl-Ttk" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LAN-LI-4hV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -428,13 +428,42 @@
             </objects>
             <point key="canvasLocation" x="2035" y="3878"/>
         </scene>
+        <!--Empty View Controller-->
+        <scene sceneID="tFI-xP-a9U">
+            <objects>
+                <viewController storyboardIdentifier="emptyView" id="iOe-nP-U0R" customClass="EmptyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N99-TN-Xxc"/>
+                        <viewControllerLayoutGuide type="bottom" id="V43-18-oZ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CYF-2Y-5bV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You currently don't have any favorites.  Tap the star when you are viewing the details for a place to add it to your favorites." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-nD-R9v">
+                                <rect key="frame" x="20" y="115" width="280" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <navigationItem title="Favorites" id="QWs-sd-uuc"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Xm-0G-owD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035" y="4515"/>
+        </scene>
         <!--Favorites Detail View Controller-->
         <scene sceneID="Mi5-fi-9RL">
             <objects>
                 <viewController id="Vhg-zK-Bg3" customClass="FavoritesDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7lO-AV-Uh9"/>
-                        <viewControllerLayoutGuide type="bottom" id="y7H-bp-3aQ"/>
+                        <viewControllerLayoutGuide type="top" id="ipi-hl-dZ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNU-ls-aY6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FNs-JC-hoR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -464,7 +493,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Monday" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1g-xM-HOr">
-                                                    <rect key="frame" x="0.0" y="5" width="91" height="33"/>
+                                                    <rect key="frame" x="0.0" y="5" width="91" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
@@ -539,8 +568,8 @@
             <objects>
                 <viewController id="Ksm-rb-zKP" customClass="OtherDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6Q4-pD-pOl"/>
-                        <viewControllerLayoutGuide type="bottom" id="e7q-jf-kuJ"/>
+                        <viewControllerLayoutGuide type="top" id="dmX-fk-0Z1"/>
+                        <viewControllerLayoutGuide type="bottom" id="yEF-9q-nsC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DEI-vv-jIe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -702,8 +731,8 @@
             <objects>
                 <viewController id="EWP-gQ-5sO" customClass="DiningDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NvC-T4-xB5"/>
-                        <viewControllerLayoutGuide type="bottom" id="dqA-Vw-dEo"/>
+                        <viewControllerLayoutGuide type="top" id="gZx-cS-h70"/>
+                        <viewControllerLayoutGuide type="bottom" id="H1d-sf-plg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qpU-wU-C6d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
