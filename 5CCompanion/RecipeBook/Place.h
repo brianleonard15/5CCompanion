@@ -15,5 +15,6 @@
 @property (nonatomic, strong) PFFile *imageFile; // image filename of business
 @property (nonatomic, strong) NSArray *hours; // hours
 @property (nonatomic, strong) NSString *phone; // phone number
+@property (nonatomic, strong) NSString *tab; // class
 
 @end

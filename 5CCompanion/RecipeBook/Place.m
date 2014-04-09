@@ -14,5 +14,6 @@
 @synthesize imageFile;
 @synthesize hours;
 @synthesize phone;
+@synthesize tab;
 
 @end

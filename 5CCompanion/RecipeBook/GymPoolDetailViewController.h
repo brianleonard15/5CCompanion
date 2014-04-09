@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (nonatomic, strong) Place *place;
 -(IBAction)toggleFav:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextView *hoursTextView;
 
 @end

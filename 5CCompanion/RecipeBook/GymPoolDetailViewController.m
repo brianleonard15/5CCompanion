@@ -96,6 +96,28 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
+    CGFloat height;
+    if (hours.count < 3) {
+        height = 40;
+    }
+    else {
+        height = 60;
+    }
+    
+    static NSString *simpleTableIdentifier = @"hoursCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
+    CGRect frame = hoursText.frame;
+    frame.size.height = height - 10;
+    hoursText.frame = frame;
+    return height;
+}
+
+
 -(IBAction)toggleFav:(UIButton *)sender {
     if([sender isSelected]){
         //...

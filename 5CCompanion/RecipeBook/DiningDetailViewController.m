@@ -116,6 +116,31 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
+    CGFloat height;
+    
+    static NSString *simpleTableIdentifier = @"hoursCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITextView *dayText = (UITextView*) [cell viewWithTag:200];
+    dayText.text = [dayOfWeek objectAtIndex:indexPath.row];
+    if ([dayText.text isEqualToString:@"Weekend Brunch"] || [dayText.text isEqualToString:@"Weekend Dinner"] || hours.count > 3) {
+        height = 60;
+    }
+    else {
+        height = 40;
+    }
+    
+
+    UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
+    CGRect frame = hoursText.frame;
+    frame.size.height = height - 10;
+    hoursText.frame = frame;
+    dayText.frame = frame;
+    return height;
+}
+
 - (void)viewDidUnload
 {
     [self setPlacePhoto:nil];

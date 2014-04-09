@@ -281,6 +281,7 @@
         place.name = [object objectForKey:@"name"];
         place.imageFile = [object objectForKey:@"imageFile"];
         place.hours = [NSArray arrayWithObjects: [object objectForKey:@"breakfastTime"], [object objectForKey:@"lunchTime"], [object objectForKey:@"dinnerTime"], [object objectForKey:@"weekendBrunch"], [object objectForKey:@"weekendDinner"], nil];
+        place.tab = [object objectForKey:@"Class"];
         destViewController.place = place;
     }
 }

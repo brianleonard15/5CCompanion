@@ -77,9 +77,9 @@
     
     // Gets current day
     
+    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
     UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
     NSMutableString *hourText = [NSMutableString string];
-    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
         [hourText appendFormat:@"%@", [hours objectAtIndex: 0]];
     }
@@ -89,9 +89,11 @@
             [hourText appendFormat:@"\n%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
         }
     }
+
     hoursText.text = hourText;
     dayText.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0f];
     hoursText.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
+    
 
     return cell;
 }
@@ -113,6 +115,27 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray* hours = [place.hours objectAtIndex:indexPath.row];
+    CGFloat height;
+    if (hours.count < 3) {
+        height = 40;
+    }
+    else {
+        height = 60;
+    }
+    
+    static NSString *simpleTableIdentifier = @"hoursCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITextView *hoursText = (UITextView*) [cell viewWithTag:201];
+    CGRect frame = hoursText.frame;
+    frame.size.height = height - 10;
+    hoursText.frame = frame;
+    return height;
 }
 
 - (void)viewDidUnload
