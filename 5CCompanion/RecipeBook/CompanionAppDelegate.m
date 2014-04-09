@@ -19,15 +19,16 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults setObject:[NSArray array] forKey:@"favorites"];
     
-    //color the navigation bar pink!
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xFF99FF)];
+    //color the navigation bar blue!
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x1E90FF)];
+    [[UINavigationBar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
     
     //Changing font of navigation bar
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 0);
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:000.0/255.0 green:000.0/255.0 blue:000.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"AvenirNext-Regular" size:23.0], NSFontAttributeName, nil]];
     
