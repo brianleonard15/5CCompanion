@@ -882,6 +882,7 @@
         <image name="selected.png" width="42" height="40"/>
         <image name="unselected.png" width="42" height="40"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.57647061347961426" blue="0.97254908084869385" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
