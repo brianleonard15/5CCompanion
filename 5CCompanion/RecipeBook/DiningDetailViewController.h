@@ -14,7 +14,7 @@
 }
 
 @property(retain) IBOutlet UIButton *favButton;
-@property (weak, nonatomic) IBOutlet PFImageView *placePhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *placePhoto;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (nonatomic, strong) Place *place;
 -(IBAction)toggleFav:(UIButton *)sender;

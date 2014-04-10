@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "Place.h"
 
-@interface EateriesViewController : PFQueryTableViewController
+@interface EateriesViewController : UIViewController
 
+@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *eateries;
 
 @end

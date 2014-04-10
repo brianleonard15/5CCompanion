@@ -8,13 +8,14 @@
 
 #import "EateriesViewController.h"
 #import "EateriesDetailViewController.h"
-#import "Place.h"
 
 @interface EateriesViewController ()
 
 @end
 
 @implementation EateriesViewController
+
+@synthesize eateries;
 
 - (void)viewDidLoad
 {
@@ -35,34 +36,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (id)initWithCoder:(NSCoder *)aCoder
-{
-    self = [super initWithCoder:aCoder];
-    if (self) {
-        // The className to query on
-        self.parseClassName = @"Places";
-        
-        // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"name";
-        
-        // Whether the built-in pull-to-refresh is enabled
-        self.pullToRefreshEnabled = YES;
-        
-        // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
-        
-        self.objectsPerPage = 100;
-    }
-    return self;
-}
-
-- (PFQuery *)queryForTable
-{
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Eatery"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    return query;
-}
 
 // Checks if the time is before 3:00 AM
 
@@ -95,7 +68,7 @@
     return date;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"EateriesCell";
     
@@ -105,14 +78,13 @@
     }
     
     // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"imageFile"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"white.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
+    Place *place = [[Place alloc] init];
+    place = [self.eateries objectAtIndex:indexPath.row];
+    UIImageView *thumbnailImageView = (UIImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = place.imageFile;
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"name"];
+    nameLabel.text = place.name;
     
     // Gets current day
     
@@ -135,8 +107,10 @@
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
+    NSArray *daysOfWeekInOrder = [NSArray arrayWithObjects: @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday", nil];
+    NSUInteger numericDayOfWeek = [daysOfWeekInOrder indexOfObject:dayOfTheWeek];
     
-    NSArray *hours = [object objectForKey: dayOfTheWeek];
+    NSArray *hours = [place.hours objectAtIndex:numericDayOfWeek];
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
@@ -148,7 +122,7 @@
         if (hours.count == 4) {
             // NSString *strOpenTime = [hours objectAtIndex: 0];
             NSString *strCloseTime = [hours objectAtIndex: 1];
-           //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
+            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
             // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
             // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
@@ -214,31 +188,32 @@
                     closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
                 }
             }
-
+            
         }
         
         NSDate *now = [NSDate date];
         
         if (([now compare:openTime] != NSOrderedAscending &&
-            [now compare:closeTime] != NSOrderedDescending) ||
+             [now compare:closeTime] != NSOrderedDescending) ||
             (openTime2 && closeTime2 &&
-            [now compare:openTime2] != NSOrderedAscending &&
-            [now compare:closeTime2] != NSOrderedDescending)) {
-            currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-        } else {
-            currentHoursLabel.textColor = [UIColor redColor];
-            openLabel.backgroundColor = [UIColor redColor];
-        }
+             [now compare:openTime2] != NSOrderedAscending &&
+             [now compare:closeTime2] != NSOrderedDescending)) {
+                currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            } else {
+                currentHoursLabel.textColor = [UIColor redColor];
+                openLabel.backgroundColor = [UIColor redColor];
+            }
     }
     
     return cell;
 }
-- (void) objectsDidLoad:(NSError *)error
-{
-    [super objectsDidLoad:error];
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.eateries.count;
 }
+
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -246,15 +221,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EateriesDetailViewController *destViewController = segue.destinationViewController;
         
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Place *place = [[Place alloc] init];
-        place.name = [object objectForKey:@"name"];
-        place.imageFile = [object objectForKey:@"imageFile"];
-        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        place.tab = [object objectForKey:@"Class"];
-        destViewController.place = place;
+        destViewController.place = [self.eateries objectAtIndex:indexPath.row];;
     }
 }
+
 
 
 @end
