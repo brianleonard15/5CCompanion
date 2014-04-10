@@ -8,6 +8,8 @@
 
 #import "GymPoolViewController.h"
 #import "GymPoolDetailViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "mapViewController.h"
 
 
 @interface GymPoolViewController () {
@@ -30,6 +32,8 @@ IBOutlet UIView *loadingView;
     self.tabBarController.tabBar.hidden=YES;
     
     self.places = [[NSMutableArray alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    mapViewController *myVC = (mapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
     PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     query.cachePolicy =  kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -52,6 +56,16 @@ IBOutlet UIView *loadingView;
                     place.hours = [NSArray arrayWithObjects: [row objectForKey:@"Monday"], [row objectForKey:@"Tuesday"], [row objectForKey:@"Wednesday"], [row objectForKey:@"Thursday"], [row objectForKey:@"Friday"], [row objectForKey:@"Saturday"], [row objectForKey:@"Sunday"], nil];
                 }
                 [self.places addObject:place];
+                
+                
+                PFGeoPoint *geoPoint = [row objectForKey:@"Location"];
+                GMSMarker *marker = [[GMSMarker alloc] init];
+                marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
+                marker.title = [row objectForKey:@"name"];
+                marker.snippet = [row objectForKey:@"name"];
+                marker.map = myVC.mapView;
+                NSString *building = [row objectForKey:@"Building"];
+                [myVC.buildings addObject:building];
                 
             }
             dispatch_async(dispatch_get_main_queue(), ^{

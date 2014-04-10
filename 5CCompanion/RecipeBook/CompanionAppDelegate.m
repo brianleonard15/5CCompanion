@@ -34,6 +34,7 @@
     
     // Override point for customization after application launch.
     [Parse setApplicationId:@"zS4e8Py8ydWl1w4K5cy4SRTDea2QlxM8cl33MoKZ" clientKey:@"dnQazrEcDSyf3JksHvUuxJuiRGBTxJ4NhSKPdSHv"];
+    [GMSServices provideAPIKey:@"AIzaSyBtJe-txpVuEXWM2JJdY3pDyYAEnQ-HIwg"];
     return YES;
 
 }
