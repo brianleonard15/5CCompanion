@@ -59,9 +59,8 @@ IBOutlet UIView *loadingView;
                 NSPredicate *eateriesPredicate = [NSPredicate predicateWithFormat:@"tab = 'Eatery'"];
                 NSPredicate *otherPredicate = [NSPredicate predicateWithFormat:@"tab = 'Other'"];
                 NSPredicate *diningPredicate = [NSPredicate predicateWithFormat:@"tab = 'Dining'"];
-                self.gymPools = [[NSArray alloc] init];
                 self.gymPools = [self.places filteredArrayUsingPredicate:gymPoolPredicate];
-                self.eateries = [[self.places filteredArrayUsingPredicate:eateriesPredicate]mutableCopy];
+                self.eateries = [self.places filteredArrayUsingPredicate:eateriesPredicate];
                 self.others = [self.places filteredArrayUsingPredicate:otherPredicate];
                 self.dinings = [self.places filteredArrayUsingPredicate:diningPredicate];
                 
@@ -272,13 +271,16 @@ IBOutlet UIView *loadingView;
     UINavigationController *navController = [tabBarController.viewControllers objectAtIndex:1];
     UINavigationController *navController2 = [tabBarController.viewControllers objectAtIndex:2];
     UINavigationController *navController3 = [tabBarController.viewControllers objectAtIndex:3];
+    UINavigationController *navController4 = [tabBarController.viewControllers objectAtIndex:4];
     self.eateriesVC = (EateriesViewController *) [navController.viewControllers objectAtIndex:0];
     self.diningVC = (DiningViewController *) [navController2.viewControllers objectAtIndex:0];
     self.otherVC = (OtherViewController *) [navController3.viewControllers objectAtIndex:0];
+    self.favoritesVC = (FavoritesViewController *) [navController4.viewControllers objectAtIndex:0];
 
     self.eateriesVC.eateries = self.eateries;
     self.diningVC.dinings = self.dinings;
     self.otherVC.others = self.others;
+    self.favoritesVC.places = self.places;
 }
 
 

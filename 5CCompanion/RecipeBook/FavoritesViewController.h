@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface FavoritesViewController : PFQueryTableViewController
+@interface FavoritesViewController : UIViewController
+
+@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSArray *favorites;
 
 @end

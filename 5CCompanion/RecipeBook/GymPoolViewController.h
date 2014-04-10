@@ -11,6 +11,7 @@
 #import "EateriesViewController.h"
 #import "OtherViewController.h"
 #import "DiningViewController.h"
+#import "FavoritesViewController.h"
 #import "Place.h"
 
 @interface GymPoolViewController : UIViewController <UITabBarControllerDelegate>
@@ -24,5 +25,6 @@
 @property(strong, nonatomic) EateriesViewController *eateriesVC;
 @property(strong, nonatomic) OtherViewController *otherVC;
 @property(strong, nonatomic) DiningViewController *diningVC;
+@property(strong, nonatomic) FavoritesViewController *favoritesVC;
 
 @end
