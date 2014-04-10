@@ -126,6 +126,7 @@
 		[array removeObject:[NSString stringWithString:place.name]];
 		[[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favorites"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.navigationController popViewControllerAnimated:YES];
     } else {
         //...
         [sender setSelected:YES];

@@ -46,9 +46,16 @@
     self.title = place.name;
     self.placePhoto.image = place.imageFile;
     self.phoneLabel.text = place.phone;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
 		self.favButton.selected = YES;
 	}
+    else {
+        self.favButton.selected = NO;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

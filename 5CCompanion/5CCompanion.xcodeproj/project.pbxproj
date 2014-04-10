@@ -16,7 +16,6 @@
 		93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* EateriesViewController.m */; };
 		93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */; };
 		93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EB115218B84AA2005B67E5 /* Default-568h@2x.png */; };
-		D721888118F546E800B87621 /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721888018F546E800B87621 /* EmptyViewController.m */; };
 		D72F05C718EB5EE9003176D7 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C518EB5EE9003176D7 /* selected.png */; };
 		D72F05C818EB5EE9003176D7 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C618EB5EE9003176D7 /* unselected.png */; };
 		D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */; };
@@ -58,8 +57,6 @@
 		93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesDetailViewController.h; sourceTree = "<group>"; };
 		93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesDetailViewController.m; sourceTree = "<group>"; };
 		93EB115218B84AA2005B67E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D721887F18F546E800B87621 /* EmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyViewController.h; sourceTree = "<group>"; };
-		D721888018F546E800B87621 /* EmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		D72F05C518EB5EE9003176D7 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		D72F05C618EB5EE9003176D7 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
 		D72F05C918EB64E4003176D7 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
@@ -228,8 +225,6 @@
 				F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */,
 				F447242515D78F07004A8C72 /* Place.h */,
 				F447242615D78F07004A8C72 /* Place.m */,
-				D721887F18F546E800B87621 /* EmptyViewController.h */,
-				D721888018F546E800B87621 /* EmptyViewController.m */,
 				D72F05DA18ECA9FC003176D7 /* GymPool */,
 				D72F05DB18ECAA07003176D7 /* Eateries */,
 				D72F05E418ECB0D4003176D7 /* Other */,
@@ -340,7 +335,6 @@
 				93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */,
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
-				D721888118F546E800B87621 /* EmptyViewController.m in Sources */,
 				D72F05E718ECB741003176D7 /* DiningViewController.m in Sources */,
 				D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */,
 				D72F05E318ECB0AA003176D7 /* OtherDetailViewController.m in Sources */,
