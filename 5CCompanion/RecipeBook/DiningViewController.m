@@ -8,7 +8,6 @@
 
 #import "DiningViewController.h"
 #import "DiningDetailViewController.h"
-#import "Place.h"
 
 @interface DiningViewController ()
 
@@ -34,37 +33,6 @@
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
-
-- (id)initWithCoder:(NSCoder *)aCoder
-{
-    self = [super initWithCoder:aCoder];
-    if (self) {
-        // The className to query on
-        self.parseClassName = @"Places";
-        
-        // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"name";
-        
-        // Whether the built-in pull-to-refresh is enabled
-        self.pullToRefreshEnabled = YES;
-        
-        // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
-        
-        self.objectsPerPage = 100;
-    }
-    return self;
-}
-
-- (PFQuery *)queryForTable
-{
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Dining"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    return query;
-}
-
-// Checks if the time is before 3:00 AM
 
 
 // convert to a NSDate from the current day
@@ -92,7 +60,7 @@
     return [weekend containsObject: day];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"DiningCell";
     
@@ -102,14 +70,13 @@
     }
     
     // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"imageFile"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"white.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
+    Place *place = [[Place alloc] init];
+    place = [self.dinings objectAtIndex:indexPath.row];
+    UIImageView *thumbnailImageView = (UIImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = place.imageFile;
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"name"];
+    nameLabel.text = place.name;
     
     // Gets current day
     
@@ -129,10 +96,10 @@
     NSMutableArray *hours;
     
     if (isWeekend) {
-        hours = [[[object objectForKey: @"weekendBrunch"] arrayByAddingObjectsFromArray:[object objectForKey: @"weekendDinner"]]mutableCopy];
+        hours = [[[place.hours objectAtIndex:3] arrayByAddingObjectsFromArray: [place.hours objectAtIndex:4]]mutableCopy];
     }
     else {
-        hours = [[[[object objectForKey: @"breakfastTime"] arrayByAddingObjectsFromArray:[object objectForKey: @"lunchTime"]] arrayByAddingObjectsFromArray: [object objectForKey: @"dinnerTime"]]mutableCopy];
+        hours = [[[[place.hours objectAtIndex:0] arrayByAddingObjectsFromArray: [place.hours objectAtIndex:1]] arrayByAddingObjectsFromArray:[place.hours objectAtIndex:2]] mutableCopy];
     }
     
     [hours removeObject:@"Closed"];
@@ -264,25 +231,17 @@
     
     return cell;
 }
-- (void) objectsDidLoad:(NSError *)error
-{
-    [super objectsDidLoad:error];
-    
-}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dinings.count;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showDiningDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DiningDetailViewController *destViewController = segue.destinationViewController;
         
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Place *place = [[Place alloc] init];
-        place.name = [object objectForKey:@"name"];
-        place.imageFile = [object objectForKey:@"imageFile"];
-        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"breakfastTime"], [object objectForKey:@"lunchTime"], [object objectForKey:@"dinnerTime"], [object objectForKey:@"weekendBrunch"], [object objectForKey:@"weekendDinner"], nil];
-        place.tab = [object objectForKey:@"Class"];
-        destViewController.place = place;
+        destViewController.place = [self.dinings objectAtIndex:indexPath.row];
     }
 }
 

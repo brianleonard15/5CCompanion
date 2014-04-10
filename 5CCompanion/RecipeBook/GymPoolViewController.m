@@ -270,10 +270,15 @@ IBOutlet UIView *loadingView;
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     UINavigationController *navController = [tabBarController.viewControllers objectAtIndex:1];
+    UINavigationController *navController2 = [tabBarController.viewControllers objectAtIndex:2];
+    UINavigationController *navController3 = [tabBarController.viewControllers objectAtIndex:3];
     self.eateriesVC = (EateriesViewController *) [navController.viewControllers objectAtIndex:0];
-    //self.eateriesVC = (EateriesViewController *) [tabBarController.viewControllers objectAtIndex:1];
-    
+    self.diningVC = (DiningViewController *) [navController2.viewControllers objectAtIndex:0];
+    self.otherVC = (OtherViewController *) [navController3.viewControllers objectAtIndex:0];
+
     self.eateriesVC.eateries = self.eateries;
+    self.diningVC.dinings = self.dinings;
+    self.otherVC.others = self.others;
 }
 
 
@@ -283,7 +288,7 @@ IBOutlet UIView *loadingView;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.place = [self.gymPools objectAtIndex:indexPath.row];;
+        destViewController.place = [self.gymPools objectAtIndex:indexPath.row];
     }
 }
 

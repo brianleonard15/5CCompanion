@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface DiningViewController : PFQueryTableViewController
+@interface DiningViewController :  UIViewController
+
+@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *dinings;
 
 @end

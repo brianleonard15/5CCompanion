@@ -8,7 +8,6 @@
 
 #import "OtherViewController.h"
 #import "OtherDetailViewController.h"
-#import "Place.h"
 
 @interface OtherViewController ()
 
@@ -19,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     
 	// Initialize table data
 }
@@ -36,35 +34,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (id)initWithCoder:(NSCoder *)aCoder
-{
-    self = [super initWithCoder:aCoder];
-    if (self) {
-        // The className to query on
-        self.parseClassName = @"Places";
-        
-        // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"name";
-        
-        
-        // Whether the built-in pull-to-refresh is enabled
-        self.pullToRefreshEnabled = YES;
-        
-        // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
-        
-        self.objectsPerPage = 100;
-    }
-    return self;
-}
-
-- (PFQuery *)queryForTable
-{
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"Class" equalTo:@"Other"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    return query;
-}
 
 // Checks if the time is before 3:00 AM
 
@@ -97,7 +66,7 @@
     return date;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"OtherCell";
     
@@ -107,14 +76,13 @@
     }
     
     // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"imageFile"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"white.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
+    Place *place = [[Place alloc] init];
+    place = [self.others objectAtIndex:indexPath.row];
+    UIImageView *thumbnailImageView = (UIImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = place.imageFile;
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"name"];
+    nameLabel.text = place.name;
     
     // Gets current day
     
@@ -137,8 +105,10 @@
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
     NSString *dayOfTheWeek = [currentDay stringFromDate:day];
+    NSArray *daysOfWeekInOrder = [NSArray arrayWithObjects: @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday", nil];
+    NSUInteger numericDayOfWeek = [daysOfWeekInOrder indexOfObject:dayOfTheWeek];
     
-    NSArray *hours = [object objectForKey: dayOfTheWeek];
+    NSArray *hours = [place.hours objectAtIndex:numericDayOfWeek];
     NSMutableString *currentHours = [[NSMutableString alloc] init];
     
     if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
@@ -237,11 +207,11 @@
     return cell;
 }
 
-
-- (void) objectsDidLoad:(NSError *)error
-{
-    [super objectsDidLoad:error];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.others.count;
 }
+
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -249,16 +219,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         OtherDetailViewController *destViewController = segue.destinationViewController;
         
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Place *place = [[Place alloc] init];
-        place.name = [object objectForKey:@"name"];
-        place.imageFile = [object objectForKey:@"imageFile"];
-        place.phone = [object objectForKey:@"Phone"];
-        place.hours = [NSArray arrayWithObjects: [object objectForKey:@"Monday"], [object objectForKey:@"Tuesday"], [object objectForKey:@"Wednesday"], [object objectForKey:@"Thursday"], [object objectForKey:@"Friday"], [object objectForKey:@"Saturday"], [object objectForKey:@"Sunday"], nil];
-        place.tab = [object objectForKey:@"Class"];
-        destViewController.place = place;
+        destViewController.place = [self.others objectAtIndex:indexPath.row];
     }
 }
+
 
 
 @end

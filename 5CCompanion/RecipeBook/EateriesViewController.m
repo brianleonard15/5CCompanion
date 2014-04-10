@@ -15,7 +15,6 @@
 
 @implementation EateriesViewController
 
-@synthesize eateries;
 
 - (void)viewDidLoad
 {
@@ -221,7 +220,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EateriesDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.place = [self.eateries objectAtIndex:indexPath.row];;
+        destViewController.place = [self.eateries objectAtIndex:indexPath.row];
     }
 }
 
