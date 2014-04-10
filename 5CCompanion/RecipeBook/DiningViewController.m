@@ -22,6 +22,11 @@
 	// Initialize table data
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
 
 - (void)viewDidUnload
 {

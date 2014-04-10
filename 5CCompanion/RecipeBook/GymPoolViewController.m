@@ -65,16 +65,25 @@ IBOutlet UIView *loadingView;
                 self.dinings = [self.places filteredArrayUsingPredicate:diningPredicate];
                 
 
-                
+                sleep(1);
+                [UIView transitionFromView:loadingView toView:self.tableView
+                                  duration:01.0 options:UIViewAnimationOptionTransitionFlipFromRight
+                                completion:NULL];
                 self.tableView.hidden = NO;
                 loadingView.hidden = YES;
-                [self.navigationController setNavigationBarHidden:NO animated:YES];
+                [self.navigationController setNavigationBarHidden:NO animated:NO];
                 self.tabBarController.tabBar.hidden=NO;
                 [self.tableView reloadData];
             });
         }
     }
      ];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 

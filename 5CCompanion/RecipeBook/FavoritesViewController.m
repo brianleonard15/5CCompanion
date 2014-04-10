@@ -26,6 +26,8 @@
 
 }
 
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
@@ -42,6 +44,8 @@
     self.favorites = [self.places filteredArrayUsingPredicate:favoritesPredicate];
     
     [self.tableView reloadData];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     
 }
 
