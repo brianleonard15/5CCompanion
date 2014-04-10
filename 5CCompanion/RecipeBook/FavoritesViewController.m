@@ -10,8 +10,11 @@
 #import "FavoritesDetailViewController.h"
 #import "Place.h"
 
-@interface FavoritesViewController ()
-
+@interface FavoritesViewController () {
+    
+    IBOutlet UIView *emptyView;
+    
+}
 @end
 
 @implementation FavoritesViewController
@@ -27,15 +30,18 @@
 {
     NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
     if (favoritesArray.count == 0) {
-        NSString * storyboardName = @"MainStoryboard";
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"emptyView"];
-        [self.navigationController setViewControllers:[NSArray arrayWithObject:vc]
-                                        animated:NO];
+        emptyView.hidden = NO;
+        self.tableView.hidden = YES;
+    }
+    else {
+        self.tableView.hidden = NO;
+        emptyView.hidden = YES;
     }
     
     NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"name IN %@", favoritesArray];
     self.favorites = [self.places filteredArrayUsingPredicate:favoritesPredicate];
+    
+    [self.tableView reloadData];
     
 }
 

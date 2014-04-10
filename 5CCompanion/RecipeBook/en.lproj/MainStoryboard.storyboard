@@ -348,35 +348,6 @@
             </objects>
             <point key="canvasLocation" x="-639" y="3326"/>
         </scene>
-        <!--Empty View Controller-->
-        <scene sceneID="tFI-xP-a9U">
-            <objects>
-                <viewController storyboardIdentifier="emptyView" id="iOe-nP-U0R" customClass="EmptyViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="N99-TN-Xxc"/>
-                        <viewControllerLayoutGuide type="bottom" id="V43-18-oZ3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CYF-2Y-5bV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You currently don't have any favorites.  Tap the star when you are viewing the details for a place to add it to your favorites." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-nD-R9v">
-                                <rect key="frame" x="20" y="115" width="280" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                </viewController>
-                <navigationItem title="Favorites" id="QWs-sd-uuc"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Xm-0G-owD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-77" y="3965"/>
-        </scene>
         <!--Favorites Detail View Controller-->
         <scene sceneID="Mi5-fi-9RL">
             <objects>
@@ -951,11 +922,25 @@
                                     <outlet property="delegate" destination="I5i-cu-8PY" id="nIl-Ex-nME"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-2Y-5bV">
+                                <rect key="frame" x="0.0" y="57" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You currently don't have any favorites.  Tap the star when you are viewing the details for a place to add it to your favorites." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-nD-R9v">
+                                        <rect key="frame" x="20" y="115" width="280" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Rms-Uk-Vkx"/>
                     <connections>
+                        <outlet property="emptyView" destination="CYF-2Y-5bV" id="Lg6-1Z-6Fo"/>
                         <outlet property="tableView" destination="OMy-eA-Sau" id="0Dq-qF-Pfr"/>
                     </connections>
                 </viewController>
