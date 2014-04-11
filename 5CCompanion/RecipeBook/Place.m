@@ -15,5 +15,6 @@
 @synthesize hours;
 @synthesize phone;
 @synthesize tab;
+@synthesize location;
 
 @end

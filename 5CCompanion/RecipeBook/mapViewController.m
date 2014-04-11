@@ -9,23 +9,13 @@
 #import "mapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <Parse/Parse.h>
+#import "Place.h"
 
-@interface mapViewController () {
-    NSMutableArray *geoObject;
-}
+@interface mapViewController ()
+
 @end
+
 @implementation mapViewController
-
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 
 - (void)viewDidLoad {
@@ -37,13 +27,27 @@
                                                                  zoom:15];
     self.mapView.camera = camera;
     
+    
     self.mapView.myLocationEnabled = YES;
     
     self.mapView.settings.myLocationButton = YES;
     
     self.searchResults = [NSMutableArray array];
-
+    
+    self.markers = [NSMutableArray array];
+    
+    for (Place *place in self.buildings) {
+        PFGeoPoint *geoPoint = place.location;
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
+        marker.title = place.name;
+        marker.snippet = place.name;
+        marker.map = self.mapView;
+        [self.markers addObject:marker];
     }
+    
+}
+
 
 - (void)viewDidUnload
 {
@@ -72,8 +76,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    cell.textLabel.text = [self.searchResults objectAtIndex:indexPath.row];
+    Place *result = [self.searchResults objectAtIndex:indexPath.row];
+    cell.textLabel.text = result.name;
     return cell;
 }
 
@@ -81,9 +85,8 @@
     
     //[self.searchResults removeAllObjects];
     [self.searchResults setArray:self.buildings];
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", searchTerm];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchTerm];
     [self.searchResults filterUsingPredicate:resultPredicate];
-    NSLog(@"search %@",self.searchResults);
 }
 
 
@@ -95,21 +98,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* markerTitle = [self.searchResults objectAtIndex:indexPath.row];
-    NSLog(@"%@",markerTitle);
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Map"];
-    [query whereKey:@"Building" equalTo:markerTitle];
-    geoObject = [[query findObjects] mutableCopy];
-    geoObject = [geoObject valueForKey:@"Location"];
-    PFGeoPoint *geoPoint = [geoObject objectAtIndex:0];
-    marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
-    marker.title = markerTitle;
-    marker.snippet = markerTitle;
-    marker.map = self.mapView;
-    [self.mapView setSelectedMarker:marker];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:geoPoint.latitude
-                                                            longitude:geoPoint.longitude
+    NSArray *resultMarkers = [NSArray array];
+    Place *result = [self.searchResults objectAtIndex:indexPath.row];
+    NSString* markerTitle = result.name;
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title == %@", markerTitle];
+    resultMarkers = [self.markers filteredArrayUsingPredicate:resultPredicate];
+    GMSMarker *resultMarker = [resultMarkers objectAtIndex:0];
+    
+    [self.mapView setSelectedMarker:resultMarker];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:resultMarker.position.latitude
+                                                            longitude:resultMarker.position.longitude
                                                                  zoom:18];
     self.mapView.camera = camera;
     [self.searchDisplayController setActive:NO animated:YES];

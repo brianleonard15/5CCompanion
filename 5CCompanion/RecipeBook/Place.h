@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSArray *hours; // hours
 @property (nonatomic, strong) NSString *phone; // phone number
 @property (nonatomic, strong) NSString *tab; // class
+@property (nonatomic, strong) PFGeoPoint *location; // location
 
 @end

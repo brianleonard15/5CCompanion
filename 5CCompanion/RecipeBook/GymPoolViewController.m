@@ -8,8 +8,8 @@
 
 #import "GymPoolViewController.h"
 #import "GymPoolDetailViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
 #import "mapViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 
 @interface GymPoolViewController () {
@@ -31,9 +31,8 @@ IBOutlet UIView *loadingView;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden=YES;
     
+    
     self.places = [[NSMutableArray alloc] init];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    mapViewController *myVC = (mapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
     PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     query.cachePolicy =  kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -49,6 +48,7 @@ IBOutlet UIView *loadingView;
                 }];
                 place.phone = [row objectForKey:@"Phone"];
                 place.tab = [row objectForKey:@"Class"];
+                place.location = [row objectForKey:@"Location"];
                 if ([place.tab isEqualToString:@"Dining"]) {
                     place.hours = [NSArray arrayWithObjects: [row objectForKey:@"breakfastTime"], [row objectForKey:@"lunchTime"], [row objectForKey:@"dinnerTime"], [row objectForKey:@"weekendBrunch"], [row objectForKey:@"weekendDinner"], nil];
                 }
@@ -57,18 +57,10 @@ IBOutlet UIView *loadingView;
                 }
                 [self.places addObject:place];
                 
-                
-                PFGeoPoint *geoPoint = [row objectForKey:@"Location"];
-                GMSMarker *marker = [[GMSMarker alloc] init];
-                marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
-                marker.title = [row objectForKey:@"name"];
-                marker.snippet = [row objectForKey:@"name"];
-                marker.map = myVC.mapView;
-                NSString *building = [row objectForKey:@"Building"];
-                [myVC.buildings addObject:building];
-                
             }
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
                 NSPredicate *gymPoolPredicate = [NSPredicate predicateWithFormat:@"tab = 'GymPool'"];
                 NSPredicate *eateriesPredicate = [NSPredicate predicateWithFormat:@"tab = 'Eatery'"];
                 NSPredicate *otherPredicate = [NSPredicate predicateWithFormat:@"tab = 'Other'"];
@@ -314,6 +306,12 @@ IBOutlet UIView *loadingView;
         GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
         destViewController.place = [self.gymPools objectAtIndex:indexPath.row];
+    }
+    if ([segue.identifier isEqualToString:@"showMapView"]) {
+        
+        mapViewController *mapViewController = segue.destinationViewController;
+        mapViewController.buildings = [[NSMutableArray alloc]init];
+        [mapViewController.buildings addObjectsFromArray:self.places];
     }
 }
 

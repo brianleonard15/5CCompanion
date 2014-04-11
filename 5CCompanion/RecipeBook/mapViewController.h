@@ -17,5 +17,6 @@
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 @property (nonatomic, strong) NSMutableArray *buildings;
+@property (nonatomic, strong) NSMutableArray *markers;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 @end
