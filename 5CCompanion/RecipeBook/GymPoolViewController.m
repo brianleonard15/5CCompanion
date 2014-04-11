@@ -90,6 +90,7 @@ IBOutlet UIView *loadingView;
 {
     [super viewWillAppear:YES];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self.tableView reloadData];
 }
 
 
