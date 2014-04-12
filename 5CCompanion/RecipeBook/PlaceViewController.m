@@ -6,49 +6,165 @@
 //  Copyright (c) 2012 Appcoda. All rights reserved.
 //
 
-#import "FavoritesViewController.h"
-#import "FavoritesDetailViewController.h"
-#import "Place.h"
+#import "PlaceViewController.h"
+#import "PlaceDetailViewController.h"
+#import "mapViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface FavoritesViewController () {
+
+@interface PlaceViewController () {
     
-    IBOutlet UIView *emptyView;
+IBOutlet UIView *loadingView;
+IBOutlet UIView *emptyView;
+NSUInteger tab;
+NSArray *type;
+UITableView *currentVC;
     
 }
+
 @end
 
-@implementation FavoritesViewController
+@implementation PlaceViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Initialize table data
+    tab = self.tabBarController.selectedIndex;
+    if (tab == 0) {
+    self.tabBarController.delegate = self;
+    self.gymPoolTV.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.tabBarController.tabBar.hidden=YES;
+    
+    
+    self.places = [[NSMutableArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
+    query.cachePolicy =  kPFCachePolicyNetworkElseCache;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *row in objects) {
+                Place *place = [[Place alloc] init];
+                place.name = [row objectForKey:@"name"];
+                PFFile *PFImage = [row objectForKey:@"imageFile"];
+                [PFImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    if (!error) {
+                        place.imageFile = [UIImage imageWithData:data];
+                    }
+                }];
+                place.phone = [row objectForKey:@"Phone"];
+                place.tab = [row objectForKey:@"Class"];
+                place.location = [row objectForKey:@"Location"];
+                if ([place.tab isEqualToString:@"Dining"]) {
+                    place.hours = [NSArray arrayWithObjects: [row objectForKey:@"breakfastTime"], [row objectForKey:@"lunchTime"], [row objectForKey:@"dinnerTime"], [row objectForKey:@"weekendBrunch"], [row objectForKey:@"weekendDinner"], nil];
+                }
+                else {
+                    place.hours = [NSArray arrayWithObjects: [row objectForKey:@"Monday"], [row objectForKey:@"Tuesday"], [row objectForKey:@"Wednesday"], [row objectForKey:@"Thursday"], [row objectForKey:@"Friday"], [row objectForKey:@"Saturday"], [row objectForKey:@"Sunday"], nil];
+                }
+                [self.places addObject:place];
+                
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+                NSPredicate *gymPoolPredicate = [NSPredicate predicateWithFormat:@"tab = 'GymPool'"];
+                NSPredicate *eateriesPredicate = [NSPredicate predicateWithFormat:@"tab = 'Eatery'"];
+                NSPredicate *otherPredicate = [NSPredicate predicateWithFormat:@"tab = 'Other'"];
+                NSPredicate *diningPredicate = [NSPredicate predicateWithFormat:@"tab = 'Dining'"];
+                self.gymPools = [self.places filteredArrayUsingPredicate:gymPoolPredicate];
+                self.eateries = [self.places filteredArrayUsingPredicate:eateriesPredicate];
+                self.others = [self.places filteredArrayUsingPredicate:otherPredicate];
+                self.dinings = [self.places filteredArrayUsingPredicate:diningPredicate];
+                
+                type = [NSArray array];
+                //simpleTableIdentifier = @"TableViewCell";
+                type = self.gymPools;
+                currentVC = self.gymPoolTV;
 
+                sleep(1);
+                [UIView transitionFromView:loadingView toView:self.gymPoolTV
+                                  duration:01.0 options:UIViewAnimationOptionTransitionFlipFromRight
+                                completion:NULL];
+                self.gymPoolTV.hidden = NO;
+                loadingView.hidden = YES;
+                [self.navigationController setNavigationBarHidden:NO animated:NO];
+                self.tabBarController.tabBar.hidden=NO;
+                [self.gymPoolTV reloadData];
+            });
+        }
+    }
+     ];
+    }
 }
 
 
-
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
+    
+    if (tab == 4) {
+    
     NSArray *favoritesArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"];
     if (favoritesArray.count == 0) {
         emptyView.hidden = NO;
-        self.tableView.hidden = YES;
+        self.favoritesTV.hidden = YES;
     }
     else {
-        self.tableView.hidden = NO;
+        self.favoritesTV.hidden = NO;
         emptyView.hidden = YES;
     }
     
     NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"name IN %@", favoritesArray];
     self.favorites = [self.places filteredArrayUsingPredicate:favoritesPredicate];
     
-    [self.tableView reloadData];
+    [self.favoritesTV reloadData];
     
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self.favoritesTV deselectRowAtIndexPath:[self.favoritesTV indexPathForSelectedRow] animated:YES];
+        
+    }
     
+    type = [NSArray array];
+    
+    
+	switch (tab) {
+		case 0:
+        {
+            type = self.gymPools;
+            currentVC = self.gymPoolTV;
+			break;
+        }
+		case 1:
+        {
+            type = self.eateries;
+            currentVC = self.eateriesTV;
+			break;
+        }
+		case 2:
+        {
+            type = self.dinings;
+            currentVC = self.diningTV;
+			break;
+        }
+		case 3:
+        {
+            type = self.others;
+            currentVC = self.otherTV;
+			break;
+        }
+		case 4:
+        {
+            type = self.favorites;
+            currentVC = self.favoritesTV;
+			break;
+        }
+		default:
+			NSLog(@"Unknown operator.");
+			break;
+	}
+    
+    [currentVC deselectRowAtIndexPath:[currentVC indexPathForSelectedRow] animated:YES];
+    [currentVC reloadData];
 }
-
 
 
 - (void)viewDidUnload
@@ -94,6 +210,7 @@
     return date;
 }
 
+
 - (BOOL)isWeekend:(NSString *)day
 {
     NSArray *weekend = @[@"Saturday", @"Sunday"];
@@ -103,7 +220,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"FavoritesCell";
+    static NSString *simpleTableIdentifier = @"TableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -115,7 +232,7 @@
     
     // Configure the cell
     Place *place = [[Place alloc] init];
-    place = [self.favorites objectAtIndex:indexPath.row];
+    place = [type objectAtIndex:indexPath.row];
     UIImageView *thumbnailImageView = (UIImageView*)[cell viewWithTag:100];
     thumbnailImageView.image = place.imageFile;
     
@@ -389,19 +506,45 @@
     return cell;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.favorites.count;
+    return type.count;
 }
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *navController = [tabBarController.viewControllers objectAtIndex:1];
+    UINavigationController *navController2 = [tabBarController.viewControllers objectAtIndex:2];
+    UINavigationController *navController3 = [tabBarController.viewControllers objectAtIndex:3];
+    UINavigationController *navController4 = [tabBarController.viewControllers objectAtIndex:4];
+    self.eateriesVC = (PlaceViewController *) [navController.viewControllers objectAtIndex:0];
+    self.diningVC = (PlaceViewController *) [navController2.viewControllers objectAtIndex:0];
+    self.otherVC = (PlaceViewController *) [navController3.viewControllers objectAtIndex:0];
+    self.favoritesVC = (PlaceViewController *) [navController4.viewControllers objectAtIndex:0];
+
+    self.eateriesVC.eateries = self.eateries;
+    self.diningVC.dinings = self.dinings;
+    self.otherVC.others = self.others;
+    self.favoritesVC.places = self.places;
+}
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showFavoritesDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        FavoritesDetailViewController *destViewController = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [currentVC indexPathForSelectedRow];
+        PlaceDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.place = [self.favorites objectAtIndex:indexPath.row];
+        destViewController.place = [type objectAtIndex:indexPath.row];
+    }
+    if ([segue.identifier isEqualToString:@"showMapView"]) {
+        
+        mapViewController *mapViewController = segue.destinationViewController;
+        mapViewController.buildings = [[NSMutableArray alloc]init];
+        [mapViewController.buildings addObjectsFromArray:self.places];
     }
 }
+
 
 
 @end

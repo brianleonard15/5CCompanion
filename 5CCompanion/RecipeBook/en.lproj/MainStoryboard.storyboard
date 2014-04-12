@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="-639" y="3326"/>
         </scene>
-        <!--Favorites Detail View Controller-->
+        <!--Gym Pool Detail View Controller-->
         <scene sceneID="Mi5-fi-9RL">
             <objects>
-                <viewController id="Vhg-zK-Bg3" customClass="FavoritesDetailViewController" sceneMemberID="viewController">
+                <viewController id="Vhg-zK-Bg3" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ipi-hl-dZ0"/>
                         <viewControllerLayoutGuide type="bottom" id="SNU-ls-aY6"/>
@@ -871,10 +871,10 @@
             </objects>
             <point key="canvasLocation" x="-77" y="2674"/>
         </scene>
-        <!--Favorites View Controller - Favorites-->
+        <!--Gym Pool View Controller - Favorites-->
         <scene sceneID="GLE-jS-9mt">
             <objects>
-                <viewController storyboardIdentifier="favoritesView" id="I5i-cu-8PY" customClass="FavoritesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favoritesView" id="I5i-cu-8PY" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="02P-M8-TvC"/>
                         <viewControllerLayoutGuide type="bottom" id="LJI-a3-SOi"/>
@@ -888,7 +888,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoritesCell" id="owS-ng-ag2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="owS-ng-ag2">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owS-ng-ag2" id="jJj-Cb-GXq">
@@ -921,7 +921,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Vhg-zK-Bg3" kind="push" identifier="showFavoritesDetail" id="Nqt-US-MGU"/>
+                                            <segue destination="Vhg-zK-Bg3" kind="push" identifier="showDetail" id="Nqt-US-MGU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -948,8 +948,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Rms-Uk-Vkx"/>
                     <connections>
-                        <outlet property="emptyView" destination="CYF-2Y-5bV" id="Lg6-1Z-6Fo"/>
-                        <outlet property="tableView" destination="OMy-eA-Sau" id="0Dq-qF-Pfr"/>
+                        <outlet property="emptyView" destination="CYF-2Y-5bV" id="v0j-tA-1p4"/>
+                        <outlet property="favoritesTV" destination="OMy-eA-Sau" id="c1p-Qw-39j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHw-Ki-9Ju" userLabel="First Responder" sceneMemberID="firstResponder"/>

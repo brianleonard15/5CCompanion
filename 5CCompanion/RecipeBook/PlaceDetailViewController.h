@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@interface EateriesDetailViewController : UIViewController {
+@interface PlaceDetailViewController : UIViewController {
 	UIButton *favButton;
 }
 

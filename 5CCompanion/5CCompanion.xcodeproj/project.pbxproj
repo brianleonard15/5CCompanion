@@ -12,9 +12,6 @@
 		9338481A18F20B79008F6967 /* Dining Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481918F20B79008F6967 /* Dining Icon.png */; };
 		9338481C18F20D57008F6967 /* 5C Companion 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 9338481B18F20D57008F6967 /* 5C Companion 120.png */; };
 		9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9376818918CA6C3900A5BEB8 /* EateriesIcon.png */; };
-		93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 93AE086718C2A432002C59B4 /* EateriesViewController.h */; };
-		93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086918C2A487002C59B4 /* EateriesViewController.m */; };
-		93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */; };
 		93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EB115218B84AA2005B67E5 /* Default-568h@2x.png */; };
 		D72188E618F734C500B87621 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72188E518F734C500B87621 /* GoogleMaps.framework */; };
 		D72188E918F7351D00B87621 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72188E818F7351D00B87621 /* mapViewController.m */; };
@@ -31,12 +28,6 @@
 		D72188FF18F738BA00B87621 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D72188FE18F738BA00B87621 /* GoogleMaps.bundle */; };
 		D72F05C718EB5EE9003176D7 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C518EB5EE9003176D7 /* selected.png */; };
 		D72F05C818EB5EE9003176D7 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C618EB5EE9003176D7 /* unselected.png */; };
-		D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */; };
-		D72F05CE18EBFAEF003176D7 /* FavoritesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */; };
-		D72F05E018ECB086003176D7 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05DF18ECB086003176D7 /* OtherViewController.m */; };
-		D72F05E318ECB0AA003176D7 /* OtherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E218ECB0AA003176D7 /* OtherDetailViewController.m */; };
-		D72F05E718ECB741003176D7 /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E618ECB741003176D7 /* DiningViewController.m */; };
-		D72F05EA18ECB752003176D7 /* DiningDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72F05E918ECB752003176D7 /* DiningDetailViewController.m */; };
 		D7C233DF18A6E0D30020A677 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233DE18A6E0D30020A677 /* Parse.framework */; };
 		D7C233E118A6E0FF0020A677 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */; };
 		D7C233E318A6E1040020A677 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E218A6E1040020A677 /* CFNetwork.framework */; };
@@ -48,7 +39,7 @@
 		D7C233EE18A6E1300020A677 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233ED18A6E1300020A677 /* Security.framework */; };
 		D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EF18A6E1360020A677 /* StoreKit.framework */; };
 		D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */; };
-		F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* GymPoolDetailViewController.m */; };
+		F419149E158D558600E54887 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* PlaceDetailViewController.m */; };
 		F447242715D78F07004A8C72 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* Place.m */; };
 		F4AA6C2C1589A2DF0093D97E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2B1589A2DF0093D97E /* UIKit.framework */; };
 		F4AA6C2E1589A2DF0093D97E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2D1589A2DF0093D97E /* Foundation.framework */; };
@@ -56,7 +47,7 @@
 		F4AA6C381589A2DF0093D97E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C371589A2DF0093D97E /* main.m */; };
 		F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */; };
 		F4AA6C3F1589A2DF0093D97E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */; };
-		F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */; };
+		F4AA6C421589A2DF0093D97E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA6C411589A2DF0093D97E /* PlaceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,10 +56,6 @@
 		9338481918F20B79008F6967 /* Dining Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dining Icon.png"; sourceTree = "<group>"; };
 		9338481B18F20D57008F6967 /* 5C Companion 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5C Companion 120.png"; sourceTree = "<group>"; };
 		9376818918CA6C3900A5BEB8 /* EateriesIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EateriesIcon.png; sourceTree = "<group>"; };
-		93AE086718C2A432002C59B4 /* EateriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesViewController.h; sourceTree = "<group>"; };
-		93AE086918C2A487002C59B4 /* EateriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesViewController.m; sourceTree = "<group>"; };
-		93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EateriesDetailViewController.h; sourceTree = "<group>"; };
-		93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EateriesDetailViewController.m; sourceTree = "<group>"; };
 		93EB115218B84AA2005B67E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D72188E518F734C500B87621 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../Downloads/GoogleMaps-iOS-1.7.0 2/GoogleMaps.framework"; sourceTree = "<group>"; };
 		D72188E718F7351100B87621 /* mapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
@@ -86,18 +73,6 @@
 		D72188FE18F738BA00B87621 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../Downloads/GoogleMaps-iOS-1.7.0 2/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		D72F05C518EB5EE9003176D7 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		D72F05C618EB5EE9003176D7 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
-		D72F05C918EB64E4003176D7 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
-		D72F05CC18EBFAEF003176D7 /* FavoritesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDetailViewController.h; sourceTree = "<group>"; };
-		D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDetailViewController.m; sourceTree = "<group>"; };
-		D72F05DE18ECB086003176D7 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
-		D72F05DF18ECB086003176D7 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
-		D72F05E118ECB0AA003176D7 /* OtherDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherDetailViewController.h; path = ../OtherDetailViewController.h; sourceTree = "<group>"; };
-		D72F05E218ECB0AA003176D7 /* OtherDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherDetailViewController.m; path = ../OtherDetailViewController.m; sourceTree = "<group>"; };
-		D72F05E518ECB741003176D7 /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
-		D72F05E618ECB741003176D7 /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
-		D72F05E818ECB752003176D7 /* DiningDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningDetailViewController.h; sourceTree = "<group>"; };
-		D72F05E918ECB752003176D7 /* DiningDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningDetailViewController.m; sourceTree = "<group>"; };
 		D7C233DE18A6E0D30020A677 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D7C233E218A6E1040020A677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -108,8 +83,8 @@
 		D7C233ED18A6E1300020A677 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D7C233EF18A6E1360020A677 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F419149C158D558600E54887 /* GymPoolDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPoolDetailViewController.h; sourceTree = "<group>"; };
-		F419149D158D558600E54887 /* GymPoolDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPoolDetailViewController.m; sourceTree = "<group>"; };
+		F419149C158D558600E54887 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		F419149D158D558600E54887 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		F447242515D78F07004A8C72 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		F447242615D78F07004A8C72 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		F4AA6C271589A2DF0093D97E /* 5CCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5CCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,8 +98,8 @@
 		F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanionAppDelegate.h; sourceTree = "<group>"; };
 		F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanionAppDelegate.m; sourceTree = "<group>"; };
 		F4AA6C3E1589A2DF0093D97E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GymPoolViewController.h; sourceTree = "<group>"; };
-		F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymPoolViewController.m; sourceTree = "<group>"; };
+		F4AA6C401589A2DF0093D97E /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		F4AA6C411589A2DF0093D97E /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,59 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D72F05DA18ECA9FC003176D7 /* GymPool */ = {
+		D72F05DA18ECA9FC003176D7 /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				F4AA6C401589A2DF0093D97E /* GymPoolViewController.h */,
-				F4AA6C411589A2DF0093D97E /* GymPoolViewController.m */,
-				F419149C158D558600E54887 /* GymPoolDetailViewController.h */,
-				F419149D158D558600E54887 /* GymPoolDetailViewController.m */,
+				F4AA6C401589A2DF0093D97E /* PlaceViewController.h */,
+				F4AA6C411589A2DF0093D97E /* PlaceViewController.m */,
+				F419149C158D558600E54887 /* PlaceDetailViewController.h */,
+				F419149D158D558600E54887 /* PlaceDetailViewController.m */,
 			);
-			name = GymPool;
-			sourceTree = "<group>";
-		};
-		D72F05DB18ECAA07003176D7 /* Eateries */ = {
-			isa = PBXGroup;
-			children = (
-				93AE086718C2A432002C59B4 /* EateriesViewController.h */,
-				93AE086918C2A487002C59B4 /* EateriesViewController.m */,
-				93AE086B18C2A492002C59B4 /* EateriesDetailViewController.h */,
-				93AE086C18C2A4A1002C59B4 /* EateriesDetailViewController.m */,
-			);
-			name = Eateries;
-			sourceTree = "<group>";
-		};
-		D72F05DD18ECAA18003176D7 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				D72F05C918EB64E4003176D7 /* FavoritesViewController.h */,
-				D72F05CA18EB64E4003176D7 /* FavoritesViewController.m */,
-				D72F05CC18EBFAEF003176D7 /* FavoritesDetailViewController.h */,
-				D72F05CD18EBFAEF003176D7 /* FavoritesDetailViewController.m */,
-			);
-			name = Favorites;
-			sourceTree = "<group>";
-		};
-		D72F05E418ECB0D4003176D7 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				D72F05DE18ECB086003176D7 /* OtherViewController.h */,
-				D72F05DF18ECB086003176D7 /* OtherViewController.m */,
-				D72F05E118ECB0AA003176D7 /* OtherDetailViewController.h */,
-				D72F05E218ECB0AA003176D7 /* OtherDetailViewController.m */,
-			);
-			name = Other;
-			sourceTree = "<group>";
-		};
-		D72F05EB18ECB77A003176D7 /* Dining */ = {
-			isa = PBXGroup;
-			children = (
-				D72F05E518ECB741003176D7 /* DiningViewController.h */,
-				D72F05E618ECB741003176D7 /* DiningViewController.m */,
-				D72F05E818ECB752003176D7 /* DiningDetailViewController.h */,
-				D72F05E918ECB752003176D7 /* DiningDetailViewController.m */,
-			);
-			name = Dining;
+			name = Place;
 			sourceTree = "<group>";
 		};
 		F4AA6C1C1589A2DF0093D97E = {
@@ -276,11 +207,7 @@
 				F447242615D78F07004A8C72 /* Place.m */,
 				D72188E718F7351100B87621 /* mapViewController.h */,
 				D72188E818F7351D00B87621 /* mapViewController.m */,
-				D72F05DA18ECA9FC003176D7 /* GymPool */,
-				D72F05DB18ECAA07003176D7 /* Eateries */,
-				D72F05E418ECB0D4003176D7 /* Other */,
-				D72F05EB18ECB77A003176D7 /* Dining */,
-				D72F05DD18ECAA18003176D7 /* Favorites */,
+				D72F05DA18ECA9FC003176D7 /* Place */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
 			name = 5CCompanion;
@@ -368,7 +295,6 @@
 				9338481A18F20B79008F6967 /* Dining Icon.png in Resources */,
 				9338481618F2082B008F6967 /* Delivery Icon.png in Resources */,
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
-				93AE086818C2A432002C59B4 /* EateriesViewController.h in Resources */,
 				D72F05C718EB5EE9003176D7 /* selected.png in Resources */,
 				D72F05C818EB5EE9003176D7 /* unselected.png in Resources */,
 				93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */,
@@ -383,21 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93AE086A18C2A487002C59B4 /* EateriesViewController.m in Sources */,
-				93AE086D18C2A4A1002C59B4 /* EateriesDetailViewController.m in Sources */,
 				F4AA6C381589A2DF0093D97E /* main.m in Sources */,
 				D72188FD18F7381C00B87621 /* FBMissingSymbols.m in Sources */,
 				F4AA6C3C1589A2DF0093D97E /* CompanionAppDelegate.m in Sources */,
-				D72F05E718ECB741003176D7 /* DiningViewController.m in Sources */,
-				D72F05CB18EB64E4003176D7 /* FavoritesViewController.m in Sources */,
-				D72F05E318ECB0AA003176D7 /* OtherDetailViewController.m in Sources */,
-				D72F05EA18ECB752003176D7 /* DiningDetailViewController.m in Sources */,
-				F4AA6C421589A2DF0093D97E /* GymPoolViewController.m in Sources */,
-				F419149E158D558600E54887 /* GymPoolDetailViewController.m in Sources */,
-				D72F05E018ECB086003176D7 /* OtherViewController.m in Sources */,
+				F4AA6C421589A2DF0093D97E /* PlaceViewController.m in Sources */,
+				F419149E158D558600E54887 /* PlaceDetailViewController.m in Sources */,
 				D72188E918F7351D00B87621 /* mapViewController.m in Sources */,
 				F447242715D78F07004A8C72 /* Place.m in Sources */,
-				D72F05CE18EBFAEF003176D7 /* FavoritesDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
