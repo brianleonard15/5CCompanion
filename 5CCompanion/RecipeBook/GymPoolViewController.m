@@ -16,7 +16,6 @@
     
 IBOutlet UIView *loadingView;
 NSUInteger tab;
-//NSString *simpleTableIdentifier;
 NSArray *type;
 UITableView *currentVC;
     
@@ -107,36 +106,31 @@ UITableView *currentVC;
 	switch (tab) {
 		case 0:
         {
-            //simpleTableIdentifier = @"GymPoolCell";
             type = self.gymPools;
             currentVC = self.gymPoolTV;
 			break;
         }
 		case 1:
         {
-            //simpleTableIdentifier = @"EateriesCell";
             type = self.eateries;
             currentVC = self.eateriesTV;
 			break;
         }
 		case 2:
         {
-            //simpleTableIdentifier = @"DiningCell";
-            type = self.eateries;
+            type = self.dinings;
             currentVC = self.diningTV;
 			break;
         }
 		case 3:
         {
-            //simpleTableIdentifier = @"OtherCell";
-            type = self.eateries;
+            type = self.others;
             currentVC = self.otherTV;
 			break;
         }
 		case 4:
         {
-            //simpleTableIdentifier = @"FavoritesCell";
-            type = self.eateries;
+            type = self.places;
             currentVC = self.favoritesTV;
 			break;
         }
@@ -193,14 +187,25 @@ UITableView *currentVC;
     return date;
 }
 
+
+- (BOOL)isWeekend:(NSString *)day
+{
+    NSArray *weekend = @[@"Saturday", @"Sunday"];
+    return [weekend containsObject: day];
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"TableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
+    
     
     // Configure the cell
     Place *place = [[Place alloc] init];
@@ -219,15 +224,17 @@ UITableView *currentVC;
     // Some places open past 12:00 am. For example, Jay's Place opens until 2 AM on Saturdays, and don't
     // want the app to show Jay's Sunday hours when it is between 12 and 2 AM on Sunday.
     
-    if ([self before3am]) {
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDate *today = [NSDate date];
-        
-        NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
-        dayComponent.day = -1;
-        
-        NSDate *yesterday = [gregorian dateByAddingComponents:dayComponent toDate:today options:0];
-        day = yesterday;
+    if (![place.tab isEqualToString: @"Dining"]) {
+        if ([self before3am]) {
+            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDate *today = [NSDate date];
+            
+            NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+            dayComponent.day = -1;
+            
+            NSDate *yesterday = [gregorian dateByAddingComponents:dayComponent toDate:today options:0];
+            day = yesterday;
+        }
     }
     NSDateFormatter *currentDay = [[NSDateFormatter alloc] init];
     [currentDay setDateFormat: @"EEEE"];
@@ -235,78 +242,218 @@ UITableView *currentVC;
     NSArray *daysOfWeekInOrder = [NSArray arrayWithObjects: @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday", nil];
     NSUInteger numericDayOfWeek = [daysOfWeekInOrder indexOfObject:dayOfTheWeek];
     
-    NSArray *hours = [place.hours objectAtIndex:numericDayOfWeek];
-    NSMutableString *currentHours = [[NSMutableString alloc] init];
+    NSMutableArray *hours;
     
-    if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
-        [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
-        currentHoursLabel.textColor = [UIColor redColor];
-        openLabel.backgroundColor = [UIColor redColor];
+    if ([place.tab isEqualToString: @"Dining"]) {
+        BOOL isWeekend = [self isWeekend:dayOfTheWeek];
+        
+        
+        if (isWeekend) {
+            hours = [[[place.hours objectAtIndex:3] arrayByAddingObjectsFromArray: [place.hours objectAtIndex:4]]mutableCopy];
+        }
+        else {
+            hours = [[[[place.hours objectAtIndex:0] arrayByAddingObjectsFromArray: [place.hours objectAtIndex:1]] arrayByAddingObjectsFromArray:[place.hours objectAtIndex:2]] mutableCopy];
+        }
+        
+        [hours removeObject:@"Closed"];
+        
+        if (hours.count == 0) {
+            [hours addObject:@"Closed"];
+        }
     }
     else {
-        if (hours.count == 4) {
-            // NSString *strOpenTime = [hours objectAtIndex: 0];
-            NSString *strCloseTime = [hours objectAtIndex: 1];
-            //  NSString *strCloseTime2 = [hours objectAtIndex: 3];
-            // NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
-            NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
-            // NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
-            NSDate *now = [NSDate date];
-            if ([now compare:closeTime] != NSOrderedAscending || [self before3am]) {
-                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
-            }
-            else {
-                [currentHours setString:@""];
-                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
-            }
-        }
-        else
-            [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+        hours = [place.hours objectAtIndex:numericDayOfWeek];
     }
     
-    currentHoursLabel.text = currentHours;
+    NSMutableString *currentHours = [[NSMutableString alloc] init];
     
-    if (![[hours objectAtIndex: 0] isEqualToString: @"Closed"]) {
-        NSString *strOpenTime = [hours objectAtIndex: 0];
-        NSString *strCloseTime = [hours objectAtIndex: 1];
-        
-        NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
-        NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
-        NSDate *openTime2;
-        NSDate *closeTime2;
-        
-        if ([closeTime compare:openTime] != NSOrderedDescending) {
-            // closeTime is less than or equal to openTime, so add one day:
-            if([self before3am]) {
-                NSCalendar *cal = [NSCalendar currentCalendar];
-                NSDateComponents *comp = [[NSDateComponents alloc] init];
-                [comp setDay:-1];
-                openTime = [cal dateByAddingComponents:comp toDate:openTime options:0];
+    if (![place.tab isEqualToString: @"Dining"]) {
+        if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
+            [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
+            currentHoursLabel.textColor = [UIColor redColor];
+            openLabel.backgroundColor = [UIColor redColor];
+        }
+        else {
+            if (hours.count == 4) {
+                NSString *strCloseTime = [hours objectAtIndex: 1];
+                NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+                NSDate *now = [NSDate date];
+                if ([now compare:closeTime] != NSOrderedAscending || [self before3am]) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+                }
+                else {
+                    [currentHours setString:@""];
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
             }
-            else {
-                NSCalendar *cal = [NSCalendar currentCalendar];
-                NSDateComponents *comp = [[NSDateComponents alloc] init];
-                [comp setDay:1];
-                closeTime = [cal dateByAddingComponents:comp toDate:closeTime options:0];
-            }
+            else
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
         }
         
-        if (hours.count == 4) {
-            NSString *strOpenTime2 = [hours objectAtIndex: 2];
-            NSString *strCloseTime2 = [hours objectAtIndex: 3];
+        currentHoursLabel.text = currentHours;
+        
+        
+        if (![[hours objectAtIndex: 0] isEqualToString: @"Closed"]) {
+            NSString *strOpenTime = [hours objectAtIndex: 0];
+            NSString *strCloseTime = [hours objectAtIndex: 1];
             
-            openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
-            closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+            NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
+            NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+            NSDate *openTime2;
+            NSDate *closeTime2;
             
-            if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+            if ([closeTime compare:openTime] != NSOrderedDescending) {
                 // closeTime is less than or equal to openTime, so add one day:
                 if([self before3am]) {
                     NSCalendar *cal = [NSCalendar currentCalendar];
                     NSDateComponents *comp = [[NSDateComponents alloc] init];
                     [comp setDay:-1];
-                    openTime2 = [cal dateByAddingComponents:comp toDate:openTime2 options:0];
+                    openTime = [cal dateByAddingComponents:comp toDate:openTime options:0];
                 }
                 else {
+                    NSCalendar *cal = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [[NSDateComponents alloc] init];
+                    [comp setDay:1];
+                    closeTime = [cal dateByAddingComponents:comp toDate:closeTime options:0];
+                }
+            }
+            
+            if (hours.count == 4) {
+                NSString *strOpenTime2 = [hours objectAtIndex: 2];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                
+                openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+                closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                
+                if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                    // closeTime is less than or equal to openTime, so add one day:
+                    if([self before3am]) {
+                        NSCalendar *cal = [NSCalendar currentCalendar];
+                        NSDateComponents *comp = [[NSDateComponents alloc] init];
+                        [comp setDay:-1];
+                        openTime2 = [cal dateByAddingComponents:comp toDate:openTime2 options:0];
+                    }
+                    else {
+                        NSCalendar *cal = [NSCalendar currentCalendar];
+                        NSDateComponents *comp = [[NSDateComponents alloc] init];
+                        [comp setDay:1];
+                        closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
+                    }
+                }
+                
+            }
+            
+            NSDate *now = [NSDate date];
+            
+            if (([now compare:openTime] != NSOrderedAscending &&
+                 [now compare:closeTime] != NSOrderedDescending) ||
+                (openTime2 && closeTime2 &&
+                 [now compare:openTime2] != NSOrderedAscending &&
+                 [now compare:closeTime2] != NSOrderedDescending)) {
+                    currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                    openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                } else {
+                    currentHoursLabel.textColor = [UIColor redColor];
+                    openLabel.backgroundColor = [UIColor redColor];
+                }
+        }
+    }
+    
+    else {
+        if ([[hours objectAtIndex: 0] isEqualToString: @"Closed"])  {
+            [currentHours appendFormat:@"%@", [hours objectAtIndex: 0]];
+            currentHoursLabel.textColor = [UIColor redColor];
+            openLabel.backgroundColor = [UIColor redColor];
+        }
+        else {
+            if (hours.count == 4) {
+                NSString *strCloseTime = [hours objectAtIndex: 1];
+                NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+                NSDate *now = [NSDate date];
+                if ([now compare:closeTime] != NSOrderedAscending) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+                }
+                else {
+                    [currentHours setString:@""];
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
+            }
+            else if (hours.count == 6) {
+                NSString *strCloseTime = [hours objectAtIndex: 1];
+                NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                NSString *strCloseTime3 = [hours objectAtIndex: 5];
+                NSDate *closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+                NSDate *now = [NSDate date];
+                if ([now compare:closeTime] == NSOrderedAscending) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
+                else if ([now compare:closeTime] != NSOrderedAscending && [now compare:closeTime2] == NSOrderedAscending) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+                }
+                else if ([now compare:closeTime3] == NSOrderedAscending) {
+                    [currentHours setString:@""];
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 4], [hours objectAtIndex: 5]];
+                }
+                else {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
+            }
+            else
+                [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+        }
+        
+        currentHoursLabel.text = currentHours;
+        
+        if (![[hours objectAtIndex: 0] isEqualToString: @"Closed"]) {
+            NSString *strOpenTime = [hours objectAtIndex: 0];
+            NSString *strCloseTime = [hours objectAtIndex: 1];
+            NSDate *openTime = [self todaysDateFromAMPMString:strOpenTime];
+            NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+            
+            NSDate *openTime2;
+            NSDate *closeTime2;
+            NSDate *openTime3;
+            NSDate *closeTime3;
+            
+            if ([closeTime compare:openTime] != NSOrderedDescending) {
+                NSCalendar *cal = [NSCalendar currentCalendar];
+                NSDateComponents *comp = [[NSDateComponents alloc] init];
+                [comp setDay:1];
+                closeTime = [cal dateByAddingComponents:comp toDate:closeTime options:0];
+            }
+            
+            if (hours.count == 4) {
+                NSString *strOpenTime2 = [hours objectAtIndex: 2];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                
+                openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+                closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                
+                if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                    // closeTime is less than or equal to openTime, so add one day:
+                    NSCalendar *cal = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [[NSDateComponents alloc] init];
+                    [comp setDay:1];
+                    closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
+                }
+                
+            }
+            
+            if (hours.count == 6) {
+                NSString *strOpenTime2 = [hours objectAtIndex: 2];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                NSString *strOpenTime3 = [hours objectAtIndex: 4];
+                NSString *strCloseTime3 = [hours objectAtIndex: 5];
+                
+                openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+                closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                openTime3 = [self todaysDateFromAMPMString:strOpenTime3];
+                closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+                
+                if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                    // closeTime is less than or equal to openTime, so add one day:
                     NSCalendar *cal = [NSCalendar currentCalendar];
                     NSDateComponents *comp = [[NSDateComponents alloc] init];
                     [comp setDay:1];
@@ -314,25 +461,28 @@ UITableView *currentVC;
                 }
             }
             
+            NSDate *now = [NSDate date];
+            
+            if (([now compare:openTime] != NSOrderedAscending &&
+                 [now compare:closeTime] != NSOrderedDescending) ||
+                (openTime2 && closeTime2 &&
+                 [now compare:openTime2] != NSOrderedAscending &&
+                 [now compare:closeTime2] != NSOrderedDescending) ||
+                (openTime3 && closeTime3 &&
+                 [now compare:openTime3] != NSOrderedAscending &&
+                 [now compare:closeTime3] != NSOrderedDescending)) {
+                    currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                    openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+                } else {
+                    currentHoursLabel.textColor = [UIColor redColor];
+                    openLabel.backgroundColor = [UIColor redColor];
+                }
         }
-        
-        NSDate *now = [NSDate date];
-        
-        if (([now compare:openTime] != NSOrderedAscending &&
-             [now compare:closeTime] != NSOrderedDescending) ||
-            (openTime2 && closeTime2 &&
-             [now compare:openTime2] != NSOrderedAscending &&
-             [now compare:closeTime2] != NSOrderedDescending)) {
-                currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-                openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            } else {
-                currentHoursLabel.textColor = [UIColor redColor];
-                openLabel.backgroundColor = [UIColor redColor];
-            }
     }
     
     return cell;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return type.count;
@@ -345,8 +495,8 @@ UITableView *currentVC;
     UINavigationController *navController3 = [tabBarController.viewControllers objectAtIndex:3];
     UINavigationController *navController4 = [tabBarController.viewControllers objectAtIndex:4];
     self.eateriesVC = (GymPoolViewController *) [navController.viewControllers objectAtIndex:0];
-    self.diningVC = (DiningViewController *) [navController2.viewControllers objectAtIndex:0];
-    self.otherVC = (OtherViewController *) [navController3.viewControllers objectAtIndex:0];
+    self.diningVC = (GymPoolViewController *) [navController2.viewControllers objectAtIndex:0];
+    self.otherVC = (GymPoolViewController *) [navController3.viewControllers objectAtIndex:0];
     self.favoritesVC = (FavoritesViewController *) [navController4.viewControllers objectAtIndex:0];
 
     self.eateriesVC.eateries = self.eateries;

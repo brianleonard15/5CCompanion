@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="-639" y="820"/>
         </scene>
-        <!--Eateries Detail View Controller-->
+        <!--Gym Pool Detail View Controller-->
         <scene sceneID="fF1-hf-4HR">
             <objects>
-                <viewController id="dXl-px-riG" customClass="EateriesDetailViewController" sceneMemberID="viewController">
+                <viewController id="dXl-px-riG" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4k7-js-Bei"/>
                         <viewControllerLayoutGuide type="bottom" id="bXc-I3-jXw"/>
@@ -462,10 +462,10 @@
             </objects>
             <point key="canvasLocation" x="-639" y="2042"/>
         </scene>
-        <!--Other Detail View Controller-->
+        <!--Gym Pool Detail View Controller-->
         <scene sceneID="Akm-KH-3Qs">
             <objects>
-                <viewController id="Ksm-rb-zKP" customClass="OtherDetailViewController" sceneMemberID="viewController">
+                <viewController id="Ksm-rb-zKP" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dmX-fk-0Z1"/>
                         <viewControllerLayoutGuide type="bottom" id="yEF-9q-nsC"/>
@@ -568,10 +568,10 @@
             </objects>
             <point key="canvasLocation" x="-639" y="2674"/>
         </scene>
-        <!--Dining Detail View Controller-->
+        <!--Gym Pool Detail View Controller-->
         <scene sceneID="i6H-co-1m7">
             <objects>
-                <viewController id="EWP-gQ-5sO" customClass="DiningDetailViewController" sceneMemberID="viewController">
+                <viewController id="EWP-gQ-5sO" customClass="GymPoolDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gZx-cS-h70"/>
                         <viewControllerLayoutGuide type="bottom" id="H1d-sf-plg"/>
@@ -729,10 +729,10 @@
             </objects>
             <point key="canvasLocation" x="-77" y="1450"/>
         </scene>
-        <!--Other View Controller - Other-->
+        <!--Gym Pool View Controller - Other-->
         <scene sceneID="xYa-fl-Czd">
             <objects>
-                <viewController id="zvi-Xq-UsF" customClass="OtherViewController" sceneMemberID="viewController">
+                <viewController id="zvi-Xq-UsF" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TYQ-Tj-V6k"/>
                         <viewControllerLayoutGuide type="bottom" id="u1O-f8-zIR"/>
@@ -746,7 +746,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OtherCell" id="8OV-Rc-by0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="8OV-Rc-by0">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8OV-Rc-by0" id="hgU-kE-aRw">
@@ -779,7 +779,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Ksm-rb-zKP" kind="push" identifier="showOtherDetail" id="XpQ-GL-kHt"/>
+                                            <segue destination="Ksm-rb-zKP" kind="push" identifier="showDetail" id="XpQ-GL-kHt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -793,17 +793,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Other" id="dwX-Ua-iWI"/>
                     <connections>
-                        <outlet property="tableView" destination="JdN-ca-ugm" id="2Si-nR-TlU"/>
+                        <outlet property="otherTV" destination="JdN-ca-ugm" id="Mzg-vg-7gP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eco-SE-Kpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-77" y="2042"/>
         </scene>
-        <!--Dining View Controller - Dining-->
+        <!--Gym Pool View Controller - Dining-->
         <scene sceneID="KPZ-pA-ggv">
             <objects>
-                <viewController id="grE-gc-m2a" customClass="DiningViewController" sceneMemberID="viewController">
+                <viewController id="grE-gc-m2a" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Kx-pX-BdT"/>
                         <viewControllerLayoutGuide type="bottom" id="UHO-CL-D8z"/>
@@ -817,7 +817,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiningCell" id="pM6-90-ron">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="pM6-90-ron">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pM6-90-ron" id="wBj-ZQ-NoH">
@@ -850,7 +850,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="EWP-gQ-5sO" kind="push" identifier="showDiningDetail" id="5mU-gC-G8f"/>
+                                            <segue destination="EWP-gQ-5sO" kind="push" identifier="showDetail" id="5mU-gC-G8f"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -864,7 +864,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dining" id="JcD-aG-Dpd"/>
                     <connections>
-                        <outlet property="tableView" destination="otD-sf-j4r" id="X5o-gS-f6H"/>
+                        <outlet property="diningTV" destination="otD-sf-j4r" id="itE-Bg-6ta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8R-hO-Lis" userLabel="First Responder" sceneMemberID="firstResponder"/>

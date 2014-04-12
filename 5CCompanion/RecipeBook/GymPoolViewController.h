@@ -23,8 +23,8 @@
 @property (nonatomic, strong) NSArray *dinings;
 @property (nonatomic, strong) NSArray *others;
 @property(strong, nonatomic) GymPoolViewController *eateriesVC;
-@property(strong, nonatomic) OtherViewController *otherVC;
-@property(strong, nonatomic) DiningViewController *diningVC;
+@property(strong, nonatomic) GymPoolViewController *otherVC;
+@property(strong, nonatomic) GymPoolViewController *diningVC;
 @property(strong, nonatomic) FavoritesViewController *favoritesVC;
 
 @end
