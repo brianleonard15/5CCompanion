@@ -15,7 +15,11 @@
 @interface GymPoolViewController () {
     
 IBOutlet UIView *loadingView;
-
+NSUInteger tab;
+//NSString *simpleTableIdentifier;
+NSArray *type;
+UITableView *currentVC;
+    
 }
 
 @end
@@ -26,8 +30,10 @@ IBOutlet UIView *loadingView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    tab = self.tabBarController.selectedIndex;
+    if (tab == 0) {
     self.tabBarController.delegate = self;
-    self.tableView.hidden = YES;
+    self.gymPoolTV.hidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden=YES;
     
@@ -70,27 +76,77 @@ IBOutlet UIView *loadingView;
                 self.others = [self.places filteredArrayUsingPredicate:otherPredicate];
                 self.dinings = [self.places filteredArrayUsingPredicate:diningPredicate];
                 
+                type = [NSArray array];
+                //simpleTableIdentifier = @"TableViewCell";
+                type = self.gymPools;
+                currentVC = self.gymPoolTV;
 
                 sleep(1);
-                [UIView transitionFromView:loadingView toView:self.tableView
+                [UIView transitionFromView:loadingView toView:self.gymPoolTV
                                   duration:01.0 options:UIViewAnimationOptionTransitionFlipFromRight
                                 completion:NULL];
-                self.tableView.hidden = NO;
+                self.gymPoolTV.hidden = NO;
                 loadingView.hidden = YES;
                 [self.navigationController setNavigationBarHidden:NO animated:NO];
                 self.tabBarController.tabBar.hidden=NO;
-                [self.tableView reloadData];
+                [self.gymPoolTV reloadData];
             });
         }
     }
      ];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self.tableView reloadData];
+    
+    type = [NSArray array];
+    
+    
+	switch (tab) {
+		case 0:
+        {
+            //simpleTableIdentifier = @"GymPoolCell";
+            type = self.gymPools;
+            currentVC = self.gymPoolTV;
+			break;
+        }
+		case 1:
+        {
+            //simpleTableIdentifier = @"EateriesCell";
+            type = self.eateries;
+            currentVC = self.eateriesTV;
+			break;
+        }
+		case 2:
+        {
+            //simpleTableIdentifier = @"DiningCell";
+            type = self.eateries;
+            currentVC = self.diningTV;
+			break;
+        }
+		case 3:
+        {
+            //simpleTableIdentifier = @"OtherCell";
+            type = self.eateries;
+            currentVC = self.otherTV;
+			break;
+        }
+		case 4:
+        {
+            //simpleTableIdentifier = @"FavoritesCell";
+            type = self.eateries;
+            currentVC = self.favoritesTV;
+			break;
+        }
+		default:
+			NSLog(@"Unknown operator.");
+			break;
+	}
+    
+    [currentVC deselectRowAtIndexPath:[currentVC indexPathForSelectedRow] animated:YES];
+    [currentVC reloadData];
 }
 
 
@@ -139,7 +195,7 @@ IBOutlet UIView *loadingView;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"GymPoolCell";
+    static NSString *simpleTableIdentifier = @"TableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -148,7 +204,7 @@ IBOutlet UIView *loadingView;
     
     // Configure the cell
     Place *place = [[Place alloc] init];
-    place = [self.gymPools objectAtIndex:indexPath.row];
+    place = [type objectAtIndex:indexPath.row];
     UIImageView *thumbnailImageView = (UIImageView*)[cell viewWithTag:100];
     thumbnailImageView.image = place.imageFile;
     
@@ -279,7 +335,7 @@ IBOutlet UIView *loadingView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.gymPools.count;
+    return type.count;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
@@ -288,7 +344,7 @@ IBOutlet UIView *loadingView;
     UINavigationController *navController2 = [tabBarController.viewControllers objectAtIndex:2];
     UINavigationController *navController3 = [tabBarController.viewControllers objectAtIndex:3];
     UINavigationController *navController4 = [tabBarController.viewControllers objectAtIndex:4];
-    self.eateriesVC = (EateriesViewController *) [navController.viewControllers objectAtIndex:0];
+    self.eateriesVC = (GymPoolViewController *) [navController.viewControllers objectAtIndex:0];
     self.diningVC = (DiningViewController *) [navController2.viewControllers objectAtIndex:0];
     self.otherVC = (OtherViewController *) [navController3.viewControllers objectAtIndex:0];
     self.favoritesVC = (FavoritesViewController *) [navController4.viewControllers objectAtIndex:0];
@@ -302,11 +358,11 @@ IBOutlet UIView *loadingView;
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showGymPoolDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [currentVC indexPathForSelectedRow];
         GymPoolDetailViewController *destViewController = segue.destinationViewController;
         
-        destViewController.place = [self.gymPools objectAtIndex:indexPath.row];
+        destViewController.place = [type objectAtIndex:indexPath.row];
     }
     if ([segue.identifier isEqualToString:@"showMapView"]) {
         

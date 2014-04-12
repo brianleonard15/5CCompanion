@@ -8,7 +8,7 @@
         <!--Gym Pool View Controller - Gym/Pool-->
         <scene sceneID="XVz-D6-PQ9">
             <objects>
-                <viewController id="Bbr-Wl-qIy" customClass="GymPoolViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GymPoolVC" title="Gym/Pool" id="Bbr-Wl-qIy" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oO9-iT-Oho"/>
                         <viewControllerLayoutGuide type="bottom" id="pau-Iu-6Ms"/>
@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GymPoolCell" id="QmN-Kl-fjQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="QmN-Kl-fjQ">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QmN-Kl-fjQ" id="Zj7-KF-JWS">
@@ -55,7 +55,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="JOa-m2-nv8" kind="push" identifier="showGymPoolDetail" id="EMx-xH-GVb"/>
+                                            <segue destination="JOa-m2-nv8" kind="push" identifier="showDetail" id="EMx-xH-GVb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -94,8 +94,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gymPoolTV" destination="FNF-wY-RrC" id="wge-WC-2tT"/>
                         <outlet property="loadingView" destination="Og0-ID-VJA" id="WBG-lK-aqR"/>
-                        <outlet property="tableView" destination="FNF-wY-RrC" id="70s-hq-bd1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rM8-2m-gzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -658,10 +658,10 @@
             </objects>
             <point key="canvasLocation" x="489" y="2674"/>
         </scene>
-        <!--Eateries View Controller - Eateries-->
+        <!--Gym Pool View Controller - Eateries-->
         <scene sceneID="AnM-bp-Jmg">
             <objects>
-                <viewController id="nmZ-Ca-ubi" customClass="EateriesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EateriesVC" title="Eateries" id="nmZ-Ca-ubi" customClass="GymPoolViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vCs-QD-Noi"/>
                         <viewControllerLayoutGuide type="bottom" id="DhK-lV-YaU"/>
@@ -670,12 +670,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cNY-oR-zIb">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cNY-oR-zIb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EateriesCell" id="3Et-jC-IiU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="3Et-jC-IiU">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Et-jC-IiU" id="jje-y2-Hx7">
@@ -708,7 +708,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="dXl-px-riG" kind="push" identifier="showEateriesDetail" id="4LN-kp-dmz"/>
+                                            <segue destination="dXl-px-riG" kind="push" identifier="showDetail" id="4LN-kp-dmz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -722,7 +722,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Eateries" id="BaP-4t-xe7"/>
                     <connections>
-                        <outlet property="tableView" destination="cNY-oR-zIb" id="PaS-GG-vyE"/>
+                        <outlet property="eateriesTV" destination="cNY-oR-zIb" id="NQi-Az-cUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELF-r9-uFK" userLabel="First Responder" sceneMemberID="firstResponder"/>

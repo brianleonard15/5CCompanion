@@ -493,9 +493,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/Leonard/Downloads/RecipeBookParseEmpty,
 					"/Users/Leonard/Downloads/GoogleMaps-iOS-1.7.0",
-					2,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecipeBook/5CCompanion-Prefix.pch";
@@ -516,9 +514,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					/Users/Leonard/Downloads/RecipeBookParseEmpty,
 					"/Users/Leonard/Downloads/GoogleMaps-iOS-1.7.0",
-					2,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecipeBook/5CCompanion-Prefix.pch";

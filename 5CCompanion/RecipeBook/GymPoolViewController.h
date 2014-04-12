@@ -16,13 +16,13 @@
 
 @interface GymPoolViewController : UIViewController <UITabBarControllerDelegate>
 
-@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) IBOutlet UITableView *gymPoolTV, *eateriesTV, *otherTV, *diningTV, *favoritesTV;
 @property (nonatomic, strong) NSMutableArray *places;
 @property (nonatomic, strong) NSArray *gymPools;
 @property (nonatomic, strong) NSArray *eateries;
 @property (nonatomic, strong) NSArray *dinings;
 @property (nonatomic, strong) NSArray *others;
-@property(strong, nonatomic) EateriesViewController *eateriesVC;
+@property(strong, nonatomic) GymPoolViewController *eateriesVC;
 @property(strong, nonatomic) OtherViewController *otherVC;
 @property(strong, nonatomic) DiningViewController *diningVC;
 @property(strong, nonatomic) FavoritesViewController *favoritesVC;
