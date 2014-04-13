@@ -10,10 +10,11 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <Parse/Parse.h>
 
-@interface mapViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
-
+@interface mapViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate> // Add this if you haven't
+{
 
 }
+
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 @property (nonatomic, strong) NSMutableArray *buildings;

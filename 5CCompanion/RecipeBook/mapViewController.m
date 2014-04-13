@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <Parse/Parse.h>
 #import "Place.h"
+#import "PlaceDetailViewController.h"
 
 @interface mapViewController ()
 
@@ -27,6 +28,7 @@
                                                                  zoom:15];
     self.mapView.camera = camera;
     
+    _mapView.delegate=self; 
     
     self.mapView.myLocationEnabled = YES;
     
@@ -117,6 +119,23 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 35;
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
+    NSPredicate *tapInfoPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", marker.title];
+    self.buildings = [[self.buildings filteredArrayUsingPredicate:tapInfoPredicate]mutableCopy];
+    [self performSegueWithIdentifier:@"showMapDetailView" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showMapDetailView"]) {
+        
+        PlaceDetailViewController *destViewController = segue.destinationViewController;
+        Place *placeee = [self.buildings objectAtIndex:0];
+        NSLog(@"%@",placeee.name);
+        destViewController.place = [self.buildings objectAtIndex:0];
+    }
 }
 
 @end

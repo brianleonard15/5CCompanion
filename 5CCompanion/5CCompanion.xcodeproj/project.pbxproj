@@ -139,6 +139,8 @@
 		D72F05DA18ECA9FC003176D7 /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				F447242515D78F07004A8C72 /* Place.h */,
+				F447242615D78F07004A8C72 /* Place.m */,
 				F4AA6C401589A2DF0093D97E /* PlaceViewController.h */,
 				F4AA6C411589A2DF0093D97E /* PlaceViewController.m */,
 				F419149C158D558600E54887 /* PlaceDetailViewController.h */,
@@ -203,8 +205,6 @@
 				F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */,
 				F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */,
 				F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */,
-				F447242515D78F07004A8C72 /* Place.h */,
-				F447242615D78F07004A8C72 /* Place.m */,
 				D72188E718F7351100B87621 /* mapViewController.h */,
 				D72188E818F7351D00B87621 /* mapViewController.m */,
 				D72F05DA18ECA9FC003176D7 /* Place */,
