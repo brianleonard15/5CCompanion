@@ -44,7 +44,8 @@
         marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
         marker.title = place.name;
         marker.snippet = place.name;
-        marker.map = self.mapView;
+        marker.icon = nil;
+        //marker.map = self.mapView;
         [self.markers addObject:marker];
     }
     
@@ -124,17 +125,43 @@
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
     NSPredicate *tapInfoPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", marker.title];
-    self.buildings = [[self.buildings filteredArrayUsingPredicate:tapInfoPredicate]mutableCopy];
-    [self performSegueWithIdentifier:@"showMapDetailView" sender:self];
+    NSArray *filteredBuildings = [NSArray array];
+    filteredBuildings = [[self.buildings filteredArrayUsingPredicate:tapInfoPredicate]mutableCopy];
+    self.tappedBuilding = [filteredBuildings objectAtIndex:0];
+    if ([@"DiningEateryGymPoolOther" rangeOfString:self.tappedBuilding.tab].location != NSNotFound) {
+        [self performSegueWithIdentifier:@"showMapDetailView" sender:self];
+    }
+}
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+    if (self.mapView.camera.zoom >= 17) {
+        for (GMSMarker *marker in self.markers)
+        {
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+            label.text = marker.title;
+            label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:10.0];
+            label.numberOfLines = 2;
+            [label sizeToFit];
+            //grab it
+            UIGraphicsBeginImageContextWithOptions(label.bounds.size, NO, [[UIScreen mainScreen] scale]);
+            [label.layer renderInContext:UIGraphicsGetCurrentContext()];
+            UIImage * icon = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            marker.icon = icon;
+            marker.map = self.mapView;
+        }
+    }
+    else {
+            [self.mapView clear];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showMapDetailView"]) {
         
         PlaceDetailViewController *destViewController = segue.destinationViewController;
-        Place *placeee = [self.buildings objectAtIndex:0];
-        NSLog(@"%@",placeee.name);
-        destViewController.place = [self.buildings objectAtIndex:0];
+        destViewController.place = self.tappedBuilding;
     }
 }
 
