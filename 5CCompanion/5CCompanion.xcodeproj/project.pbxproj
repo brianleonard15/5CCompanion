@@ -28,6 +28,7 @@
 		D72188FF18F738BA00B87621 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D72188FE18F738BA00B87621 /* GoogleMaps.bundle */; };
 		D72F05C718EB5EE9003176D7 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C518EB5EE9003176D7 /* selected.png */; };
 		D72F05C818EB5EE9003176D7 /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D72F05C618EB5EE9003176D7 /* unselected.png */; };
+		D743CA3B18FD39300025746D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D743CA3A18FD39300025746D /* MBProgressHUD.m */; };
 		D7C233DF18A6E0D30020A677 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233DE18A6E0D30020A677 /* Parse.framework */; };
 		D7C233E118A6E0FF0020A677 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */; };
 		D7C233E318A6E1040020A677 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E218A6E1040020A677 /* CFNetwork.framework */; };
@@ -73,6 +74,8 @@
 		D72188FE18F738BA00B87621 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../Downloads/GoogleMaps-iOS-1.7.0 2/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		D72F05C518EB5EE9003176D7 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		D72F05C618EB5EE9003176D7 /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected.png; sourceTree = "<group>"; };
+		D743CA3918FD39300025746D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D743CA3A18FD39300025746D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D7C233DE18A6E0D30020A677 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D7C233E018A6E0FF0020A677 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D7C233E218A6E1040020A677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -202,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				D72188FC18F7381C00B87621 /* FBMissingSymbols.m */,
+				D743CA3918FD39300025746D /* MBProgressHUD.h */,
+				D743CA3A18FD39300025746D /* MBProgressHUD.m */,
 				F4AA6C3A1589A2DF0093D97E /* CompanionAppDelegate.h */,
 				F4AA6C3B1589A2DF0093D97E /* CompanionAppDelegate.m */,
 				F4AA6C3D1589A2DF0093D97E /* MainStoryboard.storyboard */,
@@ -316,6 +321,7 @@
 				F419149E158D558600E54887 /* PlaceDetailViewController.m in Sources */,
 				D72188E918F7351D00B87621 /* mapViewController.m in Sources */,
 				F447242715D78F07004A8C72 /* Place.m in Sources */,
+				D743CA3B18FD39300025746D /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

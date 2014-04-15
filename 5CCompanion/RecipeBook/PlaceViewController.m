@@ -36,7 +36,7 @@ UITableView *currentVC;
     self.gymPoolTV.hidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden=YES;
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     self.places = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Places"];

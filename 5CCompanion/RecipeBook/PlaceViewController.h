@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Place.h"
+#import "MBProgressHUD.h"
 
 @interface PlaceViewController : UIViewController <UITabBarControllerDelegate>
 

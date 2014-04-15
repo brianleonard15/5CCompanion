@@ -12,6 +12,7 @@
 #import "Place.h"
 #import "PlaceDetailViewController.h"
 
+
 @interface mapViewController ()
 
 @end
@@ -140,8 +141,9 @@
         {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
             label.text = marker.title;
-            label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:10.0];
-            label.numberOfLines = 2;
+            float fontSize = (self.mapView.camera.zoom - 9) + (self.mapView.camera.zoom - 17)*4;
+            label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:fontSize];
+            label.numberOfLines = 3;
             [label sizeToFit];
             //grab it
             UIGraphicsBeginImageContextWithOptions(label.bounds.size, NO, [[UIScreen mainScreen] scale]);

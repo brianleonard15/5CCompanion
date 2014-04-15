@@ -13,7 +13,6 @@
 	UIButton *favButton;
 }
 
-@property(nonatomic, strong) IBOutlet UITableView *gymPoolTV, *eateriesTV, *otherTV, *diningTV, *favoritesTV;
 @property(retain) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *placePhoto;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
