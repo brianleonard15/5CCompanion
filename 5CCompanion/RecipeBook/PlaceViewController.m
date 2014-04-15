@@ -309,6 +309,28 @@ UITableView *currentVC;
                     [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
                 }
             }
+            else if (hours.count == 6) {
+                NSString *strCloseTime = [hours objectAtIndex: 1];
+                NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                NSDate *closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                NSString *strCloseTime3 = [hours objectAtIndex: 5];
+                NSDate *closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+                NSDate *now = [NSDate date];
+                if ([now compare:closeTime] == NSOrderedAscending) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
+                else if ([now compare:closeTime] != NSOrderedAscending && [now compare:closeTime2] == NSOrderedAscending) {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 2], [hours objectAtIndex: 3]];
+                }
+                else if ([now compare:closeTime3] == NSOrderedAscending) {
+                    [currentHours setString:@""];
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 4], [hours objectAtIndex: 5]];
+                }
+                else {
+                    [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
+                }
+            }
             else
                 [currentHours appendFormat:@"%@ - %@", [hours objectAtIndex: 0], [hours objectAtIndex: 1]];
         }
@@ -324,6 +346,8 @@ UITableView *currentVC;
             NSDate *closeTime = [self todaysDateFromAMPMString:strCloseTime];
             NSDate *openTime2;
             NSDate *closeTime2;
+            NSDate *openTime3;
+            NSDate *closeTime3;
             
             if ([closeTime compare:openTime] != NSOrderedDescending) {
                 // closeTime is less than or equal to openTime, so add one day:
@@ -365,6 +389,25 @@ UITableView *currentVC;
                 }
                 
             }
+            if (hours.count == 6) {
+                NSString *strOpenTime2 = [hours objectAtIndex: 2];
+                NSString *strCloseTime2 = [hours objectAtIndex: 3];
+                NSString *strOpenTime3 = [hours objectAtIndex: 4];
+                NSString *strCloseTime3 = [hours objectAtIndex: 5];
+                
+                openTime2 = [self todaysDateFromAMPMString:strOpenTime2];
+                closeTime2 = [self todaysDateFromAMPMString:strCloseTime2];
+                openTime3 = [self todaysDateFromAMPMString:strOpenTime3];
+                closeTime3 = [self todaysDateFromAMPMString:strCloseTime3];
+                
+                if ([closeTime2 compare:openTime2] != NSOrderedDescending) {
+                    // closeTime is less than or equal to openTime, so add one day:
+                    NSCalendar *cal = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [[NSDateComponents alloc] init];
+                    [comp setDay:1];
+                    closeTime2 = [cal dateByAddingComponents:comp toDate:closeTime2 options:0];
+                }
+            }
             
             NSDate *now = [NSDate date];
             
@@ -372,7 +415,10 @@ UITableView *currentVC;
                  [now compare:closeTime] != NSOrderedDescending) ||
                 (openTime2 && closeTime2 &&
                  [now compare:openTime2] != NSOrderedAscending &&
-                 [now compare:closeTime2] != NSOrderedDescending)) {
+                 [now compare:closeTime2] != NSOrderedDescending) ||
+                (openTime3 && closeTime3 &&
+                 [now compare:openTime3] != NSOrderedAscending &&
+                 [now compare:closeTime3] != NSOrderedDescending)) {
                     currentHoursLabel.textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
                     openLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
                 } else {
