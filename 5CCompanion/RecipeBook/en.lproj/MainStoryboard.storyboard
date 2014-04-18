@@ -37,7 +37,7 @@
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" id="UPH-yG-tx6">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" id="UPH-yG-tx6">
                                                     <rect key="frame" x="0.0" y="0.0" width="52" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -129,7 +129,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Noh-0m-L6T">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="Noh-0m-L6T">
                                 <rect key="frame" x="20" y="0.0" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -264,7 +264,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="WLM-xl-yyY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="WLM-xl-yyY">
                                 <rect key="frame" x="20" y="64" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -373,7 +373,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2NW-wT-AB7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="2NW-wT-AB7">
                                 <rect key="frame" x="20" y="64" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -482,7 +482,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2cT-zD-g4i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="2cT-zD-g4i">
                                 <rect key="frame" x="20" y="64" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -591,7 +591,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Fxs-JJ-5Na">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="Fxs-JJ-5Na">
                                 <rect key="frame" x="20" y="64" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -708,7 +708,7 @@
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" id="nd7-Za-D31">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" id="nd7-Za-D31">
                                                     <rect key="frame" x="0.0" y="0.0" width="52" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -775,7 +775,7 @@
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" id="tBs-dq-R6E">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" id="tBs-dq-R6E">
                                                     <rect key="frame" x="0.0" y="0.0" width="52" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -842,7 +842,7 @@
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" id="ZvK-vi-KK3">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" id="ZvK-vi-KK3">
                                                     <rect key="frame" x="0.0" y="0.0" width="52" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1012,7 +1012,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Smw-44-i9U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="Smw-44-i9U">
                                 <rect key="frame" x="20" y="0.0" width="280" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
