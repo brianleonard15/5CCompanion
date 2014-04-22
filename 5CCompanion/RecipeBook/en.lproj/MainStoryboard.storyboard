@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="EY9-ZP-kls">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="EY9-ZP-kls">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -734,7 +734,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Eateries" id="BaP-4t-xe7"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Eateries" id="BaP-4t-xe7">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="AwR-4X-ebm">
+                            <connections>
+                                <segue destination="xlo-qo-3Y7" kind="push" identifier="showMapView" id="mB9-L7-vqq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="eateriesTV" destination="cNY-oR-zIb" id="NQi-Az-cUU"/>
                     </connections>
@@ -801,7 +809,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Other" id="dwX-Ua-iWI"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Other" id="dwX-Ua-iWI">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="Vbo-ks-lfX">
+                            <connections>
+                                <segue destination="xlo-qo-3Y7" kind="push" identifier="showMapView" id="te0-2s-0cq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="otherTV" destination="JdN-ca-ugm" id="Mzg-vg-7gP"/>
                     </connections>
@@ -868,7 +884,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dining" id="JcD-aG-Dpd"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Dining" id="JcD-aG-Dpd">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="Gc8-9p-xhG">
+                            <connections>
+                                <segue destination="xlo-qo-3Y7" kind="push" identifier="showMapView" id="4y2-jC-828"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="diningTV" destination="otD-sf-j4r" id="itE-Bg-6ta"/>
                     </connections>
@@ -948,7 +972,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="Rms-Uk-Vkx"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Favorites" id="Rms-Uk-Vkx">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="ZBE-M5-xS1">
+                            <connections>
+                                <segue destination="xlo-qo-3Y7" kind="push" identifier="showMapView" id="9Ra-95-NgJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emptyView" destination="CYF-2Y-5bV" id="v0j-tA-1p4"/>
                         <outlet property="favoritesTV" destination="OMy-eA-Sau" id="c1p-Qw-39j"/>
@@ -1009,7 +1041,7 @@
             <objects>
                 <viewController id="dvT-d2-LP2" customClass="PlaceDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ybV-4v-Wsh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="Smw-44-i9U">
@@ -1024,7 +1056,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bxL-p7-Up0">
-                                <rect key="frame" x="20" y="206" width="280" height="298"/>
+                                <rect key="frame" x="20" y="206" width="280" height="362"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="MW1-mh-Xbw">
@@ -1113,4 +1145,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Ra-95-NgJ"/>
+    </inferredMetricsTieBreakers>
 </document>
