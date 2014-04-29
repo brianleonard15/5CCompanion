@@ -32,6 +32,9 @@
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"AvenirNext-Regular" size:23.0], NSFontAttributeName, nil]];
     
+    //Make status bar white
+    
+    
     // Override point for customization after application launch.
     [Parse setApplicationId:@"zS4e8Py8ydWl1w4K5cy4SRTDea2QlxM8cl33MoKZ" clientKey:@"dnQazrEcDSyf3JksHvUuxJuiRGBTxJ4NhSKPdSHv"];
     [GMSServices provideAPIKey:@"AIzaSyDrhwAr_mfyHFwssfTHbSFVxuXnclSHDZo"];
