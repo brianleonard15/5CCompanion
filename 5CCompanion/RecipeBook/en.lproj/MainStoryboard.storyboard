@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="EY9-ZP-kls">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="EY9-ZP-kls">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
-        <!--Place View Controller - Gym/Pool-->
+        <!--Gym/Pool-->
         <scene sceneID="XVz-D6-PQ9">
             <objects>
                 <viewController storyboardIdentifier="GymPoolVC" title="Gym/Pool" id="Bbr-Wl-qIy" customClass="PlaceViewController" sceneMemberID="viewController">
@@ -91,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="820"/>
         </scene>
-        <!--Navigation Controller - Eateries-->
+        <!--Eateries-->
         <scene sceneID="8pE-ft-xHi">
             <objects>
                 <navigationController definesPresentationContext="YES" id="3eg-1w-e9S" sceneMemberID="viewController">
@@ -131,7 +130,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9jz-Xh-UFW">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -223,7 +221,7 @@
             </objects>
             <point key="canvasLocation" x="-1310" y="2042"/>
         </scene>
-        <!--Navigation Controller - Gym/Pool-->
+        <!--Gym/Pool-->
         <scene sceneID="4Zk-6Q-LHM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="IbL-2h-vvy" sceneMemberID="viewController">
@@ -231,7 +229,6 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AUq-aU-pCS">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -266,7 +263,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="QtF-Er-N7o">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -375,7 +371,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="z7I-tT-zrX">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -444,7 +439,7 @@
             </objects>
             <point key="canvasLocation" x="489" y="3326"/>
         </scene>
-        <!--Navigation Controller - Other-->
+        <!--Other-->
         <scene sceneID="1KF-P4-1JP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="toY-I0-Ggm" sceneMemberID="viewController">
@@ -484,7 +479,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Of0-SP-NxB">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -553,7 +547,7 @@
             </objects>
             <point key="canvasLocation" x="489" y="2042"/>
         </scene>
-        <!--Navigation Controller - Dining-->
+        <!--Dining-->
         <scene sceneID="LPZ-AA-Xqz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="wLf-aL-auS" sceneMemberID="viewController">
@@ -593,7 +587,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="6Hp-RL-arP">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -662,7 +655,7 @@
             </objects>
             <point key="canvasLocation" x="489" y="2674"/>
         </scene>
-        <!--Place View Controller - Eateries-->
+        <!--Eateries-->
         <scene sceneID="AnM-bp-Jmg">
             <objects>
                 <viewController storyboardIdentifier="EateriesVC" title="Eateries" id="nmZ-Ca-ubi" customClass="PlaceViewController" sceneMemberID="viewController">
@@ -737,7 +730,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="1450"/>
         </scene>
-        <!--Place View Controller - Other-->
+        <!--Other-->
         <scene sceneID="xYa-fl-Czd">
             <objects>
                 <viewController id="zvi-Xq-UsF" customClass="PlaceViewController" sceneMemberID="viewController">
@@ -812,7 +805,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="2042"/>
         </scene>
-        <!--Place View Controller - Dining-->
+        <!--Dining-->
         <scene sceneID="KPZ-pA-ggv">
             <objects>
                 <viewController id="grE-gc-m2a" customClass="PlaceViewController" sceneMemberID="viewController">
@@ -887,7 +880,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="2674"/>
         </scene>
-        <!--Place View Controller - Favorites-->
+        <!--Favorites-->
         <scene sceneID="GLE-jS-9mt">
             <objects>
                 <viewController storyboardIdentifier="favoritesView" id="I5i-cu-8PY" customClass="PlaceViewController" sceneMemberID="viewController">
@@ -976,7 +969,7 @@
             </objects>
             <point key="canvasLocation" x="-77" y="3326"/>
         </scene>
-        <!--Map View Controller - Map-->
+        <!--Map-->
         <scene sceneID="hKv-pR-EGj">
             <objects>
                 <viewController storyboardIdentifier="mapVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xlo-qo-3Y7" customClass="mapViewController" sceneMemberID="viewController">
@@ -1027,7 +1020,7 @@
             <objects>
                 <viewController id="dvT-d2-LP2" customClass="PlaceDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ybV-4v-Wsh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="Smw-44-i9U">
@@ -1042,11 +1035,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bxL-p7-Up0">
-                                <rect key="frame" x="20" y="206" width="280" height="362"/>
+                                <rect key="frame" x="20" y="206" width="280" height="298"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="MW1-mh-Xbw">
-                                    <rect key="frame" x="0.0" y="90" width="280" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
@@ -1125,13 +1117,16 @@
         <image name="selected.png" width="42" height="40"/>
         <image name="unselected.png" width="42" height="40"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mB9-L7-vqq"/>
+        <segue reference="Ckn-Zq-4El"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

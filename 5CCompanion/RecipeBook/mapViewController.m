@@ -40,7 +40,9 @@
     self.markers = [NSMutableArray array];
     
     for (Place *place in self.buildings) {
+        NSLog(@"%i", self.buildings.count);
         PFGeoPoint *geoPoint = place.location;
+        NSLog(@"%@", place.name);
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
         marker.title = place.name;
@@ -139,11 +141,12 @@
     if (self.mapView.camera.zoom >= 17) {
         for (GMSMarker *marker in self.markers)
         {
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
             label.text = marker.title;
-            float fontSize = (self.mapView.camera.zoom - 9) + (self.mapView.camera.zoom - 17)*4;
+            //float fontSize = (self.mapView.camera.zoom - 9) + (self.mapView.camera.zoom - 17)*4;
+            float fontSize = 8;
             label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:fontSize];
-            label.numberOfLines = 3;
+            label.numberOfLines = 0;
             [label sizeToFit];
             //grab it
             UIGraphicsBeginImageContextWithOptions(label.bounds.size, NO, [[UIScreen mainScreen] scale]);
