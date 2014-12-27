@@ -65,7 +65,6 @@ UITableView *currentVC;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                
                 NSPredicate *gymPoolPredicate = [NSPredicate predicateWithFormat:@"tab = 'GymPool'"];
                 NSPredicate *eateriesPredicate = [NSPredicate predicateWithFormat:@"tab = 'Eatery'"];
                 NSPredicate *otherPredicate = [NSPredicate predicateWithFormat:@"tab = 'Other'"];
@@ -587,6 +586,8 @@ UITableView *currentVC;
         mapViewController *mapViewController = segue.destinationViewController;
         mapViewController.buildings = [[NSMutableArray alloc]init];
         [mapViewController.buildings addObjectsFromArray:self.places];
+        NSLog(@"places, %@", self.places);
+        
     }
 }
 
