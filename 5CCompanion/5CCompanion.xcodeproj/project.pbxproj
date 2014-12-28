@@ -14,7 +14,6 @@
 		9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9376818918CA6C3900A5BEB8 /* EateriesIcon.png */; };
 		9395372D191017CE00AD8F85 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9395372C191017CE00AD8F85 /* GoogleMaps.framework */; };
 		9395372F191017FA00AD8F85 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9395372E191017FA00AD8F85 /* GoogleMaps.bundle */; };
-		93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EB115218B84AA2005B67E5 /* Default-568h@2x.png */; };
 		D72188E918F7351D00B87621 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72188E818F7351D00B87621 /* mapViewController.m */; };
 		D72188EB18F7371D00B87621 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72188EA18F7371D00B87621 /* AVFoundation.framework */; };
 		D72188ED18F7372900B87621 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72188EC18F7372900B87621 /* CoreData.framework */; };
@@ -61,7 +60,6 @@
 		9376818918CA6C3900A5BEB8 /* EateriesIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EateriesIcon.png; sourceTree = "<group>"; };
 		9395372C191017CE00AD8F85 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		9395372E191017FA00AD8F85 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		93EB115218B84AA2005B67E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D72188E718F7351100B87621 /* mapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
 		D72188E818F7351D00B87621 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
 		D72188EA18F7371D00B87621 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -158,7 +156,6 @@
 		F4AA6C1C1589A2DF0093D97E = {
 			isa = PBXGroup;
 			children = (
-				93EB115218B84AA2005B67E5 /* Default-568h@2x.png */,
 				F4AA6C311589A2DF0093D97E /* 5CCompanion */,
 				F4AA6C2A1589A2DF0093D97E /* Frameworks */,
 				F4AA6C281589A2DF0093D97E /* Products */,
@@ -313,7 +310,6 @@
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
 				D72F05C718EB5EE9003176D7 /* selected.png in Resources */,
 				D72F05C818EB5EE9003176D7 /* unselected.png in Resources */,
-				93EB115318B84AA2005B67E5 /* Default-568h@2x.png in Resources */,
 				D7A032651A4DE2F900E0BA49 /* Loading Screen.png in Resources */,
 				F4AA6C3F1589A2DF0093D97E /* MainStoryboard.storyboard in Resources */,
 			);
