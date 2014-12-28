@@ -40,6 +40,8 @@
 		D7C233EE18A6E1300020A677 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233ED18A6E1300020A677 /* Security.framework */; };
 		D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EF18A6E1360020A677 /* StoreKit.framework */; };
 		D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */; };
+		D7E046CC1A4FC9FF0051C0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7E046CB1A4FC9FF0051C0AC /* Images.xcassets */; };
+		D7E046CE1A4FCB660051C0AC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E046CD1A4FCB660051C0AC /* Default-568h@2x.png */; };
 		F419149E158D558600E54887 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F419149D158D558600E54887 /* PlaceDetailViewController.m */; };
 		F447242715D78F07004A8C72 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F447242615D78F07004A8C72 /* Place.m */; };
 		F4AA6C2C1589A2DF0093D97E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA6C2B1589A2DF0093D97E /* UIKit.framework */; };
@@ -85,6 +87,8 @@
 		D7C233ED18A6E1300020A677 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D7C233EF18A6E1360020A677 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D7E046CB1A4FC9FF0051C0AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = 5CCompanion/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		D7E046CD1A4FCB660051C0AC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F419149C158D558600E54887 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
 		F419149D158D558600E54887 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		F447242515D78F07004A8C72 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				D72188E718F7351100B87621 /* mapViewController.h */,
 				D72188E818F7351D00B87621 /* mapViewController.m */,
 				D72F05DA18ECA9FC003176D7 /* Place */,
+				D7E046CB1A4FC9FF0051C0AC /* Images.xcassets */,
 				F4AA6C321589A2DF0093D97E /* Supporting Files */,
 			);
 			name = 5CCompanion;
@@ -219,6 +224,7 @@
 		F4AA6C321589A2DF0093D97E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D7E046CD1A4FCB660051C0AC /* Default-568h@2x.png */,
 				D7A032641A4DE2F900E0BA49 /* Loading Screen.png */,
 				D72F05C518EB5EE9003176D7 /* selected.png */,
 				9338481718F20A22008F6967 /* Gym Pool Icon.png */,
@@ -294,7 +300,9 @@
 				9376818A18CA6C3900A5BEB8 /* EateriesIcon.png in Resources */,
 				9395372F191017FA00AD8F85 /* GoogleMaps.bundle in Resources */,
 				9338481818F20A22008F6967 /* Gym Pool Icon.png in Resources */,
+				D7E046CC1A4FC9FF0051C0AC /* Images.xcassets in Resources */,
 				9338481C18F20D57008F6967 /* 5C Companion 120.png in Resources */,
+				D7E046CE1A4FCB660051C0AC /* Default-568h@2x.png in Resources */,
 				9338481A18F20B79008F6967 /* Dining Icon.png in Resources */,
 				9338481618F2082B008F6967 /* Delivery Icon.png in Resources */,
 				F4AA6C361589A2DF0093D97E /* InfoPlist.strings in Resources */,
@@ -414,12 +422,13 @@
 		F4AA6C461589A2DF0093D97E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/Leonard/Downloads/GoogleMaps-iOS-1.7.0",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -436,12 +445,13 @@
 		F4AA6C471589A2DF0093D97E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"/Users/Leonard/Downloads/GoogleMaps-iOS-1.7.0",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
