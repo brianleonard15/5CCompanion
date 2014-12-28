@@ -57,14 +57,41 @@
     self.title = place.name;
     self.placePhoto.image = place.imageFile;
     self.phoneLabel.text = place.phone;
+    if ([place.phone length] == 0) {
+        self.phoneLabel.userInteractionEnabled = FALSE;
+    }
+    else {
+        self.phoneLabel.userInteractionEnabled = TRUE;
+    }
+    UITapGestureRecognizer *tapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openPhoneURL:)];
+    [self.phoneLabel addGestureRecognizer:tapGesture];
     tab = self.tabBarController.selectedIndex;
     if(tab == 4) {
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] containsObject:[NSString stringWithString:place.name]]) {
             self.favButton.selected = YES;
         }
     }
-    
-    
+}
+
+-(void)openPhoneURL:(id)sender
+{
+    UIGestureRecognizer *rec = (UIGestureRecognizer *)sender;
+    id hitLabel = [self.view hitTest:[rec locationInView:self.view] withEvent:UIEventTypeTouches];
+    if ([hitLabel isKindOfClass:[UILabel class]]) {
+        NSString *phoneNumber = [[((UILabel *)hitLabel).text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+        NSString *number = [NSString stringWithFormat:@"tel:%@", phoneNumber];
+        [self callWithURL:[NSURL URLWithString:number]];
+    }
+}
+
+- (void)callWithURL:(NSURL *)url
+{
+    static UIWebView *webView = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        webView = [UIWebView new];
+    });
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
