@@ -38,7 +38,6 @@
 		D7C233EA18A6E1220020A677 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233E918A6E1220020A677 /* MobileCoreServices.framework */; };
 		D7C233EC18A6E12B0020A677 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EB18A6E12B0020A677 /* QuartzCore.framework */; };
 		D7C233EE18A6E1300020A677 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233ED18A6E1300020A677 /* Security.framework */; };
-		D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233EF18A6E1360020A677 /* StoreKit.framework */; };
 		D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */; };
 		D7E046CC1A4FC9FF0051C0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7E046CB1A4FC9FF0051C0AC /* Images.xcassets */; };
 		D7E046CE1A4FCB660051C0AC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E046CD1A4FCB660051C0AC /* Default-568h@2x.png */; };
@@ -85,7 +84,6 @@
 		D7C233E918A6E1220020A677 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D7C233EB18A6E12B0020A677 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D7C233ED18A6E1300020A677 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		D7C233EF18A6E1360020A677 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D7E046CB1A4FC9FF0051C0AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = 5CCompanion/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		D7E046CD1A4FCB660051C0AC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				D72188ED18F7372900B87621 /* CoreData.framework in Frameworks */,
 				D72188EB18F7371D00B87621 /* AVFoundation.framework in Frameworks */,
 				D7C233F218A6E13C0020A677 /* SystemConfiguration.framework in Frameworks */,
-				D7C233F018A6E1360020A677 /* StoreKit.framework in Frameworks */,
 				D7C233EE18A6E1300020A677 /* Security.framework in Frameworks */,
 				D7C233EC18A6E12B0020A677 /* QuartzCore.framework in Frameworks */,
 				D7C233EA18A6E1220020A677 /* MobileCoreServices.framework in Frameworks */,
@@ -188,7 +185,6 @@
 				D72188EC18F7372900B87621 /* CoreData.framework */,
 				D72188EA18F7371D00B87621 /* AVFoundation.framework */,
 				D7C233F118A6E13C0020A677 /* SystemConfiguration.framework */,
-				D7C233EF18A6E1360020A677 /* StoreKit.framework */,
 				D7C233ED18A6E1300020A677 /* Security.framework */,
 				D7C233EB18A6E12B0020A677 /* QuartzCore.framework */,
 				D7C233E918A6E1220020A677 /* MobileCoreServices.framework */,
@@ -272,6 +268,11 @@
 				TargetAttributes = {
 					F4AA6C261589A2DF0093D97E = {
 						DevelopmentTeam = Q4G3385KDP;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
