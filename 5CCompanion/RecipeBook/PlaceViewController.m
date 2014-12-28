@@ -36,7 +36,6 @@ UITableView *currentVC;
     self.gymPoolTV.hidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden=YES;
-    
     self.places = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     query.cachePolicy =  kPFCachePolicyNetworkElseCache;
@@ -45,12 +44,6 @@ UITableView *currentVC;
             for (PFObject *row in objects) {
                 Place *place = [[Place alloc] init];
                 place.name = [row objectForKey:@"name"];
-                PFFile *PFImage = [row objectForKey:@"imageFile"];
-                [PFImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                    if (!error) {
-                        place.imageFile = [UIImage imageWithData:data];
-                    }
-                }];
                 place.phone = [row objectForKey:@"Phone"];
                 place.tab = [row objectForKey:@"Class"];
                 place.location = [row objectForKey:@"Location"];
@@ -60,11 +53,17 @@ UITableView *currentVC;
                 else {
                     place.hours = [NSArray arrayWithObjects: [row objectForKey:@"Monday"], [row objectForKey:@"Tuesday"], [row objectForKey:@"Wednesday"], [row objectForKey:@"Thursday"], [row objectForKey:@"Friday"], [row objectForKey:@"Saturday"], [row objectForKey:@"Sunday"], nil];
                 }
+                PFFile *PFImage = [row objectForKey:@"imageFile"];
+                [PFImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    if (!error) {
+                        place.imageFile = [UIImage imageWithData:data];
+                        [self.gymPoolTV reloadData];
+                    }
+                }];
                 [self.places addObject:place];
                 
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 NSPredicate *gymPoolPredicate = [NSPredicate predicateWithFormat:@"tab = 'GymPool'"];
                 NSPredicate *eateriesPredicate = [NSPredicate predicateWithFormat:@"tab = 'Eatery'"];
                 NSPredicate *otherPredicate = [NSPredicate predicateWithFormat:@"tab = 'Other'"];
@@ -83,11 +82,11 @@ UITableView *currentVC;
                 [UIView transitionFromView:loadingView toView:self.gymPoolTV
                                   duration:01.0 options:UIViewAnimationOptionTransitionFlipFromRight
                                 completion:NULL];
+                [self.gymPoolTV reloadData];
                 self.gymPoolTV.hidden = NO;
                 loadingView.hidden = YES;
                 [self.navigationController setNavigationBarHidden:NO animated:NO];
                 self.tabBarController.tabBar.hidden=NO;
-                [self.gymPoolTV reloadData];
             });
         }
     }
@@ -586,7 +585,6 @@ UITableView *currentVC;
         mapViewController *mapViewController = segue.destinationViewController;
         mapViewController.buildings = [[NSMutableArray alloc]init];
         [mapViewController.buildings addObjectsFromArray:self.places];
-        NSLog(@"places, %@", self.places);
         
     }
 }

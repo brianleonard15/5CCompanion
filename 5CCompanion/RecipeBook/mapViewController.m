@@ -40,9 +40,7 @@
     self.markers = [NSMutableArray array];
     
     for (Place *place in self.buildings) {
-        NSLog(@"%i", self.buildings.count);
         PFGeoPoint *geoPoint = place.location;
-        NSLog(@"%@", place.name);
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(geoPoint.latitude,geoPoint.longitude);
         marker.title = place.name;
@@ -53,6 +51,7 @@
     }
     
 }
+
 
 
 - (void)viewDidUnload
