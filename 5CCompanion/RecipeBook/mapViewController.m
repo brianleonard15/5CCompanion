@@ -14,6 +14,7 @@
 
 
 @interface mapViewController ()
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -29,7 +30,14 @@
                                                                  zoom:15];
     self.mapView.camera = camera;
     
-    _mapView.delegate=self; 
+    _mapView.delegate=self;
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
     
     self.mapView.myLocationEnabled = YES;
     
@@ -51,8 +59,6 @@
     }
     
 }
-
-
 
 - (void)viewDidUnload
 {

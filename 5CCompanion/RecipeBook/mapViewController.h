@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 #import "Place.h"
 
-@interface mapViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate> // Add this if you haven't
+@interface mapViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate> // Add this if you haven't
 {
 
 }
@@ -22,4 +22,5 @@
 @property (nonatomic, strong) Place *tappedBuilding;
 @property (nonatomic, strong) NSMutableArray *markers;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
+@property (nonatomic, strong) CLLocationManager *locationAuthorizationManager;
 @end
