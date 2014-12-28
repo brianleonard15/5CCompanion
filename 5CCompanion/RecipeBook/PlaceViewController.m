@@ -155,7 +155,6 @@ UITableView *currentVC;
 			break;
         }
 		default:
-			NSLog(@"Unknown operator.");
 			break;
 	}
     
